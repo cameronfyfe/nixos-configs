@@ -5,9 +5,7 @@
     xserver = {
       enable = true;
       layout = "us";
-      desktopManager = {
-        gnome.enable = true;
-      };
+      desktopManager = { gnome.enable = true; };
     };
   };
 

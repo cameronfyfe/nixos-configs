@@ -1,3 +1,3 @@
-#./gnome.nix
+# ./gnome.nix
 ./xmonad.nix
 

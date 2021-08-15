@@ -1,11 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      (import ./wm)
-    ];
+  imports = [ ./hardware-configuration.nix (import ./wm) ];
 
   nix = {
     package = pkgs.nixUnstable;
@@ -17,9 +13,7 @@
   nixpkgs.config.allowUnfree = true;
 
   boot = {
-    initrd.luks.devices.luksroot = {
-      device = "/dev/nvme0n1p3";
-    };
+    initrd.luks.devices.luksroot = { device = "/dev/nvme0n1p3"; };
     loader.grub = {
       device = "/dev/nvme0n1";
       enable = true;
@@ -31,14 +25,14 @@
   };
 
   time.timeZone = "America/Denver";
-  
+
   sound.enable = true;
   hardware.pulseaudio.enable = true;
   hardware.bluetooth.enable = true;
 
   virtualisation.docker.enable = true;
 
-  users.groups.docker = {};
+  users.groups.docker = { };
 
   users.users.cameron = {
     isNormalUser = true;
@@ -48,6 +42,5 @@
   environment.systemPackages = import ./apps { inherit pkgs; };
 
   system.stateVersion = "21.05"; # Did you read the comment?
-
 }
 
