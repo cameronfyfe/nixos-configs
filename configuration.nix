@@ -41,6 +41,6 @@
 
   environment.systemPackages = import ./apps { inherit pkgs; };
 
-  system.stateVersion = "21.05"; # Did you read the comment?
+  system.stateVersion = "21.05";
 }
 
