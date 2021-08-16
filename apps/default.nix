@@ -13,6 +13,10 @@ with overrides; [
   ping
   curl
   wget
+  # WM
+  dmenu
+  xmobar
+  xscreensaver
   # Utils
   jq
   # Editors
