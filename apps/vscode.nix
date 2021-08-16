@@ -6,6 +6,7 @@ pkgs.vscode-with-extensions.override {
     bbenoist.Nix
     matklad.rust-analyzer
     ms-vscode.cpptools
+    justusadam.language-haskell
   ]) ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
     name = "remote-ssh-edit";
     publisher = "ms-vscode-remote";
