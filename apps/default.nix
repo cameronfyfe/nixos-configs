@@ -19,6 +19,9 @@ with overrides; [
   xscreensaver
   # Utils
   jq
+  nixfmt
+  scrot
+  unzip
   # Editors
   vim
   vscode
@@ -34,6 +37,7 @@ with overrides; [
   docker-compose
   insomnia
   # Media
+  liferea
   spotify
   # Work
   slack
