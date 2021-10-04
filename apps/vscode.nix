@@ -3,10 +3,13 @@
 pkgs.vscode-with-extensions.override {
   vscode = pkgs.vscodium;
   vscodeExtensions = (with pkgs.vscode-extensions; [
-    bbenoist.Nix
-    matklad.rust-analyzer
-    ms-vscode.cpptools
-    justusadam.language-haskell
+    # Language Packs
+    bbenoist.Nix                # Nix
+    matklad.rust-analyzer       # Rust
+    ms-vscode.cpptools          # C/C++
+    justusadam.language-haskell # Haskell
+    # Debugger
+    vadimcn.vscode-lldb
   ]) ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
     name = "remote-ssh-edit";
     publisher = "ms-vscode-remote";

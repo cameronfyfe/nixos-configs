@@ -2,7 +2,10 @@
 
 let
 
-  overrides = { vscode = (import ./vscode.nix) { inherit pkgs; }; };
+  overrides = {
+    vscode = (import ./vscode.nix) { inherit pkgs; };
+    R = (import ./R.nix) { inherit pkgs; };
+  };
 
 in with pkgs;
 with overrides; [
@@ -11,6 +14,7 @@ with overrides; [
   iw
   dhcp
   ping
+  telnet
   curl
   wget
   # WM
@@ -19,6 +23,8 @@ with overrides; [
   xscreensaver
   # Utils
   jq
+  htop
+  lzip
   nixfmt
   scrot
   unzip
@@ -30,9 +36,16 @@ with overrides; [
   chromium
   firefox
   # Dev Tools
+  cachix
   git
   gnumake
+  gcc
+  rustc cargo
+  python27Full
+  python39Full
+  R
   just
+  lldb
   docker
   docker-compose
   insomnia
@@ -42,5 +55,6 @@ with overrides; [
   # Work
   slack
   upwork
+  libreoffice
 ]
 
