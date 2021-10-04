@@ -39,6 +39,10 @@
     extraGroups = [ "wheel" "docker" ];
   };
 
+  fonts.fonts = with pkgs; [
+    spleen
+  ];
+
   environment.systemPackages = import ./apps { inherit pkgs; };
 
   system.stateVersion = "21.05";
