@@ -6,6 +6,7 @@ pkgs.vscode-with-extensions.override {
     # Language Packs
     bbenoist.Nix                # Nix
     matklad.rust-analyzer       # Rust
+    ms-python.python
     ms-vscode.cpptools          # C/C++
     justusadam.language-haskell # Haskell
     # Debugger
