@@ -1,3 +1,5 @@
+image: nixos/nix:latest
+
 stages:
   - check
 
