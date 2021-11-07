@@ -1,4 +1,4 @@
-NIX_FILES := `find . -type f -name "*.nix" | tr '\n' ' '`
+NIX_FILES := `find . -type f -name '*.nix' | tr '\n' ' '`
 
 default:
     @just --list
