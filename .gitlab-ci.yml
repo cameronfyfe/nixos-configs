@@ -1,0 +1,11 @@
+stages:
+  - check
+
+before-script:
+  - nix-env -i just nixfmt
+
+nixfmt:
+  stage: check
+  script:
+    - just nixfmt --check
+
