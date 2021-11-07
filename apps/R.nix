@@ -8,7 +8,6 @@ pkgs.rWrapper.override {
     tidyverse
     xml2
     gridExtra
-    # grid
     scales
   ];
 }
