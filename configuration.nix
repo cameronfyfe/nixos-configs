@@ -39,9 +39,7 @@
     extraGroups = [ "wheel" "docker" ];
   };
 
-  fonts.fonts = with pkgs; [
-    spleen
-  ];
+  fonts.fonts = with pkgs; [ spleen ];
 
   environment.systemPackages = import ./apps { inherit pkgs; };
 
