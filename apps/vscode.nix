@@ -4,10 +4,10 @@ pkgs.vscode-with-extensions.override {
   vscode = pkgs.vscodium;
   vscodeExtensions = (with pkgs.vscode-extensions; [
     # Language Packs
-    bbenoist.Nix                # Nix
-    matklad.rust-analyzer       # Rust
+    bbenoist.Nix # Nix
+    matklad.rust-analyzer # Rust
     ms-python.python
-    ms-vscode.cpptools          # C/C++
+    ms-vscode.cpptools # C/C++
     justusadam.language-haskell # Haskell
     # Debugger
     vadimcn.vscode-lldb

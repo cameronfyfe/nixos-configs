@@ -5,10 +5,7 @@ let
   overrides = {
     vscode = (import ./vscode.nix) { inherit pkgs; };
     R = (import ./R.nix) { inherit pkgs; };
-    python3 = pkgs.python39Full.withPackages (python-packages: with python-packages; [
-      doit
-      flake8
-    ]);
+    python3 = (import ./python3.nix) { inherit pkgs; };
   };
 
 in with pkgs;
@@ -41,11 +38,16 @@ with overrides; [
   chromium
   firefox
   # Dev Tools
+  binutils.bintools
   cachix
   git
   gnumake
   gcc
-  rustc cargo
+  clang
+  llvmPackages.libclang
+  rustc
+  cargo
+  pkgconfig
   python27Full
   python3
   conda
