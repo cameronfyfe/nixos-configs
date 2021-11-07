@@ -4,33 +4,26 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "rtsx_pci_sdmmc" ];
+  boot.initrd.availableKernelModules =
+    [ "nvme" "usbhid" "usb_storage" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/061bb3bb-8618-4a82-8047-e829c906788c";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/4d3f405b-8710-4fd3-bf7a-bb87e268a2f3";
+    fsType = "ext4";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/29AB-EAB1";
-      fsType = "vfat";
-    };
-
-  fileSystems."/data" =
-    { device = "/dev/disk/by-uuid/357fb971-e1ff-4762-a139-7aeebfae833b";
-      fsType = "ext4";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/566F-3405";
+    fsType = "vfat";
+  };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/590afa11-7dff-4c42-a4e7-69784c3cf534"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/7fa00ad6-1248-4460-8810-88e093434b45"; }];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }
