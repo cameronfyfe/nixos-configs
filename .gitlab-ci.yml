@@ -1,7 +1,7 @@
 stages:
   - check
 
-before-script:
+before_script:
   - nix-env -i just nixfmt
 
 nixfmt:
