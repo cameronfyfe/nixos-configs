@@ -6,3 +6,5 @@ default:
 nixfmt +FLAGS='':
     nixfmt {{FLAGS}} {{NIX_FILES}}
 
+switch:
+    sudo nixos-rebuild switch --flake .

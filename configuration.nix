@@ -3,13 +3,6 @@
 {
   imports = [ ./hardware-configuration.nix (import ./wm) ];
 
-  nix = {
-    package = pkgs.nixUnstable;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
-
   nixpkgs.config.allowUnfree = true;
 
   boot = {
