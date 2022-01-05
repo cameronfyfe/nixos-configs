@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix (import ./wm) ];
+  imports = [ ./hardware-configuration.nix ./wm ];
 
   nixpkgs.config.allowUnfree = true;
 

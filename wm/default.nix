@@ -1,3 +1,2 @@
-# ./gnome.nix
-./xmonad.nix
-
+# (import ./gnome.nix)
+(import ./xmonad.nix)
