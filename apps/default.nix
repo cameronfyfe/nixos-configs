@@ -6,6 +6,8 @@ let
     vscode = (import ./vscode.nix) { inherit pkgs; };
     R = (import ./R.nix) { inherit pkgs; };
     python3 = (import ./python3.nix) { inherit pkgs; };
+    #dotnet = (import ./dotnet.nix) { inherit pkgs; };
+    dotnet = pkgs.dotnet-sdk_5;
   };
 
 in with pkgs;
@@ -44,6 +46,7 @@ with overrides; [
   gnumake
   gcc
   clang
+  dotnet
   llvmPackages.libclang
   rustc
   cargo

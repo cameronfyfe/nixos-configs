@@ -9,5 +9,7 @@ pkgs.rWrapper.override {
     xml2
     gridExtra
     scales
+    plotly
+    MASS
   ];
 }
