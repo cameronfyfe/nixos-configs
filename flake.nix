@@ -6,6 +6,7 @@
     nixpkgs-fork.url = "github:cameronfyfe/nixpkgs";
   };
   outputs = inputs:
+    with inputs;
     let
       config = name: system: nixpkgs: {
         configs.${name} = nixpkgs.lib.nixosSystem {
@@ -18,7 +19,7 @@
         };
       };
     in {
-      nixosConfigurations = (config "cameron-laptop" "x86_64-linux"
-        inputs.nixpkgs-unstable).configs;
+      nixosConfigurations =
+        (config "cameron-laptop" "x86_64-linux" nixpkgs-unstable).configs;
     };
 }
