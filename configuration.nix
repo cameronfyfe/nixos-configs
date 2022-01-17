@@ -12,7 +12,7 @@ let
   pkgs-fork = import inputs.nixpkgs-fork nixpkgs-config;
 
 in {
-  imports = [ ./hardware-configuration.nix ./wm ./apps ];
+  imports = [ ./hardware-configuration.nix ./window-manager ./apps ];
 
   nix = {
     registry.nixpkgs.flake = inputs.nixpkgs;
