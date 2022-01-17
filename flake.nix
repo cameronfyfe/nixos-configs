@@ -4,15 +4,21 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs";
     nixpkgs-fork.url = "github:cameronfyfe/nixpkgs";
-    nixpkgs = nixpkgs-unstable;
   };
-  outputs = inputs: {
-    nixosConfigurations = {
-      "nixos" = inputs.nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [ ./configuration.nix ];
+  outputs = inputs:
+    let
+      config = name: system: nixpkgs: {
+        configs.${name} = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            ({ ... }: { networking.hostName = name; })
+            (./configs + "/${name}/configuration.nix")
+          ];
+        };
       };
+    in {
+      nixosConfigurations = (config "cameron-laptop" "x86_64-linux"
+        inputs.nixpkgs-unstable).configs;
     };
-  };
 }

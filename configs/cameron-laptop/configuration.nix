@@ -14,12 +14,8 @@ let
 in {
   imports = [ ./hardware-configuration.nix ./window-manager ./apps ];
 
-  nix = {
-    registry.nixpkgs.flake = inputs.nixpkgs;
-    package = pkgs.nixUnstable;
-    extraOptions = "experimental-features = nix-command flakes";
-    trustedUsers = [ "root" "cameron" ];
-  };
+  nix.extraOptions = "experimental-features = nix-command flakes";
+  nix.trustedUsers = [ "root" "cameron" ];
 
   nixpkgs.config.allowUnfree = true;
 
