@@ -1,26 +1,18 @@
-# Build configuration.nix using current channel:
-#   nixos-rebuild switch
-# Build configuration.nix using this flake:
-#   nixos-rebuild switch --flake /etc/nixos
 {
-  inputs = { nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.05"; };
+  inputs = rec {
+    nixpkgs-21-11.url = "github:NixOS/nixpkgs/nixos-21.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-master.url = "github:NixOS/nixpkgs";
+    nixpkgs-fork.url = "github:cameronfyfe/nixpkgs";
+    nixpkgs = nixpkgs-unstable;
+  };
   outputs = inputs: {
-    nixosConfigurations.nixos = let
-      nix = { pkgs, ... }: {
-        nix = {
-          registry.nixpkgs.flake = inputs.nixpkgs;
-          package = pkgs.nixUnstable;
-          extraOptions = "experimental-features = nix-command flakes";
-          trustedUsers = [ "root" "cameron" ];
-        };
+    nixosConfigurations = {
+      "nixos" = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [ ./configuration.nix ];
       };
-    in inputs.nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      # Things in this set are passed to modules and accessible
-      # in the top-level arguments (e.g. `{ pkgs, lib, inputs, ... }:`).
-      specialArgs = { inherit inputs; };
-
-      modules = [ nix ./configuration.nix ];
     };
   };
 }
