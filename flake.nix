@@ -9,7 +9,7 @@
     with inputs;
     let
       config = name: system: nixpkgs: {
-        configs.${name} = nixpkgs.lib.nixosSystem {
+        "${name}" = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit nixpkgs; };
           modules = [
@@ -20,6 +20,6 @@
       };
     in {
       nixosConfigurations =
-        (config "cameron-laptop" "x86_64-linux" nixpkgs-unstable).configs;
+        config "cameron-laptop" "x86_64-linux" nixpkgs-unstable;
     };
 }
