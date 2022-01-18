@@ -1,8 +1,6 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ ... }:
 
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
-
   boot.loader.grub = {
     device = "/dev/nvme0n1";
     enable = true;
@@ -11,12 +9,6 @@
     efiSupport = true;
   };
   boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.initrd.availableKernelModules =
-    [ "nvme" "usbhid" "usb_storage" "rtsx_pci_sdmmc" ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
 
   boot.initrd.luks.devices.luksroot = { device = "/dev/nvme0n1p3"; };
 
@@ -32,6 +24,4 @@
 
   swapDevices =
     [{ device = "/dev/disk/by-uuid/7fa00ad6-1248-4460-8810-88e093434b45"; }];
-
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }
