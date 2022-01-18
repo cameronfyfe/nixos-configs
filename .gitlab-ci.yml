@@ -2,7 +2,6 @@ image: nixos/nix:latest
 
 stages:
   - check
-  - build
 
 before_script:
   - mkdir -p /etc/nix && echo "experimental-features = nix-command flakes" > /etc/nix/nix.conf
@@ -12,8 +11,3 @@ nixfmt:
   stage: check
   script:
     - just nixfmt --check
-
-cameron-laptop:
-  stage: build
-  script:
-    - just build cameron-laptop
