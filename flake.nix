@@ -11,7 +11,7 @@
       config = name: system: nixpkgs: {
         configs.${name} = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit nixpkgs; };
           modules = [
             ({ ... }: { networking.hostName = name; })
             (./configs + "/${name}/configuration.nix")

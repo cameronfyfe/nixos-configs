@@ -1,8 +1,10 @@
 { pkgs }:
 
-pkgs.vscode-with-extensions.override {
-  vscode = pkgs.vscodium;
-  vscodeExtensions = with pkgs.vscode-extensions; [
+with pkgs;
+
+vscode-with-extensions.override {
+  vscode = vscodium;
+  vscodeExtensions = with vscode-extensions; [
     # Language Packs
     bbenoist.nix
     matklad.rust-analyzer
