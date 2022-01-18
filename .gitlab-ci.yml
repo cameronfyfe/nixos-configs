@@ -13,11 +13,6 @@ nixfmt:
   script:
     - just nixfmt --check
 
-nixfmt:
-  stage: check
-  script:
-    - just nixfmt --check
-
 cameron-laptop:
   stage: build
   script:
