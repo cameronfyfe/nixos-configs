@@ -6,7 +6,7 @@ stages:
 
 before_script:
   - mkdir -p /etc/nix && echo "experimental-features = nix-command flakes" > /etc/nix/nix.conf
-  - nix-env -i just nixfmt
+  - nix-env -i just git nixfmt
 
 nixfmt:
   stage: check
