@@ -2,6 +2,7 @@ image: nixos/nix:latest
 
 stages:
   - check
+  - build
 
 before_script:
   - nix-env -i just nixfmt
@@ -11,3 +12,12 @@ nixfmt:
   script:
     - just nixfmt --check
 
+nixfmt:
+  stage: check
+  script:
+    - just nixfmt --check
+
+cameron-laptop:
+  stage: build
+  script:
+    - just build cameron-laptop
