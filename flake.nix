@@ -19,7 +19,6 @@
         };
       };
     in {
-      nixosConfigurations =
-        config "nixos" "x86_64-linux" nixpkgs-unstable;
+      nixosConfigurations = config "nixos" "x86_64-linux" nixpkgs-unstable;
     };
 }
