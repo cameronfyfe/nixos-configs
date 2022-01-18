@@ -20,6 +20,6 @@
       };
     in {
       nixosConfigurations =
-        config "cameron-laptop" "x86_64-linux" nixpkgs-unstable;
+        config "nixos" "x86_64-linux" nixpkgs-unstable;
     };
 }
