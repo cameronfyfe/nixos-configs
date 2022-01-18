@@ -1,13 +1,9 @@
-{ config, lib, pkgs, ... }:
+{ ... }:
 
 {
-  services = {
-    xserver = {
-      enable = true;
-      layout = "us";
-      desktopManager = { gnome.enable = true; };
-    };
-  };
+  services.xserver.enable = true;
+  services.xserver.layout = "us";
+  services.xserver.desktopManager.gnome.enable = true;
 
   networking.useDHCP = false;
   networking.interfaces.enp0s31f5.useDHCP = true;

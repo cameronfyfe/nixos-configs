@@ -1,39 +1,29 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
+# TODO: organize this better, some stuff is here only out of convenience because
+# it shoudn't be defined when gnome is set as the window manager instead of xmonad
 {
-  services = {
-    gnome.gnome-keyring.enable = true;
-    upower.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  services.upower.enable = true;
+  systemd.services.upower.enable = true;
 
-    dbus = {
-      enable = true;
-      packages = [ pkgs.dconf ];
-    };
+  services.dbus.enable = true;
+  services.dbus.packages = [ pkgs.dconf ];
 
-    xserver = {
-      enable = true;
-      layout = "us";
+  services.xserver.enable = true;
+  services.xserver.layout = "us";
 
-      libinput = {
-        enable = true;
-        touchpad.disableWhileTyping = true;
-      };
+  services.xserver.libinput.enable = true;
+  services.xserver.libinput.touchpad.disableWhileTyping = true;
 
-      displayManager.defaultSession = "none+xmonad";
+  services.xserver.displayManager.defaultSession = "none+xmonad";
 
-      windowManager.xmonad = {
-        enable = true;
-        enableContribAndExtras = true;
-      };
+  services.xserver.windowManager.xmonad.enable = true;
+  services.xserver.windowManager.xmonad.enableContribAndExtras = true;
 
-      xkbOptions = "caps:ctrl_modifier";
-    };
+  services.xserver.xkbOptions = "caps:ctrl_modifier";
 
-    blueman.enable = true;
-  };
+  services.blueman.enable = true;
 
   networking.wireless.enable = true;
-
-  systemd.services.upower.enable = true;
 }
-
