@@ -1,10 +1,10 @@
-NIX_FILES := `find . -type f -name '*.nix' | tr '\n' ' '`
+nix-files := `find . -type f -name '*.nix' | tr '\n' ' '`
 
 default:
     @just --list
 
-nixfmt +FLAGS='':
-    nixfmt {{FLAGS}} {{NIX_FILES}}
+nixfmt +flags='':
+    nixfmt {{flags}} {{nix-files}}
 
 build config:
     nix build -L \
