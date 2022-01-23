@@ -6,6 +6,6 @@ default:
 nixfmt +flags='':
     nixfmt {{flags}} {{nix-files}}
 
-build config:
-    nix build -L \
+build config +flags='':
+    nix build {{flags}} \
         .#nixosConfigurations."{{config}}".config.system.build.toplevel

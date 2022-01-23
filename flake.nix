@@ -8,17 +8,23 @@
   outputs = inputs:
     with inputs;
     let
-      config = name: system: nixpkgs: {
+      config = name: path: system: nixpkgs: {
         "${name}" = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit nixpkgs; };
           modules = [
             ({ ... }: { networking.hostName = name; })
-            (./configs + "/${name}/configuration.nix")
+            (path + "/configuration.nix")
           ];
         };
       };
+      configs = cs:
+        with builtins;
+        foldl' (a: b: a // b) { } (map (c: foldl' (f: e: f e) config c) cs);
     in {
-      nixosConfigurations = config "nixos" "x86_64-linux" nixpkgs-unstable;
+      nixosConfigurations = configs [
+        [ "nixos" ./configs/nixos "x86_64-linux" nixpkgs-unstable ]
+        [ "server" ./configs/server "x86_64-linux" nixpkgs-unstable ]
+      ];
     };
 }
