@@ -9,3 +9,6 @@ nixfmt +flags='':
 build config +flags='':
     nix build {{flags}} \
         .#nixosConfigurations."{{config}}".config.system.build.toplevel
+
+list-configs:
+    nix eval .#nixosConfigurations --apply builtins.attrNames
