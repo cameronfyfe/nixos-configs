@@ -23,8 +23,8 @@
         foldl' (a: b: a // b) { } (map (c: foldl' (f: e: f e) config c) cs);
     in {
       nixosConfigurations = configs [
-        [ "nixos" ./configs/nixos "x86_64-linux" nixpkgs-unstable ]
-        [ "server" ./configs/server "x86_64-linux" nixpkgs-unstable ]
+        [ "nixos" ./nixos "x86_64-linux" nixpkgs-unstable ]
+        [ "server" ./server "x86_64-linux" nixpkgs-unstable ]
       ];
     };
 }
