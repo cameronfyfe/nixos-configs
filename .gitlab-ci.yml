@@ -1,6 +1,7 @@
 stages:
   - check
   - build
+  - latest
 
 nixfmt:
   stage: check
@@ -24,4 +25,24 @@ cameron-laptop:
   tags:
     - nixos
   script:
+    - just build cameron-laptop
+
+server-latest:
+  stage: latest
+  needs:
+    - server
+  tags:
+    - nixos
+  script:
+    - nix flake lock --update-input nixpkgs
+    - just build server
+
+cameron-laptop-latest:
+  stage: latest
+  needs:
+    - cameron-laptop
+  tags:
+    - nixos
+  script:
+    - nix flake lock --update-input nixpkgs
     - just build cameron-laptop

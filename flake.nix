@@ -1,10 +1,6 @@
 {
-  inputs = rec {
-    nixpkgs-21-11.url = "github:NixOS/nixpkgs/nixos-21.11";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-master.url = "github:NixOS/nixpkgs";
-    nixpkgs-fork.url = "github:cameronfyfe/nixpkgs";
-  };
+  inputs = { nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; };
+
   outputs = inputs:
     with inputs;
     let
@@ -27,13 +23,13 @@
           "cameron-laptop"
           ./laptop
           "x86_64-linux"
-          nixpkgs-unstable
+          nixpkgs
         ]
         [ # :
           "server"
           ./server
           "x86_64-linux"
-          nixpkgs-unstable
+          nixpkgs
         ]
       ];
     };
