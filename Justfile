@@ -7,7 +7,7 @@ default:
 nixfmt +flags='':
     nixfmt {{flags}} {{nix-files}}
 
-build config +flags='':
+build config=`hostname` +flags='':
     nix build {{flags}} \
         .#nixosConfigurations."{{config}}".config.system.build.toplevel
 
