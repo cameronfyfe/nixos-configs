@@ -23,13 +23,13 @@
         foldl' (a: b: a // b) { } (map (c: foldl' (f: e: f e) config c) cs);
     in {
       nixosConfigurations = configs [
-        [ # --------
+        [ # :
           "cameron-laptop"
           ./laptop
           "x86_64-linux"
           nixpkgs-unstable
         ]
-        [ # --------
+        [ # :
           "server"
           ./server
           "x86_64-linux"
