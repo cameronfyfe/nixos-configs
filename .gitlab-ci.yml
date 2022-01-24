@@ -1,11 +1,8 @@
-image: nixos/nix:latest
+tags:
+  - nixos
 
 stages:
   - check
-
-before_script:
-  - mkdir -p /etc/nix && echo "experimental-features = nix-command flakes" > /etc/nix/nix.conf
-  - nix-env -i git just nixfmt
 
 nixfmt:
   stage: check
