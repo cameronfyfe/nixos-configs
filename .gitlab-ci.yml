@@ -20,7 +20,7 @@ build:
       - CONFIG:
           - cameron-laptop
           - server
-      - NIXPKGS:
+        NIXPKGS:
           - locked
           - latest
   script:
