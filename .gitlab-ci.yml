@@ -1,10 +1,9 @@
-tags:
-  - nixos
-
 stages:
   - check
 
 nixfmt:
   stage: check
+  tags:
+    - nixos
   script:
     - just nixfmt --check
