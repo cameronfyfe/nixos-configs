@@ -2,10 +2,7 @@
 
 with pkgs;
 
-{
-  imports = [ ./nix.nix ];
-
-  nixpkgs.config.allowUnfree = true;
+let
 
   networking = [ # :
     curl
@@ -84,6 +81,12 @@ with pkgs;
   music = [ # :
     musescore
   ];
+
+in {
+
+  imports = [ ./nix.nix ];
+
+  nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = networking ++ window-manager ++ utils ++ editors
     ++ browsers ++ dev-tools ++ media ++ work ++ music;
