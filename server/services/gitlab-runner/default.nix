@@ -7,8 +7,9 @@
     checkInterval = 3;
     sessionServer.sessionTimeout = 3600;
     services.nixos = {
+      executor = "shell";
       registrationConfigFile = ./env;
-      tagList = "nixos";
+      tagList = [ "nixos" ];
     };
   };
 }
