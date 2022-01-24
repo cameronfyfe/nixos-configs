@@ -13,7 +13,7 @@
           inherit system;
           specialArgs = { inherit nixpkgs; };
           modules = [
-            ({ ... }: { networking.hostName = name; })
+            ({ ... }: { networking.hostName = "cameron-laptop"; })
             (path + "/configuration.nix")
           ];
         };
@@ -23,7 +23,7 @@
         foldl' (a: b: a // b) { } (map (c: foldl' (f: e: f e) config c) cs);
     in {
       nixosConfigurations = configs [
-        [ "nixos" ./nixos "x86_64-linux" nixpkgs-unstable ]
+        [ "cameron-laptop" ./laptop "x86_64-linux" nixpkgs-unstable ]
         [ "server" ./server "x86_64-linux" nixpkgs-unstable ]
       ];
     };
