@@ -1,9 +1,10 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   services.nextcloud = {
     enable = true;
-    home = "/var/lib/nc2";
+    package = pkgs.nextcloud23;
+    home = "/var/lib/nc3";
     hostName = "nextcloud.tld";
     config = {
       dbtype = "pgsql";
