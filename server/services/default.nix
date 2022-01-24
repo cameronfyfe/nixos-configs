@@ -1,5 +1,5 @@
 { ... }:
 
 {
-  imports = [ ./docker.nix ./ssh.nix ];
+  imports = [ ./docker.nix ./gitlab-runner ./ssh.nix ];
 }
