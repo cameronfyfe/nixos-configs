@@ -1,7 +1,6 @@
 stages:
   - check
   - build
-  - latest
 
 nixfmt:
   stage: check
@@ -11,38 +10,19 @@ nixfmt:
   script:
     - just nixfmt --check
 
-server:
-  stage: build
+build:
+  stages: build
   needs: []
   tags:
     - nixos
+  parallel:
+    matrix:
+      - CONFIG:
+          - cameron-laptop
+          - server
+      - NIXPKGS:
+          - locked
+          - latest
   script:
-    - just build server
-
-cameron-laptop:
-  stage: build
-  needs: []
-  tags:
-    - nixos
-  script:
-    - just build cameron-laptop
-
-server-latest:
-  stage: latest
-  needs:
-    - server
-  tags:
-    - nixos
-  script:
-    - nix flake lock --update-input nixpkgs
-    - just build server
-
-cameron-laptop-latest:
-  stage: latest
-  needs:
-    - cameron-laptop
-  tags:
-    - nixos
-  script:
-    - nix flake lock --update-input nixpkgs
-    - just build cameron-laptop
+    - if [ "${NIXPKGS}" == "latest" ]; then just update; fi
+    - just build ${CONFIG}
