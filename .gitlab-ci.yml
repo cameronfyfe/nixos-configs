@@ -11,7 +11,7 @@ nixfmt:
     - just nixfmt --check
 
 build:
-  stages: build
+  stage: build
   needs: []
   tags:
     - nixos
