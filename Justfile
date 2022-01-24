@@ -1,7 +1,6 @@
 nix-files := `find . -type f -name '*.nix' | tr '\n' ' '`
 configs := `nix eval .#nixosConfigurations --apply builtins.attrNames`
 
-
 default:
     @just --list
 
@@ -14,12 +13,10 @@ build config +flags='':
 
 build-all:
     @\
-    configs=(`echo {{configs}}`); \
-    unset configs[0]; \
-    unset configs[-1]; \
-    for config in ${configs[@]}; do \
-        just build $config; \
-    done
+        configs=(`echo {{configs}}`); unset configs[0]; unset configs[-1]; \
+        for config in ${configs[@]}; do \
+            just build $config; \
+        done
 
 list-configs:
     @echo '{{configs}}'
