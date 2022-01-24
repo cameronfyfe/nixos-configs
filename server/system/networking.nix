@@ -5,9 +5,4 @@
   networking.interfaces.enp3s0.useDHCP = true;
 
   networking.firewall.allowedTCPPorts = [ 22 80 443 ];
-
-  security.acme = {
-    acceptTerms = true;
-    email = "cameron.j.fyfe@gmail.com";
-  };
 }
