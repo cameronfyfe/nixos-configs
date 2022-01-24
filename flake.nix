@@ -13,7 +13,7 @@
           inherit system;
           specialArgs = { inherit nixpkgs; };
           modules = [
-            ({ ... }: { networking.hostName = "cameron-laptop"; })
+            ({ ... }: { networking.hostName = name; })
             (path + "/configuration.nix")
           ];
         };
