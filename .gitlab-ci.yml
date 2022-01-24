@@ -1,9 +1,27 @@
 stages:
   - check
+  - build
 
 nixfmt:
   stage: check
+  needs: []
   tags:
     - nixos
   script:
     - just nixfmt --check
+
+server:
+  stage: build
+  needs: []
+  tags:
+    - nixos
+  script:
+    - just build server
+
+cameron-laptop:
+  stage: build
+  needs: []
+  tags:
+    - nixos
+  script:
+    - just build cameron-laptop
