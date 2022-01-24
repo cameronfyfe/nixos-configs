@@ -69,6 +69,7 @@ let
 
   media = [ # :
     liferea
+    nextcloud-client
     spotify
   ];
 

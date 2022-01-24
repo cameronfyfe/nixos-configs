@@ -3,6 +3,7 @@
 {
   services.nextcloud = {
     enable = true;
+    home = "/var/lib/nc2";
     hostName = "nextcloud.tld";
     config = {
       dbtype = "pgsql";
