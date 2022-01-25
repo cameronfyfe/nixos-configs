@@ -11,7 +11,11 @@
     settings = { lock = true; };
   };
 
-  programs.xmobar = { enable = true; };
+  programs.xmobar = {
+    enable = true;
+    package = pkgs.xmobar;
+    extraConfig = builtins.readFile ./.xmobarrc;
+  };
 
   programs.git = {
     enable = true;
@@ -62,7 +66,6 @@
   xdg.configFile = builtins.foldl'
     (set: file: set // { "../${file}".source = ../home + "/${file}"; }) { } [
       ".bashrc"
-      ".xmobarrc"
       ".xmonad/xmonad.hs"
       ".xmonad/xstart.sh"
       ".xscreensaver"

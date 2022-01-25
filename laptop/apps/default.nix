@@ -17,7 +17,6 @@ let
   window-manager = [ # :
     dmenu
     xmobar
-    xscreensaver
   ];
 
   utils = [ # :
@@ -33,8 +32,6 @@ let
 
   editors = [ # :
     (import ./vscode.nix { inherit pkgs; })
-    neovim
-    vim
   ];
 
   browsers = [ # :
@@ -46,7 +43,6 @@ let
   dev-tools = [ # :
     binutils.bintools
     cachix
-    git
     gnumake
     gcc
     clang
