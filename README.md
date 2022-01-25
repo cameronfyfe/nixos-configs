@@ -1,7 +1,6 @@
 # nixos-configs
 
-primary: [gitlab:cameronfyfe/nixos-configs](https://gitlab.com/cameronfyfe/nixos-configs)
-
+primary: [gitlab:cameronfyfe/nixos-configs](https://gitlab.com/cameronfyfe/nixos-configs)  
 mirror: [github:cameronfyfe/nxios-configs](https://github.com/cameronfyfe/nixos-config)
 
 # Quick start
