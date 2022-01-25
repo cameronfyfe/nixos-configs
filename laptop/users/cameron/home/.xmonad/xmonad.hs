@@ -10,7 +10,10 @@ focusedBorderColor = "#702963"
 
 startupHook = do
     spawn "~/.xmonad/xstart.sh"
+    spawnOn "w1" "slack"
+    spawnOn "w7" "chromium"
     spawnOn "w8" "spotify"
+    spawnOn "w0" "codium /etc/nixos"
 
 extraWorkspaces =
     [ (xK_1, "w1"), (xK_2, "w2"), (xK_3, "w3")
