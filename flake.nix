@@ -14,18 +14,16 @@
   outputs = inputs:
     with inputs;
     let
-      config = name: path: system: nixpkgs:
-        let pkgs-pin = import nixpkgs-pin { inherit system; };
-        in {
-          "${name}" = nixpkgs.lib.nixosSystem {
-            inherit system;
-            specialArgs = { inherit nixpkgs pkgs-pin home-manager; };
-            modules = [
-              ({ ... }: { networking.hostName = name; })
-              (path + "/configuration.nix")
-            ];
-          };
+      config = name: path: system: nixpkgs: {
+        "${name}" = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit nixpkgs home-manager; };
+          modules = [
+            ({ ... }: { networking.hostName = name; })
+            (path + "/configuration.nix")
+          ];
         };
+      };
       configs = cs:
         with builtins;
         foldl' (set: c: set // foldl' (f: e: f e) config c) { } cs;
