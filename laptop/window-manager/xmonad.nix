@@ -3,7 +3,6 @@
 # TODO: organize this better, some stuff is here only out of convenience because
 # it shoudn't be defined when gnome is set as the window manager instead of xmonad
 {
-  services.gnome.gnome-keyring.enable = true;
   services.upower.enable = true;
   systemd.services.upower.enable = true;
 
