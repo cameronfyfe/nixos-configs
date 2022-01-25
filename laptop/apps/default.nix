@@ -1,4 +1,4 @@
-{ pkgs, pkgs-pin, ... }:
+{ pkgs, ... }:
 
 with pkgs;
 
@@ -8,7 +8,6 @@ let
     curl
     dhcp
     iw
-    pkgs-pin.ping
     telnet
     wget
     wirelesstools

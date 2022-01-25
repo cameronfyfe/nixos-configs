@@ -1,4 +1,4 @@
-{ pkgs, pkgs-pin, ... }:
+{ pkgs, ... }:
 
 {
   imports = [ ./nix.nix ];
@@ -12,7 +12,6 @@
     just
     libreoffice
     nixfmt
-    pkgs-pin.ping
     pkgconfig
     vim
   ];
