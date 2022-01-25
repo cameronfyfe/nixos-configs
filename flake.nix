@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-pin.url = "github:NixOS/nixpkgs?rev=5aaed40d22f0d9376330b6fa413223435ad6fee5";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs = { nixpkgs.follows = "nixpkgs"; };
@@ -14,10 +15,15 @@
   outputs = inputs:
     with inputs;
     let
-      config = name: path: system: nixpkgs: {
+      config = name: path: system: nixpkgs:
+      let
+        pkgs-pin =  import nixpkgs-pin {
+          inherit system;
+        };
+      in {
         "${name}" = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit nixpkgs home-manager; };
+          specialArgs = { inherit nixpkgs pkgs-pin home-manager; };
           modules = [
             ({ ... }: { networking.hostName = name; })
             (path + "/configuration.nix")
