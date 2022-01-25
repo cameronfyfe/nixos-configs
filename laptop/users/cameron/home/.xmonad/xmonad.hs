@@ -1,15 +1,16 @@
 import XMonad
+import XMonad.Actions.SpawnOn
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
 import qualified XMonad.StackSet as W
-import XMonad.Actions.GridSelect
 
 normalBorderColor = "#000000"
 focusedBorderColor = "#702963"
 
 startupHook = do
     spawn "~/.xmonad/xstart.sh"
+    spawnOn "w8" "spotify"
 
 extraWorkspaces =
     [ (xK_1, "w1"), (xK_2, "w2"), (xK_3, "w3")
@@ -30,8 +31,6 @@ customKeys =
     , ((mod1Mask .|. controlMask, xK_Print), spawn "scrot --multidisp")
     -- Screenshot (Drag / Select)
     , ((mod1Mask .|. shiftMask, xK_Print), spawn "scrot --select")
-    -- List Apps
-    , ((mod1Mask, xK_g), goToSelected defaultGSConfig)
     -- Switch to extra workspace
     ] ++ [
         ((mod4Mask, key), (windows $ W.greedyView ws))
@@ -45,8 +44,9 @@ customKeys =
 main :: IO ()
 main = do
     xmonad $ docks defaultConfig
-        { layoutHook = avoidStruts $ layoutHook defaultConfig
+        { XMonad.layoutHook = avoidStruts $ layoutHook defaultConfig
         , XMonad.startupHook = Main.startupHook
+        , XMonad.manageHook = manageSpawn
         , XMonad.workspaces = Main.workspaces
         , XMonad.normalBorderColor = Main.normalBorderColor
         , XMonad.focusedBorderColor = Main.focusedBorderColor
