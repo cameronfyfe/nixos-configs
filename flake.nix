@@ -1,5 +1,11 @@
 {
-  inputs = { nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; };
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs = { nixpkgs.follows = "nixpkgs"; };
+    };
+  };
 
   outputs = inputs:
     with inputs;
@@ -7,7 +13,7 @@
       config = name: path: system: nixpkgs: {
         "${name}" = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit nixpkgs; };
+          specialArgs = { inherit nixpkgs home-manager; };
           modules = [
             ({ ... }: { networking.hostName = name; })
             (path + "/configuration.nix")
@@ -16,7 +22,7 @@
       };
       configs = cs:
         with builtins;
-        foldl' (a: b: a // b) { } (map (c: foldl' (f: e: f e) config c) cs);
+        foldl' (set: c: set // foldl' (f: e: f e) config c) { } cs;
     in {
       nixosConfigurations = configs [
         [ # :
