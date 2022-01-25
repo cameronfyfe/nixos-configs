@@ -64,7 +64,8 @@
   };
 
   xdg.configFile = builtins.foldl'
-    (set: file: set // { "../${file}".source = ../home + "/${file}"; }) { } [
+    (set: file: set // { "../${file}".source = ../home + "/${file}"; })
+    { } [ # :
       ".bashrc"
       ".xmonad/xmonad.hs"
       ".xmonad/xstart.sh"
