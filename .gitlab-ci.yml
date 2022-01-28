@@ -3,7 +3,7 @@ stages:
   - build
   - latest
 
-nixfmt:
+fmt:
   stage: check
   needs: []
   tags:
