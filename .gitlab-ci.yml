@@ -9,7 +9,7 @@ nixfmt:
   tags:
     - nixos
   script:
-    - just nixfmt --check
+    - just fmt --check
 
 build:
   stage: build

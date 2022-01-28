@@ -2,7 +2,7 @@ default:
     @just --list
 
 fmt +flags='':
-    nixpkgs-fmt .
+    nixpkgs-fmt {{flags}} .
 
 build config=`hostname` +flags='':
     nix build {{flags}} \
