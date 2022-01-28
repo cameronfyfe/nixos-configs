@@ -22,7 +22,7 @@ build:
           - cameron-laptop
           - server
   script:
-    - just build ${CONFIG}
+    - just build ${CONFIG} -L
 
 latest:
   stage: latest
@@ -36,4 +36,4 @@ latest:
           - server
   script:
     - just update
-    - just build ${CONFIG}
+    - just build ${CONFIG} -L
