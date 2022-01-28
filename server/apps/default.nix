@@ -12,6 +12,7 @@
     just
     libreoffice
     nixfmt
+    nixpkgs-fmt
     pkgconfig
     vim
   ];

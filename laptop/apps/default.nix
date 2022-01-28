@@ -4,7 +4,7 @@ with pkgs;
 
 let
 
-  networking = [ # :
+  networking = [
     curl
     dhcp
     iw
@@ -13,33 +13,34 @@ let
     wirelesstools
   ];
 
-  window-manager = [ # :
+  window-manager = [
     dmenu
     xmobar
   ];
 
-  utils = [ # :
+  utils = [
     cron
     jq
     htop
     lzip
     nixfmt
+    nixpkgs-fmt
     scrot
     unzip
     yq-go
   ];
 
-  editors = [ # :
+  editors = [
     (import ./vscode.nix { inherit pkgs; })
   ];
 
-  browsers = [ # :
+  browsers = [
     google-chrome
     chromium
     firefox
   ];
 
-  dev-tools = [ # :
+  dev-tools = [
     binutils.bintools
     cachix
     gnumake
@@ -62,23 +63,24 @@ let
     awscli2
   ];
 
-  media = [ # :
+  media = [
     liferea
     nextcloud-client
     spotify
   ];
 
-  work = [ # :
+  work = [
     slack
     upwork
     libreoffice
   ];
 
-  music = [ # :
+  music = [
     musescore
   ];
 
-in {
+in
+{
 
   imports = [ ./nix.nix ];
 

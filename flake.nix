@@ -23,15 +23,16 @@
       configs = cs:
         with builtins;
         foldl' (set: c: set // foldl' (f: e: f e) config c) { } cs;
-    in {
+    in
+    {
       nixosConfigurations = configs [
-        [ # :
+        [
           "cameron-laptop"
           ./laptop
           "x86_64-linux"
           nixpkgs
         ]
-        [ # :
+        [
           "server"
           ./server
           "x86_64-linux"

@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  imports = [ # :
+  imports = [
     ./hardware
     ./system
     ./users

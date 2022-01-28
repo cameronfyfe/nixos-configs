@@ -1,10 +1,8 @@
-nix-files := `find . -type f -name '*.nix' | tr '\n' ' '`
-
 default:
     @just --list
 
-nixfmt +flags='':
-    nixfmt {{flags}} {{nix-files}}
+fmt +flags='':
+    nixpkgs-fmt .
 
 build config=`hostname` +flags='':
     nix build {{flags}} \
