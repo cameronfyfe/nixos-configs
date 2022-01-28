@@ -1,7 +1,15 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./hardware ./system ./users ./window-manager ./services ./apps ];
+  imports = [ # :
+    ./hardware
+    ./system
+    ./users
+    ./window-manager
+    ./services
+    ./apps
+    ./home
+  ];
 
   boot.kernelPackages = pkgs.linuxPackages_5_16;
 
