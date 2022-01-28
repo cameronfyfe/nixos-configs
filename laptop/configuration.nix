@@ -5,5 +5,5 @@
 
   boot.kernelPackages = pkgs.linuxPackages_5_16;
 
-  system.stateVersion = "21.05";
+  system.stateVersion = "21.11";
 }
