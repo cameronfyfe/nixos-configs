@@ -9,6 +9,7 @@ let
     dhcp
     iw
     telnet
+    ncat
     wget
     wirelesstools
   ];
