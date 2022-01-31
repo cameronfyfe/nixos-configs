@@ -21,8 +21,4 @@
   services.xserver.windowManager.xmonad.enableContribAndExtras = true;
 
   services.xserver.xkbOptions = "caps:ctrl_modifier";
-
-  services.blueman.enable = true;
-
-  networking.wireless.enable = true;
 }

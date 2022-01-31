@@ -1,5 +1,11 @@
 { ... }:
 
 {
-  imports = [ ./audio.nix ./bluetooth.nix ./fonts.nix ./timezone.nix ];
+  imports = [
+    ./audio.nix
+    ./bluetooth.nix
+    ./fonts.nix
+    ./networking.nix
+    ./timezone.nix
+  ];
 }
