@@ -29,11 +29,11 @@ customKeys =
     -- Screensaver/Lock Screen
     [ ((mod1Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
     -- Screenshot (Current Monitor)
-    , ((mod1Mask, xK_Print), spawn "scrot")
+    , ((mod1Mask, xK_Print), spawn "cd scrot/window; scrot --focused")
     -- Screenshot (All Monitors)
-    , ((mod1Mask .|. controlMask, xK_Print), spawn "scrot --multidisp")
+    , ((mod1Mask .|. controlMask, xK_Print), spawn "cd scrot/multiscreen; scrot --multidisp")
     -- Screenshot (Drag / Select)
-    , ((mod1Mask .|. shiftMask, xK_Print), spawn "scrot --select")
+    , ((mod1Mask .|. shiftMask, xK_Print), spawn "cd scrot/select; scrot --select --freeze")
     -- Switch to extra workspace
     ] ++ [
         ((mod4Mask, key), (windows $ W.greedyView ws))
