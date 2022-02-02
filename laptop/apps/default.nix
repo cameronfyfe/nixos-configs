@@ -65,6 +65,7 @@ let
   ];
 
   media = [
+    gimp
     liferea
     nextcloud-client
     spotify
