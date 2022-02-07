@@ -27,6 +27,7 @@ let
     nixfmt
     nixpkgs-fmt
     scrot
+    texlive.combined.scheme-full
     unzip
     yq-go
   ];
