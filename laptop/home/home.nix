@@ -6,11 +6,6 @@
     GIT_EDITOR = "nvim";
   };
 
-  services.xscreensaver = {
-    enable = true;
-    settings = { lock = true; };
-  };
-
   programs.xmobar = {
     enable = true;
     package = pkgs.xmobar;
@@ -69,6 +64,5 @@
     ".bashrc"
     ".xmonad/xmonad.hs"
     ".xmonad/xstart.sh"
-    ".xscreensaver"
   ];
 }
