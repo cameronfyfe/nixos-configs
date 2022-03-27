@@ -9,7 +9,7 @@ with pkgs;
     bbenoist.nix
     matklad.rust-analyzer
     ms-python.python
-    ms-vscode.cpptools
+    # ms-vscode.cpptools -- BROKEN
     justusadam.language-haskell
     svelte.svelte-vscode
     # File Support
