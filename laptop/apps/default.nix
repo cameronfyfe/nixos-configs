@@ -1,9 +1,33 @@
 { pkgs, ... }:
 
+let
+
+  web-app = name: url:
+    let
+      web-app-script = pkgs.writeShellScript name ''
+        chromium --new-window ${url}
+      '';
+    in
+    pkgs.stdenv.mkDerivation {
+      pname = name;
+      inherit name;
+      phases = [ "installPhase" ];
+      installPhase = ''
+        mkdir -p $out/bin
+        cp ${web-app-script} $out/bin/
+      '';
+    };
+
+in
+
 {
   imports = [ ./nix.nix ];
 
   nixpkgs.config.allowUnfree = true;
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-11.5.0"
+  ];
 
   environment.systemPackages = with builtins;
     foldl' (a: b: a ++ b) [ ] (with pkgs; [
@@ -34,7 +58,10 @@
       [
         # utils
         cron
+        file
+        ipfs
         jq
+        gnupg
         htop
         lzip
         nixfmt
@@ -46,7 +73,7 @@
       ]
       [
         # editors
-        (import ./vscode.nix { inherit pkgs; })
+        (pkgs.callPackage ./vscode.nix { })
       ]
       [
         # browsers
@@ -65,6 +92,7 @@
         SDL2
         llvmPackages.libclang
         rustc
+        rustfmt
         cargo
         go_1_17
         patchelf
@@ -75,7 +103,7 @@
         lldb
         docker
         docker-compose
-        insomnia
+        insomnia postman
         awscli2
       ]
       [
@@ -94,6 +122,9 @@
       [
         # work
         upwork
+        clockify
+        activity-watch.activity-watch
+        (web-app "activity-watch" "http://localhost:5600")
       ]
       [
         # music
@@ -102,9 +133,7 @@
       [
         # gaming
         dosbox
-        runelite
-        # runescape
-        # steam
+        steam
       ]
     ]);
 
@@ -114,6 +143,8 @@
     enable = true;
     extensions = [
       "donbcfbmhbcapadipfkeojnmajbakjdc" # ruffle
+      "dmkamcknogkgcdfhhbddcghachkejeap" # keplr
+      "digfbfaphojjndkpccljibejjbppifbc" # moesif
     ];
   };
 }

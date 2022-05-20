@@ -5,14 +5,14 @@ mirror: [github:cameronfyfe/nxios-configs](https://github.com/cameronfyfe/nixos-
 
 # Quick start
 
-Build specific config:
-
-    just build cameron-laptop
-    just build server`
-
-Build config for current system:
+Build nixos config for current system:
 
     just build
+
+Build specific nixos config:
+
+    just build cameron-laptop
+    just build server
 
 Update nixpkgs pin:
 
@@ -20,4 +20,4 @@ Update nixpkgs pin:
 
 Deploy to current system:
 
-    sudo nixos-rebuild switch
+    just deploy

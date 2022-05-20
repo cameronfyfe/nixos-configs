@@ -4,14 +4,15 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
 import qualified XMonad.StackSet as W
+import XMonad.Hooks.EwmhDesktops
 
 normalBorderColor = "#000000"
 focusedBorderColor = "#702963"
 
 startupHook = do
     spawn "~/.xmonad/xstart.sh"
-    spawnOn "w1" "slack"
-    spawnOn "w7" "chromium"
+    spawn "xmobar -x 0 ~/.xmonad/xmobar.hs"
+    spawn "aw-start"
     spawnOn "w8" "spotify"
     spawnOn "w0" "codium /etc/nixos"
 
@@ -46,8 +47,8 @@ customKeys =
 
 main :: IO ()
 main = do
-    xmonad $ docks defaultConfig
-        { XMonad.layoutHook = avoidStruts $ layoutHook defaultConfig
+    xmonad $ docks . ewmhFullscreen . ewmh $ XMonad.def
+        { XMonad.layoutHook = avoidStruts $ layoutHook XMonad.def
         , XMonad.startupHook = Main.startupHook
         , XMonad.manageHook = manageSpawn
         , XMonad.workspaces = Main.workspaces

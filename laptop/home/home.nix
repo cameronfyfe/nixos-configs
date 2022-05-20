@@ -6,14 +6,9 @@
     GIT_EDITOR = "nvim";
   };
 
-  programs.xmobar = {
-    enable = true;
-    package = pkgs.xmobar;
-    extraConfig = builtins.readFile ./.xmobarrc;
-  };
-
   programs.git = {
     enable = true;
+    lfs.enable = true;
     userName = "cameronfyfe";
     userEmail = "cameron.j.fyfe@gmail.com";
   };
@@ -63,6 +58,7 @@
     { } [
     ".bashrc"
     ".xmonad/xmonad.hs"
+    ".xmonad/xmobar.hs"
     ".xmonad/xstart.sh"
   ];
 }
