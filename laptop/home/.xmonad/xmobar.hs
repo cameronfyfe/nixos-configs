@@ -6,9 +6,6 @@ Config { font = "xft:Bitstream Vera Sans Mono:size=10:antialias=true"
 , lowerOnStart = True
 , commands =
     [ Run Date "%a %b %d %H:%M:%S" "date" 10
-    , Run Weather "KDEN"
-      [ "--template" , "<fc=#4682B4><tempF></fc>°F <fc=#4682B4><rh></fc>%"
-      ] 36000
     , Run DynNetwork
       [ "--template" , "↑<tx>kB/s ↓<rx>kB/s"
       , "--Low"      , "1000" -- B/s
@@ -53,5 +50,5 @@ Config { font = "xft:Bitstream Vera Sans Mono:size=10:antialias=true"
     ]
 , sepChar = "%"
 , alignSep = "}{"
-, template = "%cpu% %multicoretemp% | %memory% | %dynnetwork%}{%KDEN% <fc=#49E20E>%date%</fc> | %battery% "
+, template = "%cpu% %multicoretemp% | %memory% | %dynnetwork%}{<fc=#49E20E>%date%</fc> | %battery% "
 }

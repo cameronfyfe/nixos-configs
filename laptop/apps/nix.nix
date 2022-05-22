@@ -3,7 +3,7 @@
 {
   nix = {
     registry.nixpkgs.flake = nixpkgs;
-    package = pkgs.nixVersions.nix_2_7;
+    package = pkgs.nix;
     extraOptions = "experimental-features = nix-command flakes";
     settings.trusted-users = [ "root" "cameron" ];
   };

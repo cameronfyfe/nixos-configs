@@ -5,7 +5,7 @@
       url = "github:nix-community/home-manager";
       inputs = { nixpkgs.follows = "nixpkgs"; };
     };
-    activity-watch.url = "git+ssh://git@gitlab.com/cameronfyfe/activity-watch-nix";
+    activity-watch.url = "gitlab:cameronfyfe/activity-watch-nix";
   };
 
   outputs = { self, ... } @ inputs:
@@ -21,9 +21,6 @@
           ];
         };
       };
-      configs = cs:
-        with builtins;
-        foldl' (set: c: set // foldl' (f: e: f e) config c) { } cs;
     in
     {
       nixosConfigurations =

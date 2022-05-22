@@ -59,7 +59,6 @@ in
         # utils
         cron
         file
-        ipfs
         jq
         gnupg
         htop

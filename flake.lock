@@ -9,17 +9,17 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1652774052,
-        "narHash": "sha256-kmjTbm2VAjMbiPL0iBVe3goS8aqzJYVFZJrcaEcoY1c=",
-        "ref": "master",
-        "rev": "43aaf7757a7dc25c9146e68382a0d3d5ec226913",
-        "revCount": 1,
-        "type": "git",
-        "url": "ssh://git@gitlab.com/cameronfyfe/activity-watch-nix"
+        "lastModified": 1653231814,
+        "narHash": "sha256-5OETqfCq2+3wa02EjuJ1u007aN5VRRLKiaRl+i8bPLk=",
+        "owner": "cameronfyfe",
+        "repo": "activity-watch-nix",
+        "rev": "814bd2b15a3fd5ffb539b4010b5cad3c2063e10b",
+        "type": "gitlab"
       },
       "original": {
-        "type": "git",
-        "url": "ssh://git@gitlab.com/cameronfyfe/activity-watch-nix"
+        "owner": "cameronfyfe",
+        "repo": "activity-watch-nix",
+        "type": "gitlab"
       }
     },
     "flake-utils": {
@@ -115,11 +115,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1650920067,
-        "narHash": "sha256-iV+7zkBZsHiy4epfcyoiW8lRXdjZXq6h8RfNcaua4Fc=",
+        "lastModified": 1652885393,
+        "narHash": "sha256-YIgvvlk4iQ1Hi7KD9o5gsojc+ApB+jiH1d5stK8uXiw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "6a323903ad07de6680169bb0423c5cea9db41d82",
+        "rev": "48037fd90426e44e4bf03e6479e88a11453b9b66",
         "type": "github"
       },
       "original": {
