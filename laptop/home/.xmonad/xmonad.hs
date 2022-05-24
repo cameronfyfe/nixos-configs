@@ -12,6 +12,7 @@ focusedBorderColor = "#702963"
 startupHook = do
     spawn "~/.xmonad/xstart.sh"
     spawn "xmobar -x 0 ~/.xmonad/xmobar.hs"
+    spawn "xscreensaver --no-splash"
     spawn "aw-start"
     spawnOn "w8" "spotify"
     spawnOn "w0" "codium /etc/nixos"

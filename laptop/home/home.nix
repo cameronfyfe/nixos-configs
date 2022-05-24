@@ -60,5 +60,6 @@
     ".xmonad/xmonad.hs"
     ".xmonad/xmobar.hs"
     ".xmonad/xstart.sh"
+    ".xscreensaver"
   ];
 }
