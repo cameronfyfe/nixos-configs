@@ -1,5 +1,9 @@
 { ... }:
 
 {
-  imports = [ ./lenovo-thinkpad-t15.nix ./partitions.nix ];
+  imports = [
+    ./keyboard.nix
+    ./lenovo-thinkpad-t15.nix
+    ./partitions.nix
+  ];
 }

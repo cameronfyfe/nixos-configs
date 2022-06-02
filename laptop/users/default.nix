@@ -3,6 +3,6 @@
 {
   users.users.cameron = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ];
+    extraGroups = [ "wheel" "docker" "plugdev" ];
   };
 }

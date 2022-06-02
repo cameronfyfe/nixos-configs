@@ -19,6 +19,6 @@ with pkgs;
     yzhang.markdown-all-in-one
     # Misc
     editorconfig.editorconfig
+    ms-vscode-remote.remote-ssh
   ];
 })
-

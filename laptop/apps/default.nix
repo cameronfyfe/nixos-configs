@@ -59,8 +59,10 @@ in
         # utils
         cron
         file
+        ffmpeg
         jq
         gnupg
+        gparted
         htop
         lzip
         nixfmt
@@ -113,6 +115,7 @@ in
         liferea
         nextcloud-client
         spotify
+        vlc
       ]
       [
         # messaging
@@ -145,6 +148,9 @@ in
       "donbcfbmhbcapadipfkeojnmajbakjdc" # ruffle
       "dmkamcknogkgcdfhhbddcghachkejeap" # keplr
       "digfbfaphojjndkpccljibejjbppifbc" # moesif
+      "bigelpnhidcahdkpmbgpllmiibdkllai" # vimeo-downloader
     ];
   };
+
+  programs.gnupg.agent.enable = true;
 }
