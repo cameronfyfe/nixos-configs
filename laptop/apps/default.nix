@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, shared, ... }:
 
 let
 
@@ -21,7 +21,7 @@ let
 in
 
 {
-  imports = [ ./nix.nix ];
+  imports = [ shared.apps.nix ];
 
   nixpkgs.config.allowUnfree = true;
 

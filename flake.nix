@@ -15,10 +15,11 @@
 
   outputs = { self, ... } @ inputs:
     let
+      shared = import ./shared;
       config = name: path: system: nixpkgs: {
         "${name}" = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit nixpkgs; inherit (inputs) mobile-nixos home-manager activity-watch; };
+          specialArgs = { inherit nixpkgs shared; inherit (inputs) mobile-nixos home-manager activity-watch; };
           modules = [
             ({ ... }: { networking.hostName = name; })
             (path + "/configuration.nix")

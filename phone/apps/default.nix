@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, shared, ... }:
 
 {
-  imports = [ ../shared/nix.nix ];
+  imports = [ shared.apps.nix ];
 
   environment.systemPackages = with builtins;
     foldl' (a: b: a ++ b) [ ] (with pkgs; [
