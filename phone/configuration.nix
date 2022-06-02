@@ -10,9 +10,12 @@ let
 in
 
 {
-  imports = [ mobile-nixos-config ];
-
-  networking.wireless.enable = true;
+  imports = [
+    mobile-nixos-config
+    ./home
+    ./system
+    ./users
+  ];
 
   services.openssh.enable = true;
   services.openssh.permitRootLogin = "yes";

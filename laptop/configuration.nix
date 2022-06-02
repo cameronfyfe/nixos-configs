@@ -1,4 +1,4 @@
-{ system, pkgs, activity-watch, ... }:
+{ pkgs, activity-watch, ... }:
 
 {
   imports = [
