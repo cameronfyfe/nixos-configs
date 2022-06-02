@@ -102,7 +102,8 @@ in
         lldb
         docker
         docker-compose
-        insomnia postman
+        insomnia
+        postman
         awscli2
       ]
       [
