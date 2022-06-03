@@ -1,4 +1,4 @@
-{ pkgs, shared, ... }:
+{ pkgs, device-config, shared, ... }:
 
 {
   imports = [ shared.apps.nix ];
@@ -9,7 +9,7 @@
     foldl' (a: b: a ++ b) [ ] (with pkgs; [
       [
         # Phone Calls
-        calls
+        #calls
         # SMS
         chatty
       ]
@@ -40,13 +40,18 @@
       ]
       [
         firefox
+        megapixels
+        vlc
       ]
       [
         #spot
       ]
-      (with gnome; [
+      (if device-config.window-manager == "phosh" then (with gnome; [
+        gnome-contacts
         gnome-maps
         gnome-terminal
-      ])
+      ]) else [])
     ]);
+
+  programs.calls.enable = true;
 }
