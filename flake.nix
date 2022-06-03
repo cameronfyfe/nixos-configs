@@ -36,7 +36,7 @@
       merge = with builtins;
         foldl' (set: x: set // x) { };
       configs = with builtins;
-        map (foldl' (f: e: f e) config) [
+        map (foldl' (f: x: f x) config) [
 
           # -- Laptop (thinkpad t15)
           [ "cameron-laptop" ./laptop "x86_64-linux" inputs.nixpkgs ]
