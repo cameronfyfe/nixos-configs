@@ -41,10 +41,8 @@
           # -- Laptop (thinkpad t15)
           [ "cameron-laptop" ./laptop "x86_64-linux" inputs.nixpkgs ]
 
-
           # -- Home Server
           [ "server" ./server "x86_64-linux" inputs.nixpkgs ]
-
 
           # -- Phone (pinephone)
           [ "cameron-phone" ./phone "aarch64-linux" inputs.nixpkgs-phone ]
