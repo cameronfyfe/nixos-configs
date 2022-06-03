@@ -1,4 +1,4 @@
-{ mobile-nixos, ... }:
+{ mobile-nixos, nur, ... }:
 
 let
 
@@ -12,13 +12,12 @@ in
 {
   imports = [
     mobile-nixos-config
+    ./apps
     ./home
     ./system
     ./users
+    ./window-manager
   ];
-
-  services.openssh.enable = true;
-  services.openssh.permitRootLogin = "yes";
 
   system.stateVersion = "22.11";
 }

@@ -3,8 +3,16 @@
 {
   imports = [ shared.apps.nix ];
 
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with builtins;
     foldl' (a: b: a ++ b) [ ] (with pkgs; [
+      [
+        # Phone Calls
+        calls
+        # SMS
+        chatty
+      ]
       [
         # networking
         curl
@@ -30,5 +38,15 @@
         pkgconfig
         just
       ]
+      [
+        firefox
+      ]
+      [
+        #spot
+      ]
+      (with gnome; [
+        gnome-maps
+        gnome-terminal
+      ])
     ]);
 }

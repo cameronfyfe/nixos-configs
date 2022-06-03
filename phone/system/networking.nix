@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  networking.wireless.enable = true;
+  #networking.wireless.enable = true;
 
   # Set dns
   networking.nameservers = [ "8.8.8.8" "::1" ];
