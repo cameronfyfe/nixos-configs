@@ -57,6 +57,26 @@
         "type": "github"
       }
     },
+    "home-manager-phone": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-phone"
+        ]
+      },
+      "locked": {
+        "lastModified": 1654113406,
+        "narHash": "sha256-70esZvhal+FsyU89mJRcAb+cDGHKt0sgZ6MlRr9Cplg=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "684e85d01d333be91c4875baebb05b93c7d2ffaa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "import-cargo": {
       "locked": {
         "lastModified": 1594305518,
@@ -165,6 +185,7 @@
       "inputs": {
         "activity-watch": "activity-watch",
         "home-manager": "home-manager",
+        "home-manager-phone": "home-manager-phone",
         "mobile-nixos": "mobile-nixos",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-phone": "nixpkgs-phone"
