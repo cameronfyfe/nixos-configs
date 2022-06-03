@@ -18,33 +18,40 @@
       shared = import ./shared;
       config = name: path: system: nixpkgs:
         let
-          device-config = (import ./config.nix)."${name}";
+          device-config = (import ./device-configs.nix)."${name}";
         in
         {
           "${name}" = nixpkgs.lib.nixosSystem {
             inherit system;
-            specialArgs = { inherit nixpkgs device-config shared; inherit (inputs) mobile-nixos home-manager activity-watch; };
+            specialArgs = {
+              inherit nixpkgs device-config shared;
+              inherit (inputs) mobile-nixos home-manager activity-watch;
+            };
             modules = [
               ({ ... }: { networking.hostName = name; })
               (path + "/configuration.nix")
             ];
           };
         };
-    in
-    {
-      nixosConfigurations =
-        with builtins;
-        foldl' (set: c: set // foldl' (a: b: a b) config c) { } [
+      merge = with builtins;
+        foldl' (set: x: set // x) { };
+      configs = with builtins;
+        map (foldl' (f: e: f e) config) [
 
           # -- Laptop (thinkpad t15)
           [ "cameron-laptop" ./laptop "x86_64-linux" inputs.nixpkgs ]
 
+
           # -- Home Server
           [ "server" ./server "x86_64-linux" inputs.nixpkgs ]
+
 
           # -- Phone (pinephone)
           [ "cameron-phone" ./phone "aarch64-linux" inputs.nixpkgs-phone ]
 
         ];
+    in
+    {
+      nixosConfigurations = merge configs;
     };
 }
