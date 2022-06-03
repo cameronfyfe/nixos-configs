@@ -1,5 +1,3 @@
 {
-  apps = {
-    nix = import ./apps/nix.nix;
-  };
+  apps.nix = import ./apps/nix.nix;
 }

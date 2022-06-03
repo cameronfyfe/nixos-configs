@@ -46,11 +46,12 @@
       [
         #spot
       ]
-      (if device-config.window-manager == "phosh" then (with gnome; [
-        gnome-contacts
-        gnome-maps
-        gnome-terminal
-      ]) else [])
+      (if device-config.window-manager == "phosh" then
+        (with gnome; [
+          gnome-contacts
+          gnome-maps
+          gnome-terminal
+        ]) else [ ])
     ]);
 
   programs.calls.enable = true;
