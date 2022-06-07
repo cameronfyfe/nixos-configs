@@ -42,7 +42,7 @@
         };
       merge = with builtins;
         foldl' (set: x: set // x) { };
-      configs = with builtins; 
+      configs = with builtins;
         map (foldl' (f: x: f x) config) (with inputs; [
 
           # -- Laptop (thinkpad t15)
