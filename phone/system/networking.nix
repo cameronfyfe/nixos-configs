@@ -5,8 +5,8 @@ let
 in
 {
   # -- WiFi
-  networking.wireless.enable =
-    if wm == "phosh" then false
-    else if wm == "xfce" then false
-    else true;
+  # networking.wireless.enable =
+  #   if wm == "phosh" then false
+  #   else if wm == "xfce" then false
+  #   else true;
 }

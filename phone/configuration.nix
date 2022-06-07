@@ -1,4 +1,4 @@
-{ mobile-nixos, nur, ... }:
+{ mobile-nixos, ... }:
 
 let
 
