@@ -1,20 +1,23 @@
 {
   inputs = {
+    # -- x86 machines
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-phone.url = "github:NixOS/nixpkgs/nixos-unstable";
-    mobile-nixos = {
-      url = "github:NixOS/mobile-nixos";
-      flake = false;
-    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs = { nixpkgs.follows = "nixpkgs"; };
+    };
+    activity-watch.url = "gitlab:cameronfyfe/activity-watch-nix";
+
+    # -- aarch64 mobile machines
+    nixpkgs-phone.url = "github:NixOS/nixpkgs/nixos-unstable";
+    mobile-nixos = {
+      url = "github:samueldr-wip/mobile-nixos-wip/wip/pinephone-pro";
+      flake = false;
     };
     home-manager-phone = {
       url = "github:nix-community/home-manager";
       inputs = { nixpkgs.follows = "nixpkgs-phone"; };
     };
-    activity-watch.url = "gitlab:cameronfyfe/activity-watch-nix";
   };
 
   outputs = { self, ... } @ inputs:
@@ -46,10 +49,13 @@
           [ "cameron-laptop" ./laptop "x86_64-linux" nixpkgs home-manager ]
 
           # -- Home Server
-          [ "server" ./server "x86_64-linux" nixpkgs home-manager ]
+          [ "cameron-server" ./server "x86_64-linux" nixpkgs home-manager ]
+
+          # -- Phone (pinephone pro)
+          [ "cameron-phone" ./phone "aarch64-linux" nixpkgs-phone home-manager-phone ]
 
           # -- Phone (pinephone)
-          [ "cameron-phone" ./phone "aarch64-linux" nixpkgs-phone home-manager-phone ]
+          [ "cameron-pine" ./pine "aarch64-linux" nixpkgs-phone home-manager-phone ]
 
         ]);
     in

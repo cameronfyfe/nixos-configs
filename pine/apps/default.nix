@@ -8,6 +8,8 @@
   environment.systemPackages = with builtins;
     foldl' (a: b: a ++ b) [ ] (with pkgs; [
       [
+        # Phone Calls
+        #calls
         # SMS
         chatty
       ]
@@ -20,6 +22,10 @@
         nmap
         wget
         wirelesstools
+      ]
+      [
+        # editors
+        vim
       ]
       [
         # utils
@@ -36,6 +42,9 @@
         firefox
         megapixels
         vlc
+      ]
+      [
+        #spot
       ]
       (if device-config.window-manager == "phosh" then
         (with gnome; [

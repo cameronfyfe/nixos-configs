@@ -8,7 +8,8 @@ fi
 
 # --- helpers ---
 alias inix='echo $IN_NIX_SHELL'
-alias docker_clean='docker rm -vf $(docker ps -a -q); docker rmi -f $(docker images -a -q)'
+alias docker-clean='docker rm -vf $(docker ps -a -q); docker rmi -f $(docker images -a -q)'
+alias data-hogs='sudo du -a / | sort -n -r | head -20'
 
 # --- common docker environments ---
 alias debian='docker run --rm -it -v $(pwd):/c -w="/c" debian:latest bash'

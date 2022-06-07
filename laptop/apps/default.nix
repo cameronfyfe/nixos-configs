@@ -70,6 +70,7 @@ in
         scrot
         texlive.combined.scheme-full
         unzip
+        usbutils
         yq-go
       ]
       [
@@ -115,6 +116,7 @@ in
         liferea
         nextcloud-client
         spotify
+        pinta
         vlc
       ]
       [

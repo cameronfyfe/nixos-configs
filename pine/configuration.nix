@@ -4,7 +4,7 @@ let
 
   mobile-nixos-config =
     (import "${mobile-nixos}/lib/configuration.nix" {
-      device = "pine64-pinephonepro";
+      device = "pine64-pinephone";
     });
 
 in
