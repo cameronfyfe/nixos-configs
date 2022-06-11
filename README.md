@@ -14,10 +14,17 @@ Build specific nixos config:
     just build cameron-laptop
     just build server
 
-Update nixpkgs pin:
+Update nixpkgs in flake lock:
 
     just update
 
 Deploy to current system:
 
+    just deploy
+
+Deploy to new system with different hostname:
+
+    just bootstrap-hostname cameron-laptop
+    just deploy
+    git restore flake.nix
     just deploy
