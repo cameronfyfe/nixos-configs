@@ -26,7 +26,7 @@
 
   outputs = { self, ... } @ inputs:
     let
-      shared = import ./shared;
+      common = import ./common;
       config = name: path: system: nixpkgs: home-manager:
         let
           device-config = (import ./device-configs.nix)."${name}";
@@ -35,7 +35,7 @@
           "${name}" = nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = {
-              inherit nixpkgs home-manager device-config shared;
+              inherit nixpkgs home-manager common device-config;
               inherit (inputs) mobile-nixos activity-watch alejandra;
             };
             modules = [

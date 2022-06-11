@@ -1,7 +1,7 @@
-{ pkgs, device-config, shared, ... }:
+{ pkgs, device-config, common, ... }:
 
 {
-  imports = [ shared.apps.nix ];
+  imports = [ common.apps.nix ];
 
   nixpkgs.config.allowUnfree = true;
 
