@@ -7,6 +7,10 @@
       inputs = { nixpkgs.follows = "nixpkgs"; };
     };
     activity-watch.url = "gitlab:cameronfyfe/activity-watch-nix";
+    alejandra = {
+      url = "github:kamadorueda/alejandra/1.4.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # -- aarch64 mobile machines
     nixpkgs-phone.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -32,7 +36,7 @@
             inherit system;
             specialArgs = {
               inherit nixpkgs home-manager device-config shared;
-              inherit (inputs) mobile-nixos activity-watch;
+              inherit (inputs) mobile-nixos activity-watch alejandra;
             };
             modules = [
               ({ ... }: { networking.hostName = name; })
@@ -46,16 +50,40 @@
         map (foldl' (f: x: f x) config) (with inputs; [
 
           # -- Laptop (thinkpad t15)
-          [ "cameron-laptop" ./laptop "x86_64-linux" nixpkgs home-manager ]
+          [
+            "cameron-laptop"
+            ./laptop
+            "x86_64-linux"
+            nixpkgs
+            home-manager
+          ]
 
           # -- Home Server
-          [ "cameron-server" ./server "x86_64-linux" nixpkgs home-manager ]
+          [
+            "cameron-server"
+            ./server
+            "x86_64-linux"
+            nixpkgs
+            home-manager
+          ]
 
           # -- Phone (pinephone pro)
-          [ "cameron-phone" ./phone "aarch64-linux" nixpkgs-phone home-manager-phone ]
+          [
+            "cameron-phone"
+            ./phone
+            "aarch64-linux"
+            nixpkgs-phone
+            home-manager-phone
+          ]
 
-          # -- Phone (pinephone)
-          [ "cameron-pine" ./pine "aarch64-linux" nixpkgs-phone home-manager-phone ]
+          # -- Phone 2 (pinephone)
+          [
+            "cameron-pine"
+            ./pine
+            "aarch64-linux"
+            nixpkgs-phone
+            home-manager-phone
+          ]
 
         ]);
     in

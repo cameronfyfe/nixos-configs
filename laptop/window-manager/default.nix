@@ -1,2 +1,5 @@
-# (import ./gnome.nix)
-(import ./xmonad.nix)
+{ device-config, ... }:
+
+{
+  imports = [ (import (./. + "/${device-config.window-manager}")) ];
+}

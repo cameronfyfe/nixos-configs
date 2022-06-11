@@ -17,8 +17,19 @@
 
   services.xserver.displayManager.defaultSession = "none+xmonad";
 
-  services.xserver.windowManager.xmonad.enable = true;
-  services.xserver.windowManager.xmonad.enableContribAndExtras = true;
+  services.xserver.windowManager.xmonad = {
+    enable = true;
+    config = builtins.readFile ./Main.hs;
+    extraPackages = haskellPackages: [
+      (haskellPackages.callCabal2nix "CameronXMonad" ./CameronXMonad { })
+    ];
+  };
+
+  environment.systemPackages = with pkgs; [
+    dmenu
+    ghc
+    (callPackage ./xmobar { })
+  ];
 
   services.xserver.xkbOptions = "caps:ctrl_modifier";
 }

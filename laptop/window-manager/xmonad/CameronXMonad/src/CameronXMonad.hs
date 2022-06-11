@@ -1,21 +1,24 @@
+module CameronXMonad (runXMonad) where
+
 import XMonad
 import XMonad.Actions.SpawnOn
 import XMonad.Hooks.ManageDocks
-import XMonad.Util.EZConfig(additionalKeys)
+import XMonad.Util.EZConfig (additionalKeys)
 import System.IO
 import qualified XMonad.StackSet as W
 import XMonad.Hooks.EwmhDesktops
-
-normalBorderColor = "#000000"
-focusedBorderColor = "#702963"
+import Colors
 
 startupHook = do
-    spawn "~/.xmonad/xstart.sh"
-    spawn "xmobar -x 0 ~/.xmonad/xmobar.hs"
+    spawn "mkdir -p scrot/window"
+    spawn "mkdir -p scrot/multiscreen"
+    spawn "mkdir -p scrot/select"
+    spawn "xmobar-stop; xmobar-start 0"
     spawn "xscreensaver --no-splash"
     spawn "aw-start"
     spawnOn "w8" "spotify"
     spawnOn "w0" "codium /etc/nixos"
+    spawnOn "w0" "xterm -e \"cd /etc/nixos\""
 
 extraWorkspaces =
     [ (xK_1, "w1"), (xK_2, "w2"), (xK_3, "w3")
@@ -28,8 +31,10 @@ workspaces =
     ["1","2","3","4","5","6","7","8","9"] ++ (map snd extraWorkspaces)
 
 customKeys =
+    -- Restart xmonad
+    [ ((mod1Mask, xK_q), restart "xmonad" True)
     -- Screensaver/Lock Screen
-    [ ((mod1Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
+    , ((mod1Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
     -- Screenshot (Current Monitor)
     , ((mod1Mask, xK_Print), spawn "cd scrot/window; scrot --focused")
     -- Screenshot (All Monitors)
@@ -46,14 +51,14 @@ customKeys =
         | (key, ws) <- extraWorkspaces
     ]
 
-main :: IO ()
-main = do
-    xmonad $ docks . ewmhFullscreen . ewmh $ XMonad.def
-        { XMonad.layoutHook = avoidStruts $ layoutHook XMonad.def
-        , XMonad.startupHook = Main.startupHook
-        , XMonad.manageHook = manageSpawn
-        , XMonad.workspaces = Main.workspaces
-        , XMonad.normalBorderColor = Main.normalBorderColor
-        , XMonad.focusedBorderColor = Main.focusedBorderColor
-        }
-        `additionalKeys` customKeys
+config = XMonad.def
+    { XMonad.layoutHook = avoidStruts $ layoutHook XMonad.def
+    , XMonad.startupHook = CameronXMonad.startupHook
+    , XMonad.manageHook = manageSpawn
+    , XMonad.workspaces = CameronXMonad.workspaces
+    , XMonad.normalBorderColor = Colors.normalBorderColor
+    , XMonad.focusedBorderColor = Colors.focusedBorderColor
+    }
+    `additionalKeys` customKeys
+
+runXMonad = getDirectories >>= launch CameronXMonad.config

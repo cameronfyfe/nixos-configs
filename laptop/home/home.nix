@@ -57,9 +57,6 @@
     (set: file: set // { "../${file}".source = ../home + "/${file}"; })
     { } [
     ".bashrc"
-    ".xmonad/xmonad.hs"
-    ".xmonad/xmobar.hs"
-    ".xmonad/xstart.sh"
     ".xscreensaver"
   ];
 }

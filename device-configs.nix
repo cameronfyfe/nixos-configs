@@ -1,4 +1,7 @@
 {
+  cameron-laptop = {
+    window-manager = "xmonad";
+  };
   cameron-phone = {
     window-manager = "phosh";
   };

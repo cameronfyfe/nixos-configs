@@ -22,6 +22,28 @@
         "type": "gitlab"
       }
     },
+    "alejandra": {
+      "inputs": {
+        "flakeCompat": "flakeCompat",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1652973442,
+        "narHash": "sha256-0AolxQtKj3Oek0WSbODDpPVO5Ih8PXHOA3qXEKPB4dQ=",
+        "owner": "kamadorueda",
+        "repo": "alejandra",
+        "rev": "96deb34df50537b3542d3f4672018f452c0a0827",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kamadorueda",
+        "ref": "1.4.0",
+        "repo": "alejandra",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "locked": {
         "lastModified": 1652733177,
@@ -34,6 +56,22 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flakeCompat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1648199409,
+        "narHash": "sha256-JwPKdC2PoVBkG6E+eWw3j6BMR6sL3COpYWfif7RVb8Y=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "64a525ee38886ab9028e6f61790de0832aa3ef03",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
         "type": "github"
       }
     },
@@ -95,16 +133,17 @@
     "mobile-nixos": {
       "flake": false,
       "locked": {
-        "lastModified": 1653935394,
-        "narHash": "sha256-Yl3solzuJ9gOLAiZ8ij0kkgIwjtJnIXWy2K8DfOvgYY=",
-        "owner": "NixOS",
-        "repo": "mobile-nixos",
-        "rev": "bc53f3b0872e7c45b265dac5fa453f9c148fa12a",
+        "lastModified": 1653945435,
+        "narHash": "sha256-pD7Om1ocnUiNyZZgh+jbD6ZKHwu5NqSIZZ2pxLroddk=",
+        "owner": "samueldr-wip",
+        "repo": "mobile-nixos-wip",
+        "rev": "e8ffe9b29c74e27c25f55161c6e952ef97870c3e",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "repo": "mobile-nixos",
+        "owner": "samueldr-wip",
+        "ref": "wip/pinephone-pro",
+        "repo": "mobile-nixos-wip",
         "type": "github"
       }
     },
@@ -184,6 +223,7 @@
     "root": {
       "inputs": {
         "activity-watch": "activity-watch",
+        "alejandra": "alejandra",
         "home-manager": "home-manager",
         "home-manager-phone": "home-manager-phone",
         "mobile-nixos": "mobile-nixos",

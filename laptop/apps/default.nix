@@ -47,17 +47,13 @@ in
         wirelesstools
       ]
       [
-        # window-manager
-        dmenu
-        xmobar
-      ]
-      [
         # libs
         gtk3-x11
       ]
       [
         # utils
         cron
+        ets
         file
         ffmpeg
         jq
@@ -67,6 +63,7 @@ in
         lzip
         nixfmt
         nixpkgs-fmt
+        pv
         scrot
         texlive.combined.scheme-full
         unzip
@@ -86,7 +83,6 @@ in
       [
         # dev-tools
         binutils.bintools
-        cachix
         gnumake
         gcc
         clang
@@ -96,7 +92,8 @@ in
         rustc
         rustfmt
         cargo
-        go_1_17
+        ghc
+        go
         patchelf
         pkgconfig
         python39
@@ -108,6 +105,7 @@ in
         insomnia
         postman
         awscli2
+        alejandra
       ]
       [
         # media
