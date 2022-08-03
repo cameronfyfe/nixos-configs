@@ -1,4 +1,4 @@
-{ pkgs, common, ... }:
+{ system, pkgs, common, nixpkgs-activitywatch, ... }:
 
 let
 
@@ -31,9 +31,19 @@ in
 
   environment.systemPackages = with builtins;
     foldl' (a: b: a ++ b) [ ] (with pkgs; [
+      (
+        let
+          inherit (import nixpkgs-activitywatch {
+            inherit system;
+          }) activitywatch;
+        in
+        [
+          activitywatch
+        ]
+      )
       [
         # system
-        dpkg
+        lm_sensors
         xscreensaver
       ]
       [
@@ -69,10 +79,13 @@ in
         unzip
         usbutils
         yq-go
+        kazam
+        fontforge-gtk
       ]
       [
         # editors
         (pkgs.callPackage ./vscode.nix { })
+
       ]
       [
         # browsers
@@ -95,17 +108,16 @@ in
         ghc
         go
         patchelf
-        pkgconfig
+        pkg-config
         python39
-        conda
         just
         lldb
         docker
         docker-compose
         insomnia
         postman
-        awscli2
-        alejandra
+        graphviz
+        nodejs
       ]
       [
         # media
@@ -116,6 +128,11 @@ in
         spotify
         pinta
         vlc
+        yt-dlp
+      ]
+      [
+        # apps
+        ledger-live-desktop
       ]
       [
         # messaging
@@ -124,10 +141,10 @@ in
       ]
       [
         # work
-        upwork
-        clockify
-        activity-watch.activity-watch
-        (web-app "activity-watch" "http://localhost:5600")
+        # upwork
+        # clockify
+        # activity-watch
+        # (web-app "activity-watch" "http://localhost:5600")
       ]
       [
         # music
@@ -137,6 +154,8 @@ in
         # gaming
         dosbox
         steam
+        winePackages.stableFull
+        lutris
       ]
     ]);
 
@@ -147,6 +166,7 @@ in
     extensions = [
       "donbcfbmhbcapadipfkeojnmajbakjdc" # ruffle
       "dmkamcknogkgcdfhhbddcghachkejeap" # keplr
+      "nkbihfbeogaeaoehlefnkodbefgpgknn" # metamask
       "digfbfaphojjndkpccljibejjbppifbc" # moesif
       "bigelpnhidcahdkpmbgpllmiibdkllai" # vimeo-downloader
     ];

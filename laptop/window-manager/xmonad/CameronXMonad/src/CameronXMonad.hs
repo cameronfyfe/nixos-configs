@@ -9,26 +9,48 @@ import qualified XMonad.StackSet as W
 import XMonad.Hooks.EwmhDesktops
 import Colors
 
+-- import XMonad.Hooks.StatusBar
+-- import XMonad.Hooks.StatusBar.PP
+
+-- xmobarTop    = statusBarPropTo "_XMONAD_LOG_1" "xmobar -x 0 ~/.config/xmobar/xmobar_top_primary.hs"    (pure ppTop)
+-- xmobarBottom = statusBarPropTo "_XMONAD_LOG_2" "xmobar -x 0 ~/.config/xmobar/xmobar_top_primary.hs" (pure ppBottom)
+-- xmobar1      = statusBarPropTo "_XMONAD_LOG_3" "xmobar -x 1 ~/.config/xmobar/xmobar_top_primary.hs"       (pure pp1)
+
+-- barSpawner :: ScreenId -> IO StatusBarConfig
+-- barSpawner 0 = pure $ xmobarTop
+-- -- barSpawner 0 = pure $ xmobarTop <> xmobarBottom -- two bars on the main screen
+-- barSpawner 1 = pure $ xmobar1
+-- barSpawner _ = mempty -- nothing on the rest of the screens
+
 startupHook = do
     spawn "mkdir -p scrot/window"
     spawn "mkdir -p scrot/multiscreen"
     spawn "mkdir -p scrot/select"
-    spawn "xmobar-stop; xmobar-start 0"
+    spawn "xmobar-stop || true; xmobar-start 0"
     spawn "xscreensaver --no-splash"
     spawn "aw-start"
     spawnOn "w8" "spotify"
     spawnOn "w0" "codium /etc/nixos"
     spawnOn "w0" "xterm -e \"cd /etc/nixos\""
 
-extraWorkspaces =
-    [ (xK_1, "w1"), (xK_2, "w2"), (xK_3, "w3")
-    , (xK_4, "w4"), (xK_5, "w5"), (xK_6, "w6")
-    , (xK_7, "w7"), (xK_8, "w8"), (xK_9, "w9")
-    , (xK_0, "w0")
-    ]
+workspaceMap =
+    (map (\(key, ws) -> (mod1Mask, key, ws))
+        [ (xK_1, "1"), (xK_2, "2"), (xK_3, "3")
+        , (xK_4, "4"), (xK_5, "5"), (xK_6, "6")
+        , (xK_7, "7"), (xK_8, "8"), (xK_9, "9")
+        , (xK_0, "0")
+        ]
+    ) ++
+    (map (\(key, ws) -> (mod4Mask, key, ws))
+        [ (xK_1, "w1"), (xK_2, "w2"), (xK_3, "w3")
+        , (xK_4, "w4"), (xK_5, "w5"), (xK_6, "w6")
+        , (xK_7, "w7"), (xK_8, "w8"), (xK_9, "w9")
+        , (xK_0, "w0")
+        ]
+    )
 
 workspaces =
-    ["1","2","3","4","5","6","7","8","9"] ++ (map snd extraWorkspaces)
+    map (\(_, _, ws) -> ws) workspaceMap
 
 customKeys =
     -- Restart xmonad
@@ -43,22 +65,25 @@ customKeys =
     , ((mod1Mask .|. shiftMask, xK_Print), spawn "cd scrot/select; scrot --select --freeze")
     -- Switch to extra workspace
     ] ++ [
-        ((mod4Mask, key), (windows $ W.greedyView ws))
-        | (key, ws) <- extraWorkspaces
+        ((modKey, key), (windows $ W.greedyView ws))
+        | (modKey, key, ws) <- workspaceMap
     -- Send window to extra workspace
     ] ++ [
-        ((mod4Mask .|. shiftMask, key), (windows $ W.shift ws))
-        | (key, ws) <- extraWorkspaces
+        ((modKey .|. shiftMask, key), (windows $ W.shift ws))
+        | (modKey, key, ws) <- workspaceMap
     ]
 
-config = XMonad.def
-    { XMonad.layoutHook = avoidStruts $ layoutHook XMonad.def
-    , XMonad.startupHook = CameronXMonad.startupHook
-    , XMonad.manageHook = manageSpawn
-    , XMonad.workspaces = CameronXMonad.workspaces
-    , XMonad.normalBorderColor = Colors.normalBorderColor
-    , XMonad.focusedBorderColor = Colors.focusedBorderColor
-    }
-    `additionalKeys` customKeys
+config = 
+    -- dynamicSBs barSpawner (
+    XMonad.def
+        { XMonad.layoutHook = avoidStruts $ layoutHook XMonad.def
+        , XMonad.startupHook = CameronXMonad.startupHook
+        , XMonad.manageHook = manageSpawn
+        , XMonad.workspaces = CameronXMonad.workspaces
+        , XMonad.normalBorderColor = Colors.normalBorderColor
+        , XMonad.focusedBorderColor = Colors.focusedBorderColor
+        }
+        `additionalKeys` customKeys
+    -- )
 
 runXMonad = getDirectories >>= launch CameronXMonad.config

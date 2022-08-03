@@ -1,12 +1,15 @@
 # stateful and/or private bashrc files
 . ~/.bashrc-*
 
-# nixos treason - add /bin/bash
+# nixos treason - add /bin/bash, etc
 if [[ ! -L /bin/bash ]]; then
 	sudo ln -s /run/current-system/sw/bin/bash /bin/bash >/dev/null 2>&1 || true
 fi
+if [[ ! -L /bin/stty ]]; then
+	sudo ln -s /run/current-system/sw/bin/stty /bin/stty >/dev/null 2>&1 || true
+fi
 
-# --- helpers ---
+# --- general helpers ---
 alias inix='echo $IN_NIX_SHELL'
 alias docker-clean='docker rm -vf $(docker ps -a -q); docker rmi -f $(docker images -a -q)'
 alias data-hogs='sudo du -a / | sort -n -r | head -40'
@@ -16,6 +19,12 @@ alias rchmod="stat --format '%a'"
 alias debian='docker run --rm -it -v $(pwd):/c -w="/c" debian:latest bash'
 alias ubuntu='docker run --rm -it -v $(pwd):/c -w="/c" ubuntu:latest bash'
 alias alpine='docker run --rm -it -v $(pwd):/c -w="/c" alpine:latest ash'
+alias nixos='docker run --rm -it -v $(pwd):/c -w="/c" nix-flakes:latest sh'
+
+# --- dev editor ---
+alias set-vim='export OPEN_EDITOR_CMD="xterm -e nvim"'
+alias set-codium='export OPEN_EDITOR_CMD=codium'
+alias set-none='export OPEN_EDITOR_CMD=""'
 
 function repeat() {
 	while true; do $@; sleep 1; done

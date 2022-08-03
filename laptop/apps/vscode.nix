@@ -20,5 +20,7 @@ with pkgs;
     # Misc
     editorconfig.editorconfig
     ms-vscode-remote.remote-ssh
+    # vscodevim.vim
+    # asvetliakov.vscode-neovim
   ];
 })

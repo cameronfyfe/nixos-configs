@@ -1,4 +1,4 @@
-{ pkgs, activity-watch, alejandra, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -13,5 +13,5 @@
 
   system.stateVersion = "21.11";
 
-  nixpkgs.overlays = [ alejandra.overlay ] ++ activity-watch.overlays;
+  nixpkgs.overlays = [ ];
 }

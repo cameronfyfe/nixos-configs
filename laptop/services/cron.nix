@@ -5,7 +5,7 @@
     enable = true;
     systemCronJobs = [
       "0  4  * * SAT      root    nix-collect-garbage"
-      "30 *  * * *        root    du -a / | sort -nr | head -40 > /var/log/du.log"
+      "35 *  * * *        root    log=/var/log/du.log date > $log && du -a / | sort -nr | head -40 > $log"
     ];
   };
 }

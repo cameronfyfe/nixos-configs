@@ -6,11 +6,6 @@
       url = "github:nix-community/home-manager";
       inputs = { nixpkgs.follows = "nixpkgs"; };
     };
-    activity-watch.url = "gitlab:cameronfyfe/activity-watch-nix";
-    alejandra = {
-      url = "github:kamadorueda/alejandra/1.4.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     # -- aarch64 mobile machines
     nixpkgs-phone.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -22,6 +17,9 @@
       url = "github:nix-community/home-manager";
       inputs = { nixpkgs.follows = "nixpkgs-phone"; };
     };
+
+    # -- nixpkgs forks
+    nixpkgs-activitywatch.url = "github:cameronfyfe/nixpkgs/activitywatch";
   };
 
   outputs = { self, ... } @ inputs:
@@ -35,8 +33,9 @@
           "${name}" = nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = {
-              inherit nixpkgs home-manager common device-config;
-              inherit (inputs) mobile-nixos activity-watch alejandra;
+              inherit system nixpkgs home-manager common device-config;
+              inherit (inputs) mobile-nixos;
+              inherit (inputs) nixpkgs-activitywatch;
             };
             modules = [
               ({ ... }: { networking.hostName = name; })

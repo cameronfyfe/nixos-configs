@@ -3,7 +3,7 @@
 {
   imports = [
     ./keyboard.nix
-    ./lenovo-thinkpad-t15.nix
+    ./lenovo-thinkpad-t15
     ./partitions.nix
   ];
 }
