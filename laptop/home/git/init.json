@@ -1,0 +1,22 @@
+{
+  "github": {
+    "cameronfyfe": [
+      "aoc2021-nix",
+      "ets",
+      "mobile-nixos",
+      "nix",
+      "nixpkgs"
+    ],
+    "NixOS": [
+      "nix",
+      "nixpkgs",
+      "mobile-nixos"
+    ]
+  },
+  "gitlab": {
+    "cameronfyfe": [
+      "sqrgame",
+      "resume"
+    ]
+  }
+}
