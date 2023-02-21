@@ -11,9 +11,17 @@ fi
 
 # --- general helpers ---
 alias inix='echo $IN_NIX_SHELL'
-alias docker-clean='docker rm -vf $(docker ps -a -q); docker rmi -f $(docker images -a -q)'
 alias data-hogs='sudo du -a / | sort -n -r | head -40'
 alias rchmod="stat --format '%a'"
+function docker-clean() {
+	docker rm -vf $(docker ps -a -q)
+	docker rmi -f $(docker images -a -q)
+	docker system prune -a
+}
+export -f docker-clean
+
+# --- computer helpers ---
+alias hdmi-wakeup='xrandr --output DP-2 --right-of eDP-1'
 
 # --- common docker environments ---
 alias debian='docker run --rm -it -v $(pwd):/c -w="/c" debian:latest bash'

@@ -3,6 +3,10 @@
 {
   imports = [ ./git ./nvim ];
 
+  home.stateVersion = "22.11";
+
+  manual.manpages.enable = false; # TODO: I want this enabled but manual build breaks right now
+
   home.sessionVariables = {
     EDITOR = "nvim";
     GIT_EDITOR = "nvim";

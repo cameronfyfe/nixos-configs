@@ -6,6 +6,9 @@
     lfs.enable = true;
     userName = "cameronfyfe";
     userEmail = "cameron.j.fyfe@gmail.com";
+    extraConfig = {
+      url."https://github.com/".insteadof = "git://github.com/";
+    };
   };
 
   xdg.configFile = {

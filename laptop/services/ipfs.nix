@@ -1,5 +1,5 @@
 { ... }:
 
 {
-  services.ipfs.enable = true;
+  services.kubo.enable = true;
 }

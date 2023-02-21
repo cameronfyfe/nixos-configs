@@ -26,7 +26,6 @@ startupHook = do
     spawn "mkdir -p scrot/window"
     spawn "mkdir -p scrot/multiscreen"
     spawn "mkdir -p scrot/select"
-    spawn "xmobar-stop || true; xmobar-start 0"
     spawn "xscreensaver --no-splash"
     spawn "aw-start"
     spawnOn "w8" "spotify"
@@ -52,9 +51,26 @@ workspaceMap =
 workspaces =
     map (\(_, _, ws) -> ws) workspaceMap
 
+btHeadphonesCmd cmd = do
+    spawn $ "/etc/nixos/laptop/system/bluetooth/cmds.sh headphones_" ++ cmd
+
 customKeys =
     -- Restart xmonad
     [ ((mod1Mask, xK_q), restart "xmonad" True)
+    -- Display status bar
+    , ((mod1Mask .|. controlMask, xK_s), spawn "xmobar-start 0")
+    -- Hide status bar
+    , ((mod1Mask .|. controlMask, xK_d), spawn "xmobar-stop")
+    
+    -- Disconnect bluetooth headphones
+    , ((mod1Mask .|. controlMask, xK_q), btHeadphonesCmd "disconnect")
+    -- Connect bluetooth headphones
+    , ((mod1Mask .|. controlMask, xK_w), btHeadphonesCmd "connect")
+    -- Set bluetooth headphones to A2DP
+    , ((mod1Mask .|. controlMask, xK_e), btHeadphonesCmd "set_a2dp")
+    -- Set bluetooth headphones to HFP
+    , ((mod1Mask .|. controlMask, xK_r), btHeadphonesCmd "set_hfp")
+
     -- Screensaver/Lock Screen
     , ((mod1Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
     -- Screenshot (Current Monitor)
@@ -63,6 +79,7 @@ customKeys =
     , ((mod1Mask .|. controlMask, xK_Print), spawn "cd scrot/multiscreen; scrot --multidisp")
     -- Screenshot (Drag / Select)
     , ((mod1Mask .|. shiftMask, xK_Print), spawn "cd scrot/select; scrot --select --freeze")
+    
     -- Switch to extra workspace
     ] ++ [
         ((modKey, key), (windows $ W.greedyView ws))

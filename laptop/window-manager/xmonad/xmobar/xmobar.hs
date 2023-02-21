@@ -47,8 +47,9 @@ Config { font = "xft:Bitstream Vera Sans Mono:size=10:antialias=true"
       , "-O"         , "AC"
       , "-o"         , "<timeleft>"
       ] 10
+    ,  Run Com "/etc/nixos/laptop/system/bluetooth/cmds.sh" [ "headphones_get_profile" ] "headphones" 10
     ]
 , sepChar = "%"
 , alignSep = "}{"
-, template = "%cpu% %multicoretemp% | %memory% | %dynnetwork%}{<fc=#49E20E>%date%</fc> | %battery% "
+, template = "%cpu% %multicoretemp% | %memory% | %dynnetwork%}{%headphones% | <fc=#49E20E>%date%</fc> | %battery% "
 }

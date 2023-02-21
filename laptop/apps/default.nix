@@ -44,6 +44,7 @@ in
       [
         # system
         lm_sensors
+        pavucontrol
         xscreensaver
       ]
       [
@@ -81,11 +82,11 @@ in
         yq-go
         kazam
         fontforge-gtk
+        xxd
       ]
       [
         # editors
         (pkgs.callPackage ./vscode.nix { })
-
       ]
       [
         # browsers
@@ -117,18 +118,24 @@ in
         insomnia
         postman
         graphviz
-        nodejs
       ]
       [
-        # media
+        # image/video
+        inkscape
         gimp
-        libreoffice
-        liferea
-        nextcloud-client
-        spotify
         pinta
         vlc
         yt-dlp
+      ]
+      [
+        # music
+        spotify
+      ]
+      [
+        # misc media
+        libreoffice
+        liferea
+        nextcloud-client
       ]
       [
         # apps
@@ -138,6 +145,7 @@ in
         # messaging
         slack
         signal-desktop
+        tdesktop
       ]
       [
         # work
@@ -167,8 +175,12 @@ in
       "donbcfbmhbcapadipfkeojnmajbakjdc" # ruffle
       "dmkamcknogkgcdfhhbddcghachkejeap" # keplr
       "nkbihfbeogaeaoehlefnkodbefgpgknn" # metamask
+      "bfnaelmomeimhlpmgjnjophhpkkoljpa" # phantom (solana wallet)
       "digfbfaphojjndkpccljibejjbppifbc" # moesif
       "bigelpnhidcahdkpmbgpllmiibdkllai" # vimeo-downloader
+      "abkfbakhjpmblaafnpgjppbmioombali" # memex
+      "hnmcofcmhpllkdkncnofkjdlpieagngg" # json-rpc viewer
+      "fjoaledfpmneenckfbpdfhkmimnjocfa" # nordvpn
     ];
   };
 
