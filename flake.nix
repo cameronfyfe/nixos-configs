@@ -24,7 +24,7 @@
 
   outputs = { self, ... } @ inputs:
     let
-      common = import ./common;
+      common = ./common;
       config = name: path: system: nixpkgs: home-manager:
         let
           device-config = (import ./device-configs.nix)."${name}";

@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./git ./nvim ];
+  imports = [ ./git ];
 
   home.stateVersion = "22.11";
 

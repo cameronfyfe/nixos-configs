@@ -3,13 +3,14 @@
 {
   imports = [
     ./hardware
-    ./system
-    ./users
     ./window-manager
-    ./services
-    ./apps
-    ./home
-  ];
+  ] ++ (map (x: ../laptop + "/${x}") [
+    "system"
+    "users"
+    "services"
+    "apps"
+    "home"
+  ]);
 
   system.stateVersion = "21.11";
 

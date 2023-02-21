@@ -21,7 +21,10 @@ let
 in
 
 {
-  imports = [ common.apps.nix ];
+  imports = map (x: common + "/${x}") [
+    "apps/nix.nix"
+    "apps/neovim.nix"
+  ];
 
   nixpkgs.config.allowUnfree = true;
 

@@ -1,5 +1,7 @@
 { stdenv
+, dmenu
 , procps
+, ghc
 , xmobar
 , writeShellScript
 }:
@@ -20,6 +22,12 @@ in
 stdenv.mkDerivation {
   name = "xmobar-runner";
   phases = [ "installPhase" ];
+  buildInputs = [
+    ghc
+  ];
+  propogatedBuildInputs = [
+    dmenu
+  ];
   installPhase = ''
     mkdir -p $out/bin
     cp ${start} $out/bin/xmobar-start

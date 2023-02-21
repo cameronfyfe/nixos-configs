@@ -38,6 +38,3 @@ function repeat() {
 	while true; do $@; sleep 1; done
 }
 export -f repeat
-
-# --- aliases
-alias vim='nvim'

@@ -1,3 +1,0 @@
-import CameronXMonad
-
-main = runXMonad

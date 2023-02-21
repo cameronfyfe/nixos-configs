@@ -24,7 +24,6 @@ Deploy to current system:
 
 Deploy to new system with different hostname:
 
-    just bootstrap-hostname cameron-laptop
-    just deploy
+    ./bootstrap.sh
     git restore flake.nix
     just deploy
