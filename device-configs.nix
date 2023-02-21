@@ -1,8 +1,8 @@
 {
-  cameron-laptop = {
+  cameron-tp-p15 = {
     window-manager = "xmonad";
   };
-  cameron-laptop-2 = {
+  cameron-tp-t15 = {
     window-manager = "xmonad";
   };
   cameron-phone = {

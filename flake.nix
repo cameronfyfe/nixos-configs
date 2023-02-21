@@ -50,7 +50,7 @@
 
           # -- Laptop (thinkpad p15)
           [
-            "cameron-laptop"
+            "cameron-tp-p15"
             ./laptop
             "x86_64-linux"
             nixpkgs
@@ -59,7 +59,7 @@
 
           # -- Laptop (thinkpad t15)
           [
-            "cameron-laptop-2"
+            "cameron-tp-t15"
             ./laptop-2
             "x86_64-linux"
             nixpkgs
