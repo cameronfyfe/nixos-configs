@@ -1,13 +1,15 @@
-{ lib, modulesPath, ... }:
+{ config, lib, modulesPath, ... }:
 
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ./fan.nix ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot.initrd.availableKernelModules =
-    [ "nvme" "usbhid" "usb_storage" "rtsx_pci_sdmmc" ];
+    [ "xhci_pci" "nvme" "usb_storage" "usbhid" "sdhci_pci" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

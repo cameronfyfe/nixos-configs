@@ -25,6 +25,8 @@
     ];
   };
 
+  services.xserver.videoDrivers = [ "modesetting" ];
+
   environment.systemPackages = with pkgs; [
     dmenu
     ghc
