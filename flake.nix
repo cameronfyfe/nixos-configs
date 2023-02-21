@@ -48,10 +48,19 @@
       configs = with builtins;
         map (foldl' (f: x: f x) config) (with inputs; [
 
-          # -- Laptop (thinkpad t15)
+          # -- Laptop (thinkpad p15)
           [
             "cameron-laptop"
             ./laptop
+            "x86_64-linux"
+            nixpkgs
+            home-manager
+          ]
+
+          # -- Laptop (thinkpad t15)
+          [
+            "cameron-laptop-2"
+            ./laptop-2
             "x86_64-linux"
             nixpkgs
             home-manager
