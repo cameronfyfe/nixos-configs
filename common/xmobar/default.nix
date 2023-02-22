@@ -8,11 +8,11 @@
 let
 
   start = writeShellScript "xmobar-start" ''
-    SCREEN=$1
-    ${xmobar}/bin/xmobar -x -$SCREEN ${./xmobar.hs}
+    SCREEN=''${1:-0}
+    (${xmobar}/bin/xmobar -x -$SCREEN ${./xmobar.hs} &)
   '';
 
-  stop = writeShellScript "xmobar-start" ''
+  stop = writeShellScript "xmobar-stop" ''
     ${procps}/bin/pkill xmobar
   '';
 
