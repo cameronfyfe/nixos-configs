@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware
+    ./services
     ./window-manager
   ] ++ (map (x: ../laptop + "/${x}") [
     "system"
