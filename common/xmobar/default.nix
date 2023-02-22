@@ -1,5 +1,4 @@
 { stdenv
-, dmenu
 , procps
 , ghc
 , xmobar
@@ -24,9 +23,6 @@ stdenv.mkDerivation {
   phases = [ "installPhase" ];
   buildInputs = [
     ghc
-  ];
-  propogatedBuildInputs = [
-    dmenu
   ];
   installPhase = ''
     mkdir -p $out/bin

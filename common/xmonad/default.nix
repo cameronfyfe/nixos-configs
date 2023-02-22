@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   services.xserver.windowManager.xmonad = {
@@ -8,4 +8,8 @@
       (haskellPackages.callCabal2nix "CameronXMonad" ./CameronXMonad { })
     ];
   };
+
+  environment.systemPackages = with pkgs; [
+    dmenu
+  ];
 }
