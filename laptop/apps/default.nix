@@ -184,6 +184,7 @@ in
       "abkfbakhjpmblaafnpgjppbmioombali" # memex
       "hnmcofcmhpllkdkncnofkjdlpieagngg" # json-rpc viewer
       "fjoaledfpmneenckfbpdfhkmimnjocfa" # nordvpn
+      "lcbjdhceifofjlpecfpeimnnphbcjgnc" # xBrowserSync
     ];
   };
 
