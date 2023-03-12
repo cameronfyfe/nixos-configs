@@ -1,13 +1,16 @@
-{ device-config, ... }:
+{ device-config, network, ... }:
 
 {
-  networking.wireless.enable = (device-config.window-manager == "xmonad");
+  networking = {
+    inherit (network.main)
+      nameservers
+      extraHosts
+      ;
 
-  networking.nameservers = [ "8.8.8.8" "::1" ];
-  networking.resolvconf.enable = false;
-  networking.dhcpcd.extraConfig = "nohook resolv.conf";
+    wireless.enable = (device-config.window-manager == "xmonad");
 
-  networking.firewall.allowedTCPPorts = [ 80 443 8000 ];
+    # firewall.allowedTCPPorts = [ 80 443 8000 ];
+  };
 
   # TODO: setup
   #   services.openvpn.servers = {

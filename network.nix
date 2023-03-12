@@ -6,5 +6,8 @@
     staticIps = {
       cameron-server = "192.168.0.10";
     };
+    extraHosts = ''
+      192.168.0.10 jellyfin
+    '';
   };
 }
