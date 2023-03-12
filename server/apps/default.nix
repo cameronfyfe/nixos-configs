@@ -16,8 +16,11 @@
     htop
     just
     nixpkgs-fmt
-    parted
   ] ++ [
     (pkgs.callPackage ./vscode.nix { })
+  ] ++ [
+    hddtemp
+    parted
+    smartmontools
   ];
 }
