@@ -7,7 +7,7 @@
     userName = "cameronfyfe";
     userEmail = "cameron.j.fyfe@gmail.com";
     extraConfig = {
-      url."https://github.com/".insteadof = "git://github.com/";
+      url."https://github.com/".insteadof = "git://git@github.com/";
     };
   };
 
