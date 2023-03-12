@@ -91,6 +91,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-git-repo-manager": {
+      "locked": {
+        "lastModified": 1677455645,
+        "narHash": "sha256-rzYWA0LQ6XuOHKbTMJe520mlbNl9k2QgCSmp1mZ99KU=",
+        "owner": "cameronfyfe",
+        "repo": "nixpkgs",
+        "rev": "218d6e129eb60e78f24dd32fd1a1bad7d5a79760",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cameronfyfe",
+        "ref": "git-repo-manager",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-phone": {
       "locked": {
         "lastModified": 1676885936,
@@ -114,6 +130,7 @@
         "mobile-nixos": "mobile-nixos",
         "nixpkgs": "nixpkgs",
         "nixpkgs-activitywatch": "nixpkgs-activitywatch",
+        "nixpkgs-git-repo-manager": "nixpkgs-git-repo-manager",
         "nixpkgs-phone": "nixpkgs-phone"
       }
     },

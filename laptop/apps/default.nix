@@ -1,4 +1,4 @@
-{ system, pkgs, common, nixpkgs-activitywatch, ... }:
+{ system, pkgs, common, forks, ... }:
 
 let
 
@@ -18,6 +18,10 @@ let
       '';
     };
 
+  git-repo-manager = (import forks.nixpkgs-git-repo-manager {
+    inherit system;
+  }).git-repo-manager;
+
 in
 
 {
@@ -36,7 +40,7 @@ in
     foldl' (a: b: a ++ b) [ ] (with pkgs; [
       (
         let
-          inherit (import nixpkgs-activitywatch {
+          inherit (import forks.nixpkgs-activitywatch {
             inherit system;
           }) activitywatch;
         in
@@ -109,6 +113,7 @@ in
         rustc
         rustfmt
         cargo
+        git-repo-manager
         ghc
         go
         patchelf

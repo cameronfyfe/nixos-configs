@@ -20,10 +20,17 @@
 
     # -- nixpkgs forks
     nixpkgs-activitywatch.url = "github:cameronfyfe/nixpkgs/activitywatch";
+    nixpkgs-git-repo-manager.url = "github:cameronfyfe/nixpkgs/git-repo-manager";
   };
 
   outputs = { self, ... } @ inputs:
     let
+      forks = {
+        inherit (inputs)
+          nixpkgs-activitywatch
+          nixpkgs-git-repo-manager
+          ;
+      };
       common = ./common;
       device-keys = import ./device-keys.nix;
       network = import ./network.nix;
@@ -35,10 +42,9 @@
           "${name}" = nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = {
-              inherit system nixpkgs home-manager common;
+              inherit system nixpkgs home-manager forks common;
               inherit device-keys device-config network;
               inherit (inputs) mobile-nixos;
-              inherit (inputs) nixpkgs-activitywatch;
             };
             modules = [
               ({ ... }: { networking.hostName = name; })
