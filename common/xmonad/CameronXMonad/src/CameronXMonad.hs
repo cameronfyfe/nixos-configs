@@ -55,8 +55,11 @@ btHeadphonesCmd cmd = do
     spawn $ "/etc/nixos/laptop/system/bluetooth/cmds.sh headphones_" ++ cmd
 
 customKeys =
+    -- Show XMonad custom keys
+    [ ((mod1Mask .|. controlMask, xK_k), spawn "showXMonadKeys")
+
     -- Restart xmonad
-    [ ((mod1Mask, xK_q), restart "xmonad" True)
+    , ((mod1Mask, xK_q), restart "xmonad" True)
     -- Display status bar
     , ((mod1Mask .|. controlMask, xK_s), spawn "xmobar-start 0")
     -- Hide status bar
@@ -89,6 +92,7 @@ customKeys =
         ((modKey .|. shiftMask, key), (windows $ W.shift ws))
         | (modKey, key, ws) <- workspaceMap
     ]
+-- customKeysEnd
 
 config = 
     -- dynamicSBs barSpawner (
