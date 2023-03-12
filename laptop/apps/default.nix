@@ -180,7 +180,7 @@ in
   programs.chromium = {
     enable = true;
     extensions = [
-      "donbcfbmhbcapadipfkeojnmajbakjdc" # ruffle
+      # "donbcfbmhbcapadipfkeojnmajbakjdc" # ruffle
       "dmkamcknogkgcdfhhbddcghachkejeap" # keplr
       "nkbihfbeogaeaoehlefnkodbefgpgknn" # metamask
       "bfnaelmomeimhlpmgjnjophhpkkoljpa" # phantom (solana wallet)
