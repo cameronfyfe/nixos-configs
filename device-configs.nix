@@ -5,6 +5,9 @@
   cameron-tp-t15 = {
     window-manager = "xmonad";
   };
+  cameron-server = {
+    window-manager = "xmonad";
+  };
   cameron-phone = {
     window-manager = "phosh";
   };

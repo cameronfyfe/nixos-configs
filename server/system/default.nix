@@ -1,5 +1,10 @@
 { ... }:
 
 {
-  imports = [ ./audio.nix ./bluetooth.nix ./networking.nix ./timezone.nix ];
+  imports = [
+    ./audio.nix
+    ./bluetooth.nix
+    ./networking.nix
+    ./timezone.nix
+  ];
 }

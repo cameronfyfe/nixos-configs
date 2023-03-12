@@ -1,9 +1,15 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./hardware ./system ./users ./services ./apps ];
+  imports = [
+    ./hardware
+    ./system
+    ./users
+    ./home
+    ./window-manager
+    ./services
+    ./apps
+  ];
 
-  boot.kernelPackages = pkgs.linuxPackages_5_16;
-
-  system.stateVersion = "22.11";
+  system.stateVersion = "23.05";
 }

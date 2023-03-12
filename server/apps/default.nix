@@ -1,19 +1,23 @@
-{ pkgs, ... }:
+{ pkgs, common, ... }:
 
 {
-  imports = [ ./nix.nix ];
+  imports = map (x: common + "/${x}") [
+    "apps/nix.nix"
+    "apps/neovim.nix"
+  ];
+
+  nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    cron
-    docker
-    docker-compose
+    brave
+    google-chrome
     git
+    gnumake
     htop
     just
-    libreoffice
-    nixfmt
     nixpkgs-fmt
-    pkgconfig
-    vim
+    parted
+  ] ++ [
+    (pkgs.callPackage ./vscode.nix { })
   ];
 }

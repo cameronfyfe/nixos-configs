@@ -26,6 +26,7 @@
     let
       common = ./common;
       device-keys = import ./device-keys.nix;
+      network = import ./network.nix;
       config = name: path: system: nixpkgs: home-manager:
         let
           device-config = (import ./device-configs.nix)."${name}";
@@ -34,7 +35,8 @@
           "${name}" = nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = {
-              inherit system nixpkgs home-manager common device-keys device-config;
+              inherit system nixpkgs home-manager common;
+              inherit device-keys device-config network;
               inherit (inputs) mobile-nixos;
               inherit (inputs) nixpkgs-activitywatch;
             };
