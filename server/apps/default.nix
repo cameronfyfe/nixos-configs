@@ -1,4 +1,12 @@
-{ pkgs, common, ... }:
+{ system, pkgs, common, forks, ... }:
+
+let
+
+  scrutiny = (import forks.nixpkgs-scrutiny {
+    inherit system;
+  }).scrutiny;
+
+in
 
 {
   imports = map (x: common + "/${x}") [
@@ -22,5 +30,6 @@
     hddtemp
     parted
     smartmontools
+    scrutiny
   ];
 }

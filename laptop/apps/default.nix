@@ -22,6 +22,10 @@ let
     inherit system;
   }).git-repo-manager;
 
+  scrutiny = (import forks.nixpkgs-scrutiny {
+    inherit system;
+  }).scrutiny;
+
 in
 
 {
@@ -172,6 +176,9 @@ in
         steam
         winePackages.stableFull
         lutris
+      ]
+      [
+        scrutiny
       ]
     ]);
 

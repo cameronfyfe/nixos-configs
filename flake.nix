@@ -20,7 +20,9 @@
 
     # -- nixpkgs forks
     nixpkgs-activitywatch.url = "github:cameronfyfe/nixpkgs/activitywatch";
-    nixpkgs-git-repo-manager.url = "github:cameronfyfe/nixpkgs/git-repo-manager";
+    nixpkgs-git-repo-manager.url = "github:cameronfyfe/nixpkgs/add-git-repo-manager";
+    nixpkgs-scrutiny.url = "github:cameronfyfe/nixpkgs/add-scrutiny";
+
   };
 
   outputs = { self, ... } @ inputs:
@@ -29,6 +31,7 @@
         inherit (inputs)
           nixpkgs-activitywatch
           nixpkgs-git-repo-manager
+          nixpkgs-scrutiny
           ;
       };
       common = ./common;
