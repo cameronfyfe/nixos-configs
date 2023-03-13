@@ -125,11 +125,11 @@
     },
     "nixpkgs-scrutiny": {
       "locked": {
-        "lastModified": 1678674221,
-        "narHash": "sha256-RY3QZ3CON5xSZj/HzOdrfW/gwDGk4tJAG+Y1F6smlTU=",
+        "lastModified": 1678675787,
+        "narHash": "sha256-cvip+ylZTPz4gQtGnO6uwnXVkuwEWiSgDgODJHZqrSw=",
         "owner": "cameronfyfe",
         "repo": "nixpkgs",
-        "rev": "ef1001cc45b3d8cf7d3ced8e8095f2b50812c3d7",
+        "rev": "9450173891585606648fc414e8209b7a3422a621",
         "type": "github"
       },
       "original": {
