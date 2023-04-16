@@ -139,6 +139,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-slic3r": {
+      "locked": {
+        "lastModified": 1680415487,
+        "narHash": "sha256-6AUnLIQJMHVAMNV4I8bzaNkYOX7SZVOzh4+mGw3x79M=",
+        "owner": "cameronfyfe",
+        "repo": "nixpkgs",
+        "rev": "f8081fc96355705c10c79dca694afd18ef1cbc72",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cameronfyfe",
+        "ref": "fix-slic3r",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -148,7 +164,8 @@
         "nixpkgs-activitywatch": "nixpkgs-activitywatch",
         "nixpkgs-git-repo-manager": "nixpkgs-git-repo-manager",
         "nixpkgs-phone": "nixpkgs-phone",
-        "nixpkgs-scrutiny": "nixpkgs-scrutiny"
+        "nixpkgs-scrutiny": "nixpkgs-scrutiny",
+        "nixpkgs-slic3r": "nixpkgs-slic3r"
       }
     },
     "utils": {
