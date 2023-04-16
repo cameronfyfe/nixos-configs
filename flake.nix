@@ -64,7 +64,7 @@
           # -- Laptop (thinkpad p15)
           [
             "cameron-tp-p15"
-            ./laptop
+            ./machines/laptop
             "x86_64-linux"
             nixpkgs
             home-manager
@@ -73,7 +73,7 @@
           # -- Laptop (thinkpad t15)
           [
             "cameron-tp-t15"
-            ./laptop-2
+            ./machines/laptop-2
             "x86_64-linux"
             nixpkgs
             home-manager
@@ -82,7 +82,7 @@
           # -- Home Server
           [
             "cameron-server"
-            ./server
+            ./machines/server
             "x86_64-linux"
             nixpkgs
             home-manager
@@ -91,7 +91,7 @@
           # -- Phone (pinephone pro)
           [
             "cameron-phone"
-            ./phone
+            ./machines/phone
             "aarch64-linux"
             nixpkgs-phone
             home-manager-phone
@@ -100,7 +100,7 @@
           # -- Phone 2 (pinephone)
           [
             "cameron-pine"
-            ./pine
+            ./machines/pine
             "aarch64-linux"
             nixpkgs-phone
             home-manager-phone

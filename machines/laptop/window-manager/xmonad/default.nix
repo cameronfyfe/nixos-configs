@@ -1,9 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, common, ... }:
 
+# TODO: organize this better, some stuff is here only out of convenience because
+# it shoudn't be defined when gnome is set as the window manager instead of xmonad
 {
-  imports = [ ../../../common/xmonad ];
+  imports = [ "${common}/xmonad" ];
 
-  environment.systemPackages = [ (pkgs.callPackage ../../../common/xmobar { }) ];
+  environment.systemPackages = [ (pkgs.callPackage "${common}/xmobar" { }) ];
 
   services.upower.enable = true;
   systemd.services.upower.enable = true;
