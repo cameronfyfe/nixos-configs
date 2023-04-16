@@ -26,12 +26,15 @@ let
     inherit system;
   }).scrutiny;
 
+  _slic3r = (import forks.nixpkgs-slic3r {
+    inherit system;
+  }).slic3r;
+
 in
 
 {
   imports = map (x: common + "/${x}") [
     "apps/nix.nix"
-    "apps/neovim.nix"
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -97,13 +100,16 @@ in
       ]
       [
         # editors
-        (pkgs.callPackage ./vscode.nix { })
+        (pkgs.callPackage ./vscode { })
       ]
       [
         # browsers
         google-chrome
         chromium
         firefox
+        opera
+        _slic3r
+        cura
       ]
       [
         # dev-tools
@@ -130,6 +136,7 @@ in
         insomnia
         postman
         graphviz
+        moreutils
       ]
       [
         # image/video
@@ -158,6 +165,7 @@ in
         slack
         signal-desktop
         tdesktop
+        element-desktop
       ]
       [
         # work
@@ -176,9 +184,15 @@ in
         steam
         winePackages.stableFull
         lutris
+        jupyter
       ]
       [
         scrutiny
+
+        neo4j-desktop
+      ]
+      [
+        nodejs # TOOD: this is here just for neovim, package a standalone version for neovim to use
       ]
     ]);
 
