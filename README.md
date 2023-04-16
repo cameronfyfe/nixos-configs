@@ -24,6 +24,6 @@ Deploy to current system:
 
 Deploy to new system with different hostname:
 
-    ./bootstrap.sh
+    ./bootstrap.sh <target_hostname>
     git restore flake.nix
     just deploy
