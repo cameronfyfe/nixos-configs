@@ -54,6 +54,9 @@ workspaces =
 btHeadphonesCmd cmd = do
     spawn $ "/etc/nixos/laptop/system/bluetooth/cmds.sh headphones_" ++ cmd
 
+vscodeCmd cmd = do
+    spawn $ "/etc/nixos/laptop/apps/vscode/cmds.sh " ++ cmd
+
 customKeys =
     -- Show XMonad custom keys
     [ ((mod1Mask .|. controlMask, xK_k), spawn "showXMonadKeys")
@@ -73,6 +76,11 @@ customKeys =
     , ((mod1Mask .|. controlMask, xK_e), btHeadphonesCmd "set_a2dp")
     -- Set bluetooth headphones to HFP
     , ((mod1Mask .|. controlMask, xK_r), btHeadphonesCmd "set_hfp")
+
+    -- Vscode: enable rust inlays
+    , ((mod1Mask .|. shiftMask, xK_i), vscodeCmd "rust_inlays_enable")
+    -- Vscode: disable rust inlays
+    , ((mod1Mask .|. shiftMask, xK_o), vscodeCmd "rust_inlays_disable")
 
     -- Screensaver/Lock Screen
     , ((mod1Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")

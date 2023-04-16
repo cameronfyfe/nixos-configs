@@ -38,6 +38,7 @@ in
     # Language Packs
     bbenoist.nix
     golang.go
+    tiehuis.zig
     matklad.rust-analyzer
     ms-python.python
     JuanBlanco.solidity
