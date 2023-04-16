@@ -33,6 +33,13 @@
       nvim-lspconfig
       rust-tools-nvim
     ];
+    coc = {
+      enable = true;
+      settings = {
+        diagnostic.virtualText = true;
+        diagnostic.virtualTextCurrentLineOnly = false;
+      };
+    };
     extraConfig =
       let
         inherit (pkgs.lib)
