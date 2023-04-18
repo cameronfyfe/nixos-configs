@@ -52,10 +52,10 @@ workspaces =
     map (\(_, _, ws) -> ws) workspaceMap
 
 btHeadphonesCmd cmd = do
-    spawn $ "/etc/nixos/laptop/system/bluetooth/cmds.sh headphones_" ++ cmd
+    spawn $ "/etc/nixos/machines/laptop/system/bluetooth/cmds.sh headphones_" ++ cmd
 
 vscodeCmd cmd = do
-    spawn $ "/etc/nixos/laptop/apps/vscode/cmds.sh " ++ cmd
+    spawn $ "/etc/nixos/machines/laptop/apps/vscode/cmds.sh " ++ cmd
 
 customKeys =
     -- Show XMonad custom keys
