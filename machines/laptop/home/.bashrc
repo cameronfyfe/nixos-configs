@@ -34,6 +34,12 @@ alias set-vim='export OPEN_EDITOR_CMD="xterm -e nvim"'
 alias set-codium='export OPEN_EDITOR_CMD=codium'
 alias set-none='export OPEN_EDITOR_CMD=""'
 
+# --- short cuts ---
+alias _='xterm -e'
+alias _nvim='_ nvim'
+alias _htop='_ htop'
+alias _nload='_ nload'
+
 function repeat() {
 	while true; do $@; sleep 1; done
 }
