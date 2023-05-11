@@ -13,6 +13,8 @@
           tree-sitter-rust
           tree-sitter-haskell
           tree-sitter-typescript
+          tree-sitter-scss
+          tree-sitter-svelte
           tree-sitter-python
           tree-sitter-go
           tree-sitter-cpp
