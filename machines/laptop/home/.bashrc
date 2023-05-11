@@ -35,10 +35,19 @@ alias set-codium='export OPEN_EDITOR_CMD=codium'
 alias set-none='export OPEN_EDITOR_CMD=""'
 
 # --- short cuts ---
-alias _='xterm -e'
+alias _='new_term'
 alias _nvim='_ nvim'
 alias _htop='_ htop'
 alias _nload='_ nload'
+
+# --- terminal helpers ---
+alias i_wd='echo "cd -P /proc/$$/cwd" | xsel -i'
+alias o_wd='$(xsel -o)'
+
+function new_term() {
+	xterm -e "$@" > /dev/null 2>&1 &
+}
+export -f repeat
 
 function repeat() {
 	while true; do $@; sleep 1; done
