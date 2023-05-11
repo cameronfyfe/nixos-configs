@@ -123,6 +123,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-risczero": {
+      "locked": {
+        "lastModified": 1683453008,
+        "narHash": "sha256-7oJqNYVQZaLDidIHVbbZ5am6aXFvBH2m0Kf543ketQg=",
+        "owner": "cameronfyfe",
+        "repo": "nixpkgs",
+        "rev": "0fcd2ec56632d9dcb68b95c757abd082ec4b399b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cameronfyfe",
+        "ref": "add-cargo-risc0",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-scrutiny": {
       "locked": {
         "lastModified": 1678675787,
@@ -164,6 +180,7 @@
         "nixpkgs-activitywatch": "nixpkgs-activitywatch",
         "nixpkgs-git-repo-manager": "nixpkgs-git-repo-manager",
         "nixpkgs-phone": "nixpkgs-phone",
+        "nixpkgs-risczero": "nixpkgs-risczero",
         "nixpkgs-scrutiny": "nixpkgs-scrutiny",
         "nixpkgs-slic3r": "nixpkgs-slic3r"
       }

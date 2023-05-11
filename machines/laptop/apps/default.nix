@@ -30,6 +30,10 @@ let
     inherit system;
   }).slic3r;
 
+  inherit (import forks.nixpkgs-risczero {
+    inherit system;
+  }) cargo-risczero;
+
 in
 
 {
@@ -164,6 +168,7 @@ in
         # messaging
         slack
         signal-desktop
+        discord
         tdesktop
         element-desktop
       ]
@@ -193,6 +198,24 @@ in
       ]
       [
         nodejs # TOOD: this is here just for neovim, package a standalone version for neovim to use
+      ]
+      [
+        cachix
+      ]
+      [
+        # terminal fun
+        lolcat
+        sl
+        neofetch
+        jp2a
+        cmatrix
+      ]
+      [
+        xsel
+        trash-cli
+      ]
+      [
+        cargo-risczero
       ]
     ]);
 
