@@ -26,14 +26,6 @@ let
     inherit system;
   }).scrutiny;
 
-  _slic3r = (import forks.nixpkgs-slic3r {
-    inherit system;
-  }).slic3r;
-
-  inherit (import forks.nixpkgs-risczero {
-    inherit system;
-  }) cargo-risczero;
-
 in
 
 {
@@ -112,8 +104,6 @@ in
         chromium
         firefox
         opera
-        _slic3r
-        cura
       ]
       [
         # dev-tools
@@ -216,6 +206,11 @@ in
       ]
       [
         cargo-risczero
+      ]
+      [
+        # 3d printing
+        slic3r
+        cura
       ]
     ]);
 

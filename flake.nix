@@ -22,8 +22,6 @@
     nixpkgs-activitywatch.url = "github:cameronfyfe/nixpkgs/activitywatch";
     nixpkgs-git-repo-manager.url = "github:cameronfyfe/nixpkgs/add-git-repo-manager";
     nixpkgs-scrutiny.url = "github:cameronfyfe/nixpkgs/add-scrutiny";
-    nixpkgs-slic3r.url = "github:cameronfyfe/nixpkgs/fix-slic3r";
-    nixpkgs-risczero.url = "github:cameronfyfe/nixpkgs/add-cargo-risc0";
   };
 
   outputs = { self, ... } @ inputs:
@@ -33,8 +31,6 @@
           nixpkgs-activitywatch
           nixpkgs-git-repo-manager
           nixpkgs-scrutiny
-          nixpkgs-slic3r
-          nixpkgs-risczero
           ;
       };
       common = ./common;
