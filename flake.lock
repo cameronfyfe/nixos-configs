@@ -45,17 +45,17 @@
     "mobile-nixos": {
       "flake": false,
       "locked": {
-        "lastModified": 1653945435,
-        "narHash": "sha256-pD7Om1ocnUiNyZZgh+jbD6ZKHwu5NqSIZZ2pxLroddk=",
-        "owner": "samueldr-wip",
-        "repo": "mobile-nixos-wip",
-        "rev": "e8ffe9b29c74e27c25f55161c6e952ef97870c3e",
+        "lastModified": 1677546929,
+        "narHash": "sha256-KwGBgdRq/yWBfp3UVSm3s+kI2PGpsNkXVqsDMQppBaI=",
+        "owner": "wentam",
+        "repo": "mobile-nixos",
+        "rev": "7f49a14c58fc8cace414a04b48ba5619ed025e13",
         "type": "github"
       },
       "original": {
-        "owner": "samueldr-wip",
-        "ref": "wip/pinephone-pro",
-        "repo": "mobile-nixos-wip",
+        "owner": "wentam",
+        "ref": "ppp-pr",
+        "repo": "mobile-nixos",
         "type": "github"
       }
     },

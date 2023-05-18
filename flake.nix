@@ -10,7 +10,7 @@
     # -- aarch64 mobile machines
     nixpkgs-phone.url = "github:NixOS/nixpkgs/nixos-unstable";
     mobile-nixos = {
-      url = "github:samueldr-wip/mobile-nixos-wip/wip/pinephone-pro";
+      url = "github:wentam/mobile-nixos/ppp-pr";
       flake = false;
     };
     home-manager-phone = {
