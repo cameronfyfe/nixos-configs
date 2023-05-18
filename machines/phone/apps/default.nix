@@ -1,7 +1,9 @@
 { pkgs, device-config, common, ... }:
 
 {
-  imports = [ common.apps.nix ];
+  imports = map (x: common + "/${x}") [
+    "apps/nix.nix"
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
