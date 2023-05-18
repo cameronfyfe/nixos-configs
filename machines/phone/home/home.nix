@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  home.stateVersion = "22.11";
+
   home.sessionVariables = {
     EDITOR = "vim";
     GIT_EDITOR = "vim";
