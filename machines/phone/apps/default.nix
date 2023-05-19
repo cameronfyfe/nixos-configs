@@ -5,10 +5,16 @@
     "apps/nix.nix"
   ];
 
+  eg25-manager = pkgs.callPackage ./eg25-manager.nix { };
+
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with builtins;
     foldl' (a: b: a ++ b) [ ] (with pkgs; [
+      [
+        # modem
+        eg25-manager
+      ]
       [
         # SMS
         chatty
