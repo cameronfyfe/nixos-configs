@@ -1,12 +1,18 @@
 { pkgs, device-config, common, ... }:
 
 {
-  imports = [ common.apps.nix ];
+  imports = map (x: common + "/${x}") [
+    "apps/nix.nix"
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with builtins;
     foldl' (a: b: a ++ b) [ ] (with pkgs; [
+      [
+        # modem
+        (pkgs.callPackage ./eg25-manager.nix { })
+      ]
       [
         # SMS
         chatty
