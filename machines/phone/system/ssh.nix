@@ -2,5 +2,5 @@
 
 {
   services.openssh.enable = true;
-  services.openssh.PermitRootLogin = "yes";
+  services.openssh.settings.PermitRootLogin = "yes";
 }
