@@ -23,6 +23,7 @@ import Colors
 -- barSpawner _ = mempty -- nothing on the rest of the screens
 
 startupHook = do
+    spawn "xmobar-start 0"
     spawn "mkdir -p scrot/window"
     spawn "mkdir -p scrot/multiscreen"
     spawn "mkdir -p scrot/select"

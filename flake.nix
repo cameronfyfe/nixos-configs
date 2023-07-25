@@ -21,6 +21,8 @@
     # -- nixpkgs forks
     nixpkgs-activitywatch.url = "github:cameronfyfe/nixpkgs/activitywatch";
     nixpkgs-git-repo-manager.url = "github:cameronfyfe/nixpkgs/add-git-repo-manager";
+    nixpkgs-iroh.url = "github:cameronfyfe/nixpkgs/iroh";
+    nixpkgs-mprime-primenet.url = "github:cameronfyfe/nixpkgs/mprime-primenet";
     nixpkgs-scrutiny.url = "github:cameronfyfe/nixpkgs/add-scrutiny";
   };
 
@@ -30,6 +32,8 @@
         inherit (inputs)
           nixpkgs-activitywatch
           nixpkgs-git-repo-manager
+          nixpkgs-iroh
+          nixpkgs-mprime-primenet
           nixpkgs-scrutiny
           ;
       };

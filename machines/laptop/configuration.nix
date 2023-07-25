@@ -15,11 +15,11 @@
 
   nixpkgs.overlays = [ ];
 
-  services.neo4j = {
-    enable = true;
-    workerCount = 2;
-    bolt.tlsLevel = "DISABLED";
-    https.enable = false;
-    defaultListenAddress = "0.0.0.0";
-  };
+  # services.neo4j = {
+  #   enable = true;
+  #   workerCount = 2;
+  #   bolt.tlsLevel = "DISABLED";
+  #   https.enable = false;
+  #   defaultListenAddress = "0.0.0.0";
+  # };
 }

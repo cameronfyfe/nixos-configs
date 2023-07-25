@@ -22,6 +22,10 @@ let
     inherit system;
   }).git-repo-manager;
 
+  iroh = (import forks.nixpkgs-iroh {
+    inherit system;
+  }).iroh;
+
   scrutiny = (import forks.nixpkgs-scrutiny {
     inherit system;
   }).scrutiny;
@@ -103,7 +107,7 @@ in
         google-chrome
         chromium
         firefox
-        opera
+        # opera -- BROKEN
       ]
       [
         # dev-tools
@@ -122,7 +126,7 @@ in
         go
         patchelf
         pkg-config
-        python39
+        python3
         just
         lldb
         docker
@@ -184,7 +188,7 @@ in
       [
         scrutiny
 
-        neo4j-desktop
+        # neo4j-desktop -- BROKEN
       ]
       [
         nodejs # TOOD: this is here just for neovim, package a standalone version for neovim to use
@@ -212,6 +216,20 @@ in
         slic3r
         cura
       ]
+      [
+        qFlipper
+      ]
+      [
+        iroh
+      ]
+      [
+        kazam
+        simplescreenrecorder
+        (import forks.nixpkgs-mprime-primenet {
+          inherit system;
+          config.allowUnfree = true;
+        }).mprime-primenet
+      ]
     ]);
 
   programs.steam.enable = true;
@@ -222,10 +240,10 @@ in
       # "donbcfbmhbcapadipfkeojnmajbakjdc" # ruffle
       "dmkamcknogkgcdfhhbddcghachkejeap" # keplr
       "nkbihfbeogaeaoehlefnkodbefgpgknn" # metamask
-      "bfnaelmomeimhlpmgjnjophhpkkoljpa" # phantom (solana wallet)
+      # "bfnaelmomeimhlpmgjnjophhpkkoljpa" # phantom (solana wallet)
       "digfbfaphojjndkpccljibejjbppifbc" # moesif
       "bigelpnhidcahdkpmbgpllmiibdkllai" # vimeo-downloader
-      "abkfbakhjpmblaafnpgjppbmioombali" # memex
+      # "abkfbakhjpmblaafnpgjppbmioombali" # memex
       "hnmcofcmhpllkdkncnofkjdlpieagngg" # json-rpc viewer
       "fjoaledfpmneenckfbpdfhkmimnjocfa" # nordvpn
       "lcbjdhceifofjlpecfpeimnnphbcjgnc" # xBrowserSync

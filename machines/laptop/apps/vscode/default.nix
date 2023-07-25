@@ -42,7 +42,7 @@ in
     matklad.rust-analyzer
     ms-python.python
     JuanBlanco.solidity
-    RemixProject.ethereum-remix
+    # RemixProject.ethereum-remix -- BROKEN
     # ms-vscode.cpptools -- BROKEN
     justusadam.language-haskell
     svelte.svelte-vscode
@@ -51,10 +51,11 @@ in
     tamasfe.even-better-toml
     yzhang.markdown-all-in-one
     jock.svg
+    zxh404.vscode-proto3
     # Misc
     editorconfig.editorconfig
     ms-vscode-remote.remote-ssh
-    # vscodevim.vim
+    vscodevim.vim
     # asvetliakov.vscode-neovim
     ms-ceintl.vscode-language-pack-es
   ];

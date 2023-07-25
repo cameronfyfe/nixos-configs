@@ -5,4 +5,4 @@
   cameron-phone = {
     ssh-pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBgoqWweR2rjPE1ZTNFVHjlvjFEUKAXfc2/Mr/At+dw2 cameron@cameron-phone";
   }
-}
+    }
