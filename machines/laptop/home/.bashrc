@@ -21,7 +21,7 @@ function docker-clean() {
 export -f docker-clean
 
 # --- computer helpers ---
-alias hdmi-wakeup='xrandr --output DP-2 --right-of eDP-1'
+alias hdmi-wakeup='xrandr --output HDMI-1-3 --left-of eDP-1 --auto'
 
 # --- common docker environments ---
 alias debian='docker run --rm -it -v $(pwd):/c -w="/c" debian:latest bash'

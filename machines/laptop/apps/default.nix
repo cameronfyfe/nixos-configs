@@ -111,6 +111,7 @@ in
       ]
       [
         # dev-tools
+        stdenv.cc.cc.lib
         binutils.bintools
         gnumake
         gcc
@@ -165,6 +166,7 @@ in
         discord
         tdesktop
         element-desktop
+        zoom-us
       ]
       [
         # work
@@ -229,6 +231,10 @@ in
           inherit system;
           config.allowUnfree = true;
         }).mprime-primenet
+        rpi-imager
+      ]
+      [
+        feh
       ]
     ]);
 

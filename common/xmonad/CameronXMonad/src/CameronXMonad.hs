@@ -23,6 +23,7 @@ import Colors
 -- barSpawner _ = mempty -- nothing on the rest of the screens
 
 startupHook = do
+    spawn "feh --bg-fill --no-fehbg ~/.wallpaper/nixos.png"
     spawn "xmobar-start 0"
     spawn "mkdir -p scrot/window"
     spawn "mkdir -p scrot/multiscreen"
@@ -30,7 +31,7 @@ startupHook = do
     spawn "xscreensaver --no-splash"
     spawn "aw-start"
     spawnOn "w8" "spotify"
-    spawnOn "w0" "codium /etc/nixos"
+    spawnOn "w0" "nvim /etc/nixos"
     spawnOn "w0" "xterm -e \"cd /etc/nixos\""
 
 workspaceMap =
@@ -69,6 +70,11 @@ customKeys =
     -- Hide status bar
     , ((mod1Mask .|. controlMask, xK_d), spawn "xmobar-stop")
     
+    -- Decrease Volume 5%
+    , ((mod1Mask .|. controlMask, xK_9), spawn "amixer sset Master 5%-")
+    -- Increase Volume 5%
+    , ((mod1Mask .|. controlMask, xK_0), spawn "amixer sset Master 5%+")
+
     -- Disconnect bluetooth headphones
     , ((mod1Mask .|. controlMask, xK_q), btHeadphonesCmd "disconnect")
     -- Connect bluetooth headphones

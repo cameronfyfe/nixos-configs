@@ -9,18 +9,17 @@
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices.luksroot.device = "/dev/nvme0n1p3";
+  boot.initrd.luks.devices."luks-44964270-c661-4a3d-9658-7909800dfa91".device = "/dev/disk/by-uuid/44964270-c661-4a3d-9658-7909800dfa91";
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/a8d180d5-efb5-422b-84ec-a2431f31061f";
+    device = "/dev/disk/by-uuid/d9af6e79-36d2-442c-b611-675737ead2f1";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/D064-6692";
+    device = "/dev/disk/by-uuid/4029-8128";
     fsType = "vfat";
   };
 
-  swapDevices =
-    [{ device = "/dev/disk/by-uuid/7aed66ab-63be-4673-ba8e-c0f2dc679714"; }];
+  swapDevices = [ ];
 }

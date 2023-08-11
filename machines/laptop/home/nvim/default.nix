@@ -34,6 +34,7 @@
       coc-rust-analyzer
       nvim-lspconfig
       rust-tools-nvim
+      markdown-preview-nvim
       nightfox-nvim
     ];
     coc = {
@@ -61,10 +62,23 @@
       ''
         colorscheme carbonfox
 
+        " open with nerdtree for current directory if no cli args
         autocmd StdinReadPre * let s:std_in=1
         autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
         ${disableArrows}
+
+        " default to relative line numbers enabled
+        set nu
+        set rnu
+
+        " use tab for coc autocompletion (doesn't disable <C-y>)
+        inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<TAB>" 
+
+        " use <C-j> and <C-k> for scrolling up and down coc auto completions
+        " (doesn't disable <C-n> and <C-o>
+        inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(0) : "\<C-j>" 
+        inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(0) : "\<C-k>" 
       '';
   };
 }

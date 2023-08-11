@@ -21,6 +21,8 @@
 
   services.xserver.displayManager.defaultSession = "none+xmonad";
 
+  services.xserver.desktopManager.wallpaper.mode = "max";
+
   services.xserver.videoDrivers = [ "modesetting" ];
 
   services.xserver.xkbOptions = "caps:ctrl_modifier";

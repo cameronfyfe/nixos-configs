@@ -24,6 +24,9 @@
     nixpkgs-iroh.url = "github:cameronfyfe/nixpkgs/iroh";
     nixpkgs-mprime-primenet.url = "github:cameronfyfe/nixpkgs/mprime-primenet";
     nixpkgs-scrutiny.url = "github:cameronfyfe/nixpkgs/add-scrutiny";
+
+    # -- other flakes
+    nix-wallpaper.url = "github:lunik1/nix-wallpaper";
   };
 
   outputs = { self, ... } @ inputs:
@@ -51,6 +54,8 @@
               inherit system nixpkgs home-manager forks common;
               inherit device-keys device-config network;
               inherit (inputs) mobile-nixos;
+              inherit (inputs) nix-wallpaper;
+
             };
             modules = [
               ({ ... }: { networking.hostName = name; })

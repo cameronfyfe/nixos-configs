@@ -42,6 +42,7 @@ in
 
   environment.systemPackages = with pkgs; [
     dmenu
+    feh
     showCustomXMonadKeys
   ];
 }
