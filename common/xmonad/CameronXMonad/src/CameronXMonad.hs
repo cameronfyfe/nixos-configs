@@ -1,8 +1,11 @@
 module CameronXMonad (runXMonad) where
 
 import XMonad
+import XMonad.Actions.NoBorders
 import XMonad.Actions.SpawnOn
+import XMonad.Core
 import XMonad.Hooks.ManageDocks
+import XMonad.Layout.Spacing
 import XMonad.Util.EZConfig (additionalKeys)
 import System.IO
 import qualified XMonad.StackSet as W
@@ -53,6 +56,8 @@ workspaceMap =
 workspaces =
     map (\(_, _, ws) -> ws) workspaceMap
 
+spacing = spacingRaw True (Border 0 0 0 0) False (Border 10 10 10 10) True
+
 btHeadphonesCmd cmd = do
     spawn $ "/etc/nixos/machines/laptop/system/bluetooth/cmds.sh headphones_" ++ cmd
 
@@ -61,7 +66,7 @@ vscodeCmd cmd = do
 
 customKeys =
     -- Show XMonad custom keys
-    [ ((mod1Mask .|. controlMask, xK_k), spawn "showXMonadKeys")
+    [ ((mod1Mask .|. controlMask, xK_k), spawnHere "xmessage $(cat /home/cameron/test)")
 
     -- Restart xmonad
     , ((mod1Mask, xK_q), restart "xmonad" True)
@@ -69,7 +74,9 @@ customKeys =
     , ((mod1Mask .|. controlMask, xK_s), spawn "xmobar-start 0")
     -- Hide status bar
     , ((mod1Mask .|. controlMask, xK_d), spawn "xmobar-stop")
-    
+    -- Toggle Border
+    , ((mod1Mask .|. controlMask, xK_b), withFocused toggleBorder)
+   
     -- Decrease Volume 5%
     , ((mod1Mask .|. controlMask, xK_9), spawn "amixer sset Master 5%-")
     -- Increase Volume 5%

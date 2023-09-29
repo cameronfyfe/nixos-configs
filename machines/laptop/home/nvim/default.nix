@@ -12,9 +12,10 @@
           # programming
           tree-sitter-rust
           tree-sitter-haskell
+          tree-sitter-javascript
           tree-sitter-typescript
-          tree-sitter-scss
           tree-sitter-svelte
+          tree-sitter-scss
           tree-sitter-python
           tree-sitter-go
           tree-sitter-cpp
@@ -29,6 +30,7 @@
           tree-sitter-comment
           tree-sitter-norg
         ]))
+      copilot-vim
       vim-nix
       coc-nvim
       coc-rust-analyzer
@@ -60,6 +62,8 @@
           );
       in
       ''
+        au BufRead,BufNewFile *.jsonld setfiletype json
+
         colorscheme carbonfox
 
         " open with nerdtree for current directory if no cli args

@@ -54,6 +54,7 @@ in
     zxh404.vscode-proto3
     # Misc
     editorconfig.editorconfig
+    github.copilot
     ms-vscode-remote.remote-ssh
     vscodevim.vim
     # asvetliakov.vscode-neovim

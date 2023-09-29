@@ -1,4 +1,4 @@
-{ system, pkgs, common, forks, ... }:
+{ system, pkgs, common, forks, lurk-rs, ... }:
 
 let
 
@@ -29,6 +29,8 @@ let
   scrutiny = (import forks.nixpkgs-scrutiny {
     inherit system;
   }).scrutiny;
+
+  lurk = lurk-rs.defaultPackage.${system};
 
 in
 
@@ -235,6 +237,13 @@ in
       ]
       [
         feh
+        # (import forks.nixpkgs-lurk {
+        #   inherit system;
+        # }).lurk-lang
+        # lurk
+        tmux
+        xorg.xmessage
+        lsof
       ]
     ]);
 

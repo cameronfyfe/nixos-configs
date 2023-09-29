@@ -22,11 +22,13 @@
     nixpkgs-activitywatch.url = "github:cameronfyfe/nixpkgs/activitywatch";
     nixpkgs-git-repo-manager.url = "github:cameronfyfe/nixpkgs/add-git-repo-manager";
     nixpkgs-iroh.url = "github:cameronfyfe/nixpkgs/iroh";
+    nixpkgs-lurk.url = "github:cameronfyfe/nixpkgs/add-lurk";
     nixpkgs-mprime-primenet.url = "github:cameronfyfe/nixpkgs/mprime-primenet";
     nixpkgs-scrutiny.url = "github:cameronfyfe/nixpkgs/add-scrutiny";
 
     # -- other flakes
     nix-wallpaper.url = "github:lunik1/nix-wallpaper";
+    lurk-rs.url = "github:lurk-lab/lurk-rs?rev=ec87c69eb20524a0e6cef3c6ce3d53edf053a16a";
   };
 
   outputs = { self, ... } @ inputs:
@@ -36,6 +38,7 @@
           nixpkgs-activitywatch
           nixpkgs-git-repo-manager
           nixpkgs-iroh
+          nixpkgs-lurk
           nixpkgs-mprime-primenet
           nixpkgs-scrutiny
           ;
@@ -54,7 +57,7 @@
               inherit system nixpkgs home-manager forks common;
               inherit device-keys device-config network;
               inherit (inputs) mobile-nixos;
-              inherit (inputs) nix-wallpaper;
+              inherit (inputs) nix-wallpaper lurk-rs;
 
             };
             modules = [
