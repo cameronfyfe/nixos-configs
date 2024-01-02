@@ -338,6 +338,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-sendme": {
+      "locked": {
+        "lastModified": 1704390980,
+        "narHash": "sha256-N2qKAHjZOZes1KSErAUx2b6jAzK62g2JNF8816ggYbo=",
+        "owner": "cameronfyfe",
+        "repo": "nixpkgs",
+        "rev": "a71b0a6fec23c10f30d53eda4810408d635ca52f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cameronfyfe",
+        "ref": "add-sendme",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1673800717,
@@ -372,11 +388,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1688918189,
-        "narHash": "sha256-f8ZlJ67LgEUDnN7ZsAyd1/Fyby1VdOXWg4XY/irSGrQ=",
+        "lastModified": 1695830400,
+        "narHash": "sha256-gToZXQVr0G/1WriO83olnqrLSHF2Jb8BPcmCt497ro0=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "408c0e8c15a1c9cf5c3226931b6f283c9867c484",
+        "rev": "8a86b98f0ba1c405358f1b71ff8b5e1d317f5db2",
         "type": "github"
       },
       "original": {
@@ -428,7 +444,8 @@
         "nixpkgs-lurk": "nixpkgs-lurk",
         "nixpkgs-mprime-primenet": "nixpkgs-mprime-primenet",
         "nixpkgs-phone": "nixpkgs-phone",
-        "nixpkgs-scrutiny": "nixpkgs-scrutiny"
+        "nixpkgs-scrutiny": "nixpkgs-scrutiny",
+        "nixpkgs-sendme": "nixpkgs-sendme"
       }
     },
     "rust-analyzer-src": {

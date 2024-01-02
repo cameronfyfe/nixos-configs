@@ -30,6 +30,10 @@ let
     inherit system;
   }).scrutiny;
 
+  sendme = (import forks.nixpkgs-sendme {
+    inherit system;
+  }).sendme;
+
   lurk = lurk-rs.defaultPackage.${system};
 
 in
@@ -58,6 +62,7 @@ in
         ]
       )
       [
+        iat
         # system
         lm_sensors
         pavucontrol
@@ -66,12 +71,15 @@ in
       [
         # networking
         curl
-        dhcp
         iw
         inetutils
         nmap
         wget
         wirelesstools
+      ]
+      [
+        # p2p
+        sendme
       ]
       [
         # libs
@@ -82,7 +90,7 @@ in
         cron
         ets
         file
-        ffmpeg
+        ffmpeg-full
         jq
         gnupg
         gparted
@@ -113,6 +121,9 @@ in
       ]
       [
         # dev-tools
+        openssl
+        openssl.dev
+        pkg-config
         stdenv.cc.cc.lib
         binutils.bintools
         gnumake
@@ -124,12 +135,15 @@ in
         rustc
         rustfmt
         cargo
+        clippy
         git-repo-manager
         ghc
         go
         patchelf
         pkg-config
-        python3
+        (python3.withPackages (ps: with ps; [
+          requests
+        ]))
         just
         lldb
         docker
@@ -236,6 +250,7 @@ in
         rpi-imager
       ]
       [
+        yarn
         feh
         # (import forks.nixpkgs-lurk {
         #   inherit system;
@@ -244,6 +259,7 @@ in
         tmux
         xorg.xmessage
         lsof
+        nginx
       ]
     ]);
 
@@ -266,4 +282,8 @@ in
   };
 
   programs.gnupg.agent.enable = true;
+
+  virtualisation.virtualbox.host.enable = true;
+  nixpkgs.config.virtualbox.enableExtensionPack = true;
+  users.extraGroups.vboxusers.members = [ "cameron" ];
 }

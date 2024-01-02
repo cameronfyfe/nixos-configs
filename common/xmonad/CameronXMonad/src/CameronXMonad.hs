@@ -10,7 +10,7 @@ import XMonad.Util.EZConfig (additionalKeys)
 import System.IO
 import qualified XMonad.StackSet as W
 import XMonad.Hooks.EwmhDesktops
-import Colors
+-- import Colors
 
 -- import XMonad.Hooks.StatusBar
 -- import XMonad.Hooks.StatusBar.PP
@@ -24,6 +24,11 @@ import Colors
 -- -- barSpawner 0 = pure $ xmobarTop <> xmobarBottom -- two bars on the main screen
 -- barSpawner 1 = pure $ xmobar1
 -- barSpawner _ = mempty -- nothing on the rest of the screens
+
+mainColor = "#702963" :: String
+
+normalBorderColor = "#000000" :: String
+focusedBorderColor = mainColor :: String
 
 startupHook = do
     spawn "feh --bg-fill --no-fehbg ~/.wallpaper/nixos.png"
@@ -123,8 +128,8 @@ config =
         , XMonad.startupHook = CameronXMonad.startupHook
         , XMonad.manageHook = manageSpawn
         , XMonad.workspaces = CameronXMonad.workspaces
-        , XMonad.normalBorderColor = Colors.normalBorderColor
-        , XMonad.focusedBorderColor = Colors.focusedBorderColor
+        , XMonad.normalBorderColor = CameronXMonad.normalBorderColor
+        , XMonad.focusedBorderColor = CameronXMonad.focusedBorderColor
         }
         `additionalKeys` customKeys
     -- )

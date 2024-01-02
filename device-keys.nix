@@ -8,4 +8,7 @@
   cameron-phone = {
     ssh-pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBgoqWweR2rjPE1ZTNFVHjlvjFEUKAXfc2/Mr/At+dw2 cameron@cameron-phone";
   };
+  media-server = {
+    ssh-pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHDGIsFUU3j/8w1nbubsis6Dckm4V3AoMT0oNO147g8n cameron@media-server";
+  };
 }

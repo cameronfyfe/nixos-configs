@@ -55,6 +55,7 @@ in
     # Misc
     editorconfig.editorconfig
     github.copilot
+    github.copilot-chat
     ms-vscode-remote.remote-ssh
     vscodevim.vim
     # asvetliakov.vscode-neovim

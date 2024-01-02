@@ -1,5 +1,5 @@
 { pkgs, ... }:
 
 {
-  fonts.fonts = with pkgs; [ spleen ];
+  fonts.packages = with pkgs; [ spleen ];
 }

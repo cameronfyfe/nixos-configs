@@ -25,6 +25,7 @@
     nixpkgs-lurk.url = "github:cameronfyfe/nixpkgs/add-lurk";
     nixpkgs-mprime-primenet.url = "github:cameronfyfe/nixpkgs/mprime-primenet";
     nixpkgs-scrutiny.url = "github:cameronfyfe/nixpkgs/add-scrutiny";
+    nixpkgs-sendme.url = "github:cameronfyfe/nixpkgs/add-sendme";
 
     # -- other flakes
     nix-wallpaper.url = "github:lunik1/nix-wallpaper";
@@ -41,6 +42,7 @@
           nixpkgs-lurk
           nixpkgs-mprime-primenet
           nixpkgs-scrutiny
+          nixpkgs-sendme
           ;
       };
       common = ./common;
@@ -89,10 +91,10 @@
             home-manager
           ]
 
-          # -- Home Server
+          # -- Media Server
           [
-            "cameron-server"
-            ./machines/server
+            "media-server"
+            ./machines/media-server
             "x86_64-linux"
             nixpkgs
             home-manager

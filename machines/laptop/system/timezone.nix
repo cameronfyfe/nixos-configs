@@ -1,5 +1,5 @@
 { ... }:
 
 {
-  time.timeZone = "America/Denver";
+  time.timeZone = "US/Eastern";
 }

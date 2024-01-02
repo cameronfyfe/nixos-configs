@@ -11,6 +11,9 @@
       signByDefault = true;
     };
     extraConfig = {
+      core = {
+        shortlog = "7";
+      };
       url."https://github.com/".insteadof = "git://git@github.com/";
     };
   };

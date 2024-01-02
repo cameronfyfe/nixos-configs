@@ -10,6 +10,7 @@
     wireless.enable = (device-config.window-manager == "xmonad");
 
     # firewall.allowedTCPPorts = [ 80 443 8000 ];
+    firewall.allowedTCPPorts = [ 80 8096 ];
   };
 
   # TODO: setup

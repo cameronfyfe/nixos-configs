@@ -6,7 +6,7 @@
   boot.initrd.availableKernelModules =
     [ "xhci_pci" "nvme" "usb_storage" "usbhid" "sdhci_pci" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-intel" "sg" ];
   boot.extraModulePackages = [ ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";

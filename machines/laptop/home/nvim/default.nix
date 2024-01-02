@@ -64,7 +64,7 @@
       ''
         au BufRead,BufNewFile *.jsonld setfiletype json
 
-        colorscheme carbonfox
+        colorscheme nordfox
 
         " open with nerdtree for current directory if no cli args
         autocmd StdinReadPre * let s:std_in=1
