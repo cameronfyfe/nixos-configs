@@ -37,6 +37,7 @@
       home.file."monitor.sh".source = ./monitor.sh;
 
       home.file.".bashrc".source = ./.bashrc;
+      home.file.".zshrc".source = ./.zshrc;
       home.file.".xscreensaver".source = ./.xscreensaver;
       home.file.".wallpaper/nixos.png".source = nix-wallpaper.packages.${system}.default.override
         {

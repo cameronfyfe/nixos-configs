@@ -18,14 +18,17 @@
       inputs = { nixpkgs.follows = "nixpkgs-phone"; };
     };
 
+    # -- individual pkg pins
+    nixpkgs-google-chrome.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-signal-desktop.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-zoom-us.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     # -- nixpkgs forks
-    nixpkgs-activitywatch.url = "github:cameronfyfe/nixpkgs/activitywatch";
-    nixpkgs-git-repo-manager.url = "github:cameronfyfe/nixpkgs/add-git-repo-manager";
-    nixpkgs-iroh.url = "github:cameronfyfe/nixpkgs/iroh";
-    nixpkgs-lurk.url = "github:cameronfyfe/nixpkgs/add-lurk";
+    # nixpkgs-activitywatch.url = "github:cameronfyfe/nixpkgs/activitywatch";
+    #nixpkgs-git-repo-manager.url = "github:cameronfyfe/nixpkgs/add-git-repo-manager";
+    # nixpkgs-lurk.url = "github:cameronfyfe/nixpkgs/add-lurk";
     nixpkgs-mprime-primenet.url = "github:cameronfyfe/nixpkgs/mprime-primenet";
-    nixpkgs-scrutiny.url = "github:cameronfyfe/nixpkgs/add-scrutiny";
-    nixpkgs-sendme.url = "github:cameronfyfe/nixpkgs/add-sendme";
+    # nixpkgs-scrutiny.url = "github:cameronfyfe/nixpkgs/add-scrutiny";
 
     # -- other flakes
     nix-wallpaper.url = "github:lunik1/nix-wallpaper";
@@ -36,13 +39,12 @@
     let
       forks = {
         inherit (inputs)
-          nixpkgs-activitywatch
-          nixpkgs-git-repo-manager
-          nixpkgs-iroh
-          nixpkgs-lurk
+          # individual pkg pins
+          nixpkgs-google-chrome
+          nixpkgs-signal-desktop
+          nixpkgs-zoom-us
+          # nixpkgs forks
           nixpkgs-mprime-primenet
-          nixpkgs-scrutiny
-          nixpkgs-sendme
           ;
       };
       common = ./common;

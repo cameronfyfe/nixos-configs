@@ -7,14 +7,14 @@
     userName = "cameronfyfe";
     userEmail = "cameron.j.fyfe@gmail.com";
     signing = {
-      key = "C860BE868EC35DD795FA5F3DA6DDD3816FC14C3F";
+      key = "17B9B458A4E007F852380D77050BD47743E0F42F";
       signByDefault = true;
     };
     extraConfig = {
       core = {
         shortlog = "7";
       };
-      url."https://github.com/".insteadof = "git://git@github.com/";
+      #url."ssh://git@github.com/".insteadof = "https://github.com/";
     };
   };
 

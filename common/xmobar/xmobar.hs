@@ -36,7 +36,7 @@ Config { font = "xft:Bitstream Vera Sans Mono:size=10:antialias=true"
       , "--normal"   , "orange"
       , "--high"     , "red"
       ] 10
-    ,  Run Battery
+    , Run Battery
       [ "--template" , "<acstatus> - Bat: <left>%"
       , "--Low"      , "25"
       , "--High"     , "55"
@@ -47,9 +47,10 @@ Config { font = "xft:Bitstream Vera Sans Mono:size=10:antialias=true"
       , "-O"         , "AC"
       , "-o"         , "<timeleft>"
       ] 10
-    ,  Run Com "/etc/nixos/machines/laptop/system/bluetooth/cmds.sh" [ "headphones_get_profile" ] "headphones" 10
+    , Run Com "/etc/nixos/machines/laptop/system/bluetooth/cmds.sh" [ "headphones_get_profile" ] "headphones" 10
+    , Run Com "cat" ["/home/cameron/.timer/time"] "timer" 10
     ]
 , sepChar = "%"
 , alignSep = "}{"
-, template = "%cpu% %multicoretemp% | %memory% | %dynnetwork%}{%headphones% | <fc=#49E20E>%date%</fc> | %battery% "
+, template = "%cpu% %multicoretemp% | %memory% | %dynnetwork%}{%headphones% | %timer% | <fc=#49E20E>%date%</fc> | %battery% "
 }

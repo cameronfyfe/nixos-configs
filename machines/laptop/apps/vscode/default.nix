@@ -46,6 +46,8 @@ in
     # ms-vscode.cpptools -- BROKEN
     justusadam.language-haskell
     svelte.svelte-vscode
+    # Vim bindings
+    asvetliakov.vscode-neovim
     # File Support
     skellock.just
     tamasfe.even-better-toml

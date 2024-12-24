@@ -96,6 +96,9 @@ customKeys =
     -- Set bluetooth headphones to HFP
     , ((mod1Mask .|. controlMask, xK_r), btHeadphonesCmd "set_hfp")
 
+    -- Start timer
+    , ((mod1Mask .|. shiftMask, xK_t), spawn "/home/cameron/.timer/timer.sh")
+
     -- Vscode: enable rust inlays
     , ((mod1Mask .|. shiftMask, xK_i), vscodeCmd "rust_inlays_enable")
     -- Vscode: disable rust inlays
@@ -124,7 +127,8 @@ customKeys =
 config = 
     -- dynamicSBs barSpawner (
     XMonad.def
-        { XMonad.layoutHook = avoidStruts $ layoutHook XMonad.def
+        { XMonad.terminal = "xterm -e zsh"
+        , XMonad.layoutHook = avoidStruts $ layoutHook XMonad.def
         , XMonad.startupHook = CameronXMonad.startupHook
         , XMonad.manageHook = manageSpawn
         , XMonad.workspaces = CameronXMonad.workspaces

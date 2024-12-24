@@ -18,23 +18,26 @@ let
       '';
     };
 
-  git-repo-manager = (import forks.nixpkgs-git-repo-manager {
+  # pins
+  google-chrome = (import forks.nixpkgs-google-chrome {
     inherit system;
-  }).git-repo-manager;
+    config = {
+      allowUnfree = true;
+    };
+  }).google-chrome;
 
-  iroh = (import forks.nixpkgs-iroh {
+  signal-desktop = (import forks.nixpkgs-signal-desktop {
     inherit system;
-  }).iroh;
+  }).signal-desktop;
 
-  scrutiny = (import forks.nixpkgs-scrutiny {
-    inherit system;
-  }).scrutiny;
+  #zoom-us = (import forks.nixpkgs-zoom-us {
+  #  inherit system;
+  #  config = {
+  #    allowUnfree = true;
+  #  };
+  #}).zoom-us;
 
-  sendme = (import forks.nixpkgs-sendme {
-    inherit system;
-  }).sendme;
-
-  lurk = lurk-rs.defaultPackage.${system};
+  # forks
 
 in
 
@@ -51,16 +54,6 @@ in
 
   environment.systemPackages = with builtins;
     foldl' (a: b: a ++ b) [ ] (with pkgs; [
-      (
-        let
-          inherit (import forks.nixpkgs-activitywatch {
-            inherit system;
-          }) activitywatch;
-        in
-        [
-          activitywatch
-        ]
-      )
       [
         iat
         # system
@@ -73,13 +66,16 @@ in
         curl
         iw
         inetutils
+        nebula
         nmap
         wget
         wirelesstools
       ]
       [
         # p2p
-        sendme
+        #iroh
+        #sendme
+        #dumbpipe
       ]
       [
         # libs
@@ -107,6 +103,7 @@ in
         kazam
         fontforge-gtk
         xxd
+        oh-my-zsh
       ]
       [
         # editors
@@ -136,22 +133,22 @@ in
         rustfmt
         cargo
         clippy
-        git-repo-manager
         ghc
         go
         patchelf
         pkg-config
         (python3.withPackages (ps: with ps; [
           requests
+          huggingface-hub
         ]))
         just
         lldb
         docker
         docker-compose
         insomnia
-        postman
         graphviz
         moreutils
+        protobuf
       ]
       [
         # image/video
@@ -183,6 +180,7 @@ in
         tdesktop
         element-desktop
         zoom-us
+        fluffychat
       ]
       [
         # work
@@ -202,11 +200,6 @@ in
         winePackages.stableFull
         lutris
         jupyter
-      ]
-      [
-        scrutiny
-
-        # neo4j-desktop -- BROKEN
       ]
       [
         nodejs # TOOD: this is here just for neovim, package a standalone version for neovim to use
@@ -232,13 +225,10 @@ in
       [
         # 3d printing
         slic3r
-        cura
+        # cura
       ]
       [
         qFlipper
-      ]
-      [
-        iroh
       ]
       [
         kazam
@@ -260,8 +250,17 @@ in
         xorg.xmessage
         lsof
         nginx
+        makemkv
+        youtube-dl
+        yt-dlp
+        dbeaver
+        ollama
+        kubectl
+        azure-cli
       ]
     ]);
+
+  programs.zsh.enable = true;
 
   programs.steam.enable = true;
 
@@ -271,15 +270,20 @@ in
       # "donbcfbmhbcapadipfkeojnmajbakjdc" # ruffle
       "dmkamcknogkgcdfhhbddcghachkejeap" # keplr
       "nkbihfbeogaeaoehlefnkodbefgpgknn" # metamask
+      "dlcobpjiigpikoobohmabehhmhfoodbb" # Argent (starknet wallet)
       # "bfnaelmomeimhlpmgjnjophhpkkoljpa" # phantom (solana wallet)
       "digfbfaphojjndkpccljibejjbppifbc" # moesif
       "bigelpnhidcahdkpmbgpllmiibdkllai" # vimeo-downloader
-      # "abkfbakhjpmblaafnpgjppbmioombali" # memex
+      # "abkfbakhjpmblaarustupfnpgjppbmioombali" # memex
       "hnmcofcmhpllkdkncnofkjdlpieagngg" # json-rpc viewer
       "fjoaledfpmneenckfbpdfhkmimnjocfa" # nordvpn
       "lcbjdhceifofjlpecfpeimnnphbcjgnc" # xBrowserSync
+      "fpnmgdkabkmnadcjpehmlllkndpkmiak" # Wayback Machine
+      "gjagmgiddbbciopjhllkdnddhcglnemk" # HashPack
     ];
   };
+
+  programs.nix-ld.enable = true;
 
   programs.gnupg.agent.enable = true;
 

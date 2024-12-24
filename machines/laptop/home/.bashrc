@@ -28,6 +28,7 @@ alias debian='docker run --rm -it -v $(pwd):/c -w="/c" debian:latest bash'
 alias ubuntu='docker run --rm -it -v $(pwd):/c -w="/c" ubuntu:latest bash'
 alias alpine='docker run --rm -it -v $(pwd):/c -w="/c" alpine:latest ash'
 alias nixos='docker run --rm -it -v $(pwd):/c -w="/c" nix-flakes:latest sh'
+alias rust='docker run --rm -it -v $(pwd):/c -w="/c" rust:bullseye bash'
 
 # --- dev editor ---
 alias set-vim='export OPEN_EDITOR_CMD="xterm -e nvim"'
@@ -35,6 +36,13 @@ alias set-codium='export OPEN_EDITOR_CMD=codium'
 alias set-none='export OPEN_EDITOR_CMD=""'
 
 # --- short cuts ---
+alias v='nvim'
+alias c='codium'
+
+# --- git shortcuts
+alias guc='git reset --soft HEAD~1'
+
+# --- terminal helpers ---
 alias _='new_term'
 alias _nvim='_ nvim'
 alias _htop='_ htop'
