@@ -18,6 +18,11 @@
         GIT_EDITOR = "nvim";
       };
 
+      programs.zsh = {
+        enable = true;
+        oh-my-zsh.enable = true;
+      };
+
       xresources.properties = {
         "xterm*font" = "-*-fixed-*-r-normal-*-14-*-*-100-*-*-iso8859-*";
         "XTerm*background" = "black";

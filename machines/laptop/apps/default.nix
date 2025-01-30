@@ -1,4 +1,4 @@
-{ system, pkgs, common, forks, lurk-rs, ... }:
+{ system, pkgs, common, forks, lurk-rs, claude-desktop, ... }:
 
 let
 
@@ -104,6 +104,8 @@ in
         fontforge-gtk
         xxd
         oh-my-zsh
+        unrar
+        zip
       ]
       [
         # editors
@@ -257,6 +259,10 @@ in
         ollama
         kubectl
         azure-cli
+      ]
+      [
+        ollama
+        claude-desktop.packages.${system}.claude-desktop
       ]
     ]);
 

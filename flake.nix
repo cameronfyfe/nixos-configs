@@ -33,6 +33,10 @@
     # -- other flakes
     nix-wallpaper.url = "github:lunik1/nix-wallpaper";
     lurk-rs.url = "github:lurk-lab/lurk-rs?rev=ec87c69eb20524a0e6cef3c6ce3d53edf053a16a";
+    claude-desktop = {
+      url = "github:cameronfyfe/claude-desktop-linux-flake";
+      # inputs = { nixpkgs.follows = "nixpkgs"; };
+    };
   };
 
   outputs = { self, ... } @ inputs:
@@ -61,8 +65,7 @@
               inherit system nixpkgs home-manager forks common;
               inherit device-keys device-config network;
               inherit (inputs) mobile-nixos;
-              inherit (inputs) nix-wallpaper lurk-rs;
-
+              inherit (inputs) nix-wallpaper lurk-rs claude-desktop;
             };
             modules = [
               ({ ... }: { networking.hostName = name; })

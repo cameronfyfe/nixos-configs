@@ -127,8 +127,8 @@ customKeys =
 config = 
     -- dynamicSBs barSpawner (
     XMonad.def
-        { XMonad.terminal = "xterm -e zsh"
-        , XMonad.layoutHook = avoidStruts $ layoutHook XMonad.def
+        -- { XMonad.terminal = "xterm -e zsh"
+        { XMonad.layoutHook = avoidStruts $ layoutHook XMonad.def
         , XMonad.startupHook = CameronXMonad.startupHook
         , XMonad.manageHook = manageSpawn
         , XMonad.workspaces = CameronXMonad.workspaces

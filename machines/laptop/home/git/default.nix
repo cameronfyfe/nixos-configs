@@ -10,6 +10,9 @@
       key = "17B9B458A4E007F852380D77050BD47743E0F42F";
       signByDefault = true;
     };
+    aliases = {
+      undo = "reset --soft HEAD~1";
+    };
     extraConfig = {
       core = {
         shortlog = "7";
