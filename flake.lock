@@ -6,15 +6,16 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1738222819,
-        "narHash": "sha256-0+cDFwfvxmdUVsY3jLRAs3wWDb0Cj7wYw30Ml2VwD/I=",
+        "lastModified": 1738652806,
+        "narHash": "sha256-NOc+JQ+Pnez82KH50ZepXmDkCCa5hcRBmp8adhSG37E=",
         "owner": "cameronfyfe",
         "repo": "claude-desktop-linux-flake",
-        "rev": "0dd99d6dcf26d808a660ec9bcf4cc22551459ff7",
+        "rev": "40eb953dfc23b01667dec3ec379f2608e95670dc",
         "type": "github"
       },
       "original": {
         "owner": "cameronfyfe",
+        "ref": "latest",
         "repo": "claude-desktop-linux-flake",
         "type": "github"
       }
@@ -296,6 +297,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-nvim": {
+      "locked": {
+        "lastModified": 1738142207,
+        "narHash": "sha256-NGqpVVxNAHwIicXpgaVqJEJWeyqzoQJ9oc8lnK9+WC4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "9d3ae807ebd2981d593cddd0080856873139aa40",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-phone": {
       "locked": {
         "lastModified": 1676885936,
@@ -314,11 +331,11 @@
     },
     "nixpkgs-signal-desktop": {
       "locked": {
-        "lastModified": 1731319897,
-        "narHash": "sha256-PbABj4tnbWFMfBp6OcUK5iGy1QY+/Z96ZcLpooIbuEI=",
+        "lastModified": 1738824222,
+        "narHash": "sha256-U3SNq+waitGIotmgg/Et3J7o4NvUtP2gb2VhME5QXiw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "dc460ec76cbff0e66e269457d7b728432263166c",
+        "rev": "550e11f27ba790351d390d9eca3b80ad0f0254e7",
         "type": "github"
       },
       "original": {
@@ -340,6 +357,22 @@
       "original": {
         "owner": "NixOS",
         "ref": "nixos-22.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-uv": {
+      "locked": {
+        "lastModified": 1738142207,
+        "narHash": "sha256-NGqpVVxNAHwIicXpgaVqJEJWeyqzoQJ9oc8lnK9+WC4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "9d3ae807ebd2981d593cddd0080856873139aa40",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -446,8 +479,10 @@
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-google-chrome": "nixpkgs-google-chrome",
         "nixpkgs-mprime-primenet": "nixpkgs-mprime-primenet",
+        "nixpkgs-nvim": "nixpkgs-nvim",
         "nixpkgs-phone": "nixpkgs-phone",
         "nixpkgs-signal-desktop": "nixpkgs-signal-desktop",
+        "nixpkgs-uv": "nixpkgs-uv",
         "nixpkgs-zoom-us": "nixpkgs-zoom-us"
       }
     },

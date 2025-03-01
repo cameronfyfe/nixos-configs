@@ -1,4 +1,4 @@
-{ system, home-manager, nix-wallpaper, ... }:
+{ pkgs, system, config, home-manager, nix-wallpaper, ... }:
 
 {
   imports = [ home-manager.nixosModules.home-manager ];
@@ -16,6 +16,23 @@
       home.sessionVariables = {
         EDITOR = "nvim";
         GIT_EDITOR = "nvim";
+      };
+
+      home.packages = with pkgs; [
+        rust-analyzer
+        tree-sitter
+      ];
+
+      dconf = {
+        enable = true;
+        settings = {
+          "org/gnome/shell" = {
+            disable-user-extensions = false;
+            enabled-extensions = [ 
+              pkgs.gnomeExtensions.pop-shell.extensionUuid
+            ];
+          };
+        };
       };
 
       programs.zsh = {

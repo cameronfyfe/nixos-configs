@@ -1,12 +1,11 @@
 # oh-my-zsh theme
 ZSH_THEME="af-magic" 
 
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
+HISTFILE=~/.zsh_history_$(date +%Y-%m-%d_%H-%M-%S)
 HISTSIZE=1000
 SAVEHIST=1000
 bindkey -v
-# End of lines configured by zsh-newuser-install
+
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/cameron/.zshrc'
 

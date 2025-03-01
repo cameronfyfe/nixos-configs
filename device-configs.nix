@@ -1,6 +1,6 @@
 {
   cameron-tp-p15 = {
-    window-manager = "xmonad";
+    window-manager = "gnome";
   };
   cameron-tp-t15 = {
     window-manager = "xmonad";

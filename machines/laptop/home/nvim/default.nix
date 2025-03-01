@@ -1,9 +1,14 @@
-{ pkgs, ... }:
+{ pkgs, system, forks, ... }:
 
 {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    # package = (import forks.nixpkgs-neovim {
+    #   inherit system;
+    # }).neovim-unwrapped;
+    withNodeJs = true;
+    withPython3 = true;
     vimAlias = true;
     plugins = with pkgs.vimPlugins; [
       nerdtree
@@ -44,6 +49,10 @@
       settings = {
         diagnostic.virtualText = true;
         diagnostic.virtualTextCurrentLineOnly = false;
+
+        rust-analyzer.enable = true;
+        rust-analyzer.inlayHints.typeHints.enable = true;
+        rust-analyzer.inlayHints.closureReturnTypeHints.enable = true;
       };
     };
     extraConfig =

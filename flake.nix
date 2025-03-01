@@ -22,6 +22,8 @@
     nixpkgs-google-chrome.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-signal-desktop.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-zoom-us.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-nvim.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-uv.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # -- nixpkgs forks
     # nixpkgs-activitywatch.url = "github:cameronfyfe/nixpkgs/activitywatch";
@@ -34,7 +36,7 @@
     nix-wallpaper.url = "github:lunik1/nix-wallpaper";
     lurk-rs.url = "github:lurk-lab/lurk-rs?rev=ec87c69eb20524a0e6cef3c6ce3d53edf053a16a";
     claude-desktop = {
-      url = "github:cameronfyfe/claude-desktop-linux-flake";
+      url = "github:cameronfyfe/claude-desktop-linux-flake?ref=latest";
       # inputs = { nixpkgs.follows = "nixpkgs"; };
     };
   };
@@ -47,6 +49,8 @@
           nixpkgs-google-chrome
           nixpkgs-signal-desktop
           nixpkgs-zoom-us
+          nixpkgs-nvim
+          nixpkgs-uv
           # nixpkgs forks
           nixpkgs-mprime-primenet
           ;

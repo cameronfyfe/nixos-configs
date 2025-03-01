@@ -2,6 +2,8 @@
 
 let
 
+  nixLd = pkgs.lib.getLib pkgs.glibc + "/lib/ld-linux-x86-64.so.2";
+
   web-app = name: url:
     let
       web-app-script = pkgs.writeShellScript name ''
@@ -29,6 +31,7 @@ let
   signal-desktop = (import forks.nixpkgs-signal-desktop {
     inherit system;
   }).signal-desktop;
+
 
   #zoom-us = (import forks.nixpkgs-zoom-us {
   #  inherit system;
@@ -259,10 +262,54 @@ in
         ollama
         kubectl
         azure-cli
+        linux-wifi-hotspot
+
       ]
       [
         ollama
-        claude-desktop.packages.${system}.claude-desktop
+
+        # (pkgs.writeShellScriptBin "claude-desktop" ''
+        #   export NIX_LD=${nixLd}
+        #   exec ${claude-desktop.packages.${system}.claude-desktop}/bin/claude-desktop "$@"
+        # '')
+
+        # (pkgs.buildFHSEnv {
+        #   name = "claude-desktop";
+        #   targetPkgs = pkgs: with pkgs; [
+        #     glibc
+        #     openssl
+        #     xorg.libX11
+        #     xorg.libXcursor
+        #     xorg.libXrandr
+        #     libdrm
+        #     nodejs_22
+        #     python3
+        #     (import forks.nixpkgs-uv {
+        #       inherit system;
+        #     }).uv
+        #   ];
+        #   runScript = "${claude-desktop.packages.${system}.claude-desktop}/bin/claude-desktop";
+        # })
+
+        # (pkgs.buildFHSEnv {
+        #   name = "claude-desktop";
+        #   targetPkgs = pkgs: with pkgs; [
+        #     docker
+        #     glibc
+        #     openssl
+        #     nodejs
+        #     (import forks.nixpkgs-uv {
+        #       inherit system;
+        #     }).uv
+        #   ];
+        #   runScript = "${claude-desktop.packages.${system}.claude-desktop}/bin/claude-desktop";
+        # })
+
+        claude-desktop.packages.${system}.claude-desktop-with-fhs
+
+        (import forks.nixpkgs-uv {
+          inherit system;
+        }).uv
       ]
     ]);
 
