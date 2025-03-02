@@ -10,7 +10,7 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
+  boot.kernelModules = [ "sg" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
@@ -38,4 +38,64 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  environment.systemPackages = [ pkgs.mergerfs ];
+
+  fileSystems = {
+    "/drives/hdd-16tb-1" = {
+      device = "/dev/disk/by-label/hdd-16tb-1";
+      fsType = "ext4";
+      options = [ "nofail" "x-systemd.device-timeout=10" ];
+    };
+    "/drives/hdd-16tb-2" = {
+      device = "/dev/disk/by-label/hdd-16tb-2";
+      fsType = "ext4";
+      options = [ "nofail" "x-systemd.device-timeout=10" ];
+    };
+    "/drives/hdd-8tb-1" = {
+      device = "/dev/disk/by-label/hdd-8tb-1";
+      fsType = "ext4";
+      options = [ "nofail" "x-systemd.device-timeout=10" ];
+    };
+    "/drives/hdd-8tb-2" = {
+      device = "/dev/disk/by-label/hdd-8tb-2";
+      fsType = "ext4";
+      options = [ "nofail" "x-systemd.device-timeout=10" ];
+    };
+    "/data-1" = {
+      device = "/drives/hdd-16tb-1:/drives/hdd-16tb-2";
+      depends = [
+        "/drives/hdd-16tb-1"
+        "/drives/hdd-16tb-2"
+      ];
+      fsType = "fuse.mergerfs";
+      options = [
+        "direct_io"
+        "defaults"
+        "nofail"
+        "allow_other"
+        "category.create=ff"
+        "minfreespace=50G"
+        "fsname=mergerfs"
+      ];
+    };
+    "/data-2" = {
+      device = "/drives/hdd-8tb-1:/drives/hdd-8tb-2";
+      depends = [
+        "/drives/hdd-8tb-1"
+        "/drives/hdd-8tb-2"
+      ];
+      fsType = "fuse.mergerfs";
+      options = [
+        "direct_io"
+        "defaults"
+        "nofail"
+        "allow_other"
+        "category.create=ff"
+        "minfreespace=50G"
+        "fsname=mergerfs"
+      ];
+    };
+  };
+
 }
