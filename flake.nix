@@ -91,15 +91,6 @@
             home-manager
           ]
 
-          # -- Laptop (thinkpad t15)
-          [
-            "cameron-tp-t15"
-            ./machines/laptop-2
-            "x86_64-linux"
-            nixpkgs
-            home-manager
-          ]
-
           # -- Media Server
           [
             "media-server"
@@ -107,24 +98,6 @@
             "x86_64-linux"
             nixpkgs
             home-manager
-          ]
-
-          # -- Phone (pinephone pro)
-          [
-            "cameron-phone"
-            ./machines/phone
-            "aarch64-linux"
-            nixpkgs-phone
-            home-manager-phone
-          ]
-
-          # -- Phone 2 (pinephone)
-          [
-            "cameron-pine"
-            ./machines/pine
-            "aarch64-linux"
-            nixpkgs-phone
-            home-manager-phone
           ]
 
         ]);
