@@ -52,38 +52,11 @@
       fsType = "ext4";
       options = [ "nofail" "x-systemd.device-timeout=10" ];
     };
-    "/drives/hdd-8tb-1" = {
-      device = "/dev/disk/by-label/hdd-8tb-1";
-      fsType = "ext4";
-      options = [ "nofail" "x-systemd.device-timeout=10" ];
-    };
-    "/drives/hdd-8tb-2" = {
-      device = "/dev/disk/by-label/hdd-8tb-2";
-      fsType = "ext4";
-      options = [ "nofail" "x-systemd.device-timeout=10" ];
-    };
     "/data-1" = {
       device = "/drives/hdd-16tb-1:/drives/hdd-16tb-2";
       depends = [
         "/drives/hdd-16tb-1"
         "/drives/hdd-16tb-2"
-      ];
-      fsType = "fuse.mergerfs";
-      options = [
-        "direct_io"
-        "defaults"
-        "nofail"
-        "allow_other"
-        "category.create=ff"
-        "minfreespace=50G"
-        "fsname=mergerfs"
-      ];
-    };
-    "/data-2" = {
-      device = "/drives/hdd-8tb-1:/drives/hdd-8tb-2";
-      depends = [
-        "/drives/hdd-8tb-1"
-        "/drives/hdd-8tb-2"
       ];
       fsType = "fuse.mergerfs";
       options = [
