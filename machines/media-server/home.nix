@@ -6,7 +6,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-  
+
     users.cameron = {
 
       home.stateVersion = "22.11";

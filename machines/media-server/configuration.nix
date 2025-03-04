@@ -70,16 +70,17 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-     vim
-     tmux
-     #git
-     vscodium
-     just
-     htop
-     makemkv
-     yt-dlp
-     unzip
-     chromium
+    vim
+    tmux
+    #git
+    vscodium
+    just
+    htop
+    makemkv
+    nixpkgs-fmt
+    yt-dlp
+    unzip
+    chromium
   ];
 
   services.openssh.enable = true;

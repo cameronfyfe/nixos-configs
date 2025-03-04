@@ -28,7 +28,7 @@
         settings = {
           "org/gnome/shell" = {
             disable-user-extensions = false;
-            enabled-extensions = [ 
+            enabled-extensions = [
               pkgs.gnomeExtensions.pop-shell.extensionUuid
             ];
           };
