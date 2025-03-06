@@ -56,6 +56,7 @@
     just
     htop
     unzip
+    pciutils
   ];
 
   services.openssh.enable = true;
