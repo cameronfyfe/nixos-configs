@@ -57,6 +57,7 @@
     htop
     unzip
     pciutils
+    smartmontools
   ];
 
   services.openssh.enable = true;
