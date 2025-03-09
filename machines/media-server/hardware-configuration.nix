@@ -54,6 +54,11 @@
       fsType = "ext4";
       options = [ "nofail" "x-systemd.device-timeout=10" ];
     };
+    "/drives/hdd-8tb-1" = {
+      device = "/dev/disk/by-label/hdd-8tb-1";
+      fsType = "ext4";
+      options = [ "nofail" "x-systemd.device-timeout=10" ];
+    };
     "/data-1" = {
       device = "/drives/hdd-16tb-1:/drives/hdd-16tb-2";
       depends = [

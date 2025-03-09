@@ -13,7 +13,7 @@
   nix.extraOptions = "experimental-features = nix-command flakes";
 
   networking.networkmanager.enable = true;
-  networking.firewall.allowedTCPPorts = [ 80 443 8096 5000 5001 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 8080 8090 8096 5000 5001 ];
 
   time.timeZone = "US/Pacific";
 
@@ -36,21 +36,13 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
+  services.xserver.xkb.layout = "us";
+  services.xserver.xkb.variant = "";
 
   services.printing.enable = true;
 
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   users.users.cameron = {
     isNormalUser = true;
@@ -61,9 +53,6 @@
     ];
   };
 
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "cameron";
-
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
@@ -72,7 +61,6 @@
   environment.systemPackages = with pkgs; [
     vim
     tmux
-    #git
     vscodium
     just
     htop
@@ -81,6 +69,8 @@
     yt-dlp
     unzip
     chromium
+    b3sum
+    smartmontools
   ];
 
   services.openssh.enable = true;
@@ -102,13 +92,18 @@
   };
 
   environment.etc."nextcloud-admin-pass".text = "awefawefawef";
+  fileSystems."/var/lib/nextcloud/data" = {
+    device = "/drives/hdd-8tb-1/nextcloud/data";
+    fsType = "none";
+    options = [ "bind" ];
+  };
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud29;
+    package = pkgs.nextcloud30;
     hostName = "localhost";
     extraAppsEnable = true;
     extraApps = {
-      inherit (config.services.nextcloud.package.packages.apps) calendar tasks onlyoffice;
+      inherit (config.services.nextcloud.package.packages.apps) calendar memories onlyoffice tasks;
     };
     config.dbtype = "sqlite";
     config.adminpassFile = "/etc/nextcloud-admin-pass";
@@ -117,13 +112,5 @@
     };
   };
 
-  services.cron = {
-    enable = true;
-    systemCronJobs = [
-      "0 4 * * * rsync -ah --exclude='lost+found' /data-1/ /data-2"
-    ];
-  };
-
-  system.stateVersion = "23.05"; # Did you read the comment?
-
+  system.stateVersion = "24.11";
 }
