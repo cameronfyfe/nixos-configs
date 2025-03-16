@@ -13,7 +13,21 @@
   nix.extraOptions = "experimental-features = nix-command flakes";
 
   networking.networkmanager.enable = true;
-  networking.firewall.allowedTCPPorts = [ 80 443 8080 8090 8096 5000 5001 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 3579 7878 8080 8090 8096 8686 8989 9117 5000 5001 5500 ];
+
+  # Enable mDNS
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    publish = {
+      enable = true;
+      addresses = true;
+      domain = true;
+      hinfo = true;
+      userServices = true;
+      workstation = true;
+    };
+  };
 
   time.timeZone = "US/Pacific";
 
@@ -110,6 +124,12 @@
     settings = {
       trusted_domains = [ "192.168.1.173" "media-server.walrus-typhon.ts.net" ];
     };
+  };
+
+  services.scrutiny = {
+    enable = true;
+    settings.web.listen.host = "0.0.0.0";
+    settings.web.listen.port = 5500;
   };
 
   system.stateVersion = "24.11";
