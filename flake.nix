@@ -93,8 +93,8 @@
 
           # -- Media Server
           [
-            "media-server"
-            ./machines/media-server
+            "mserver"
+            ./machines/mserver
             "x86_64-linux"
             nixpkgs
             home-manager
