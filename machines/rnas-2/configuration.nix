@@ -75,5 +75,5 @@
     enable = true;
   };
 
-  system.stateVersion = "23.05";
+  system.stateVersion = "24.11";
 }
