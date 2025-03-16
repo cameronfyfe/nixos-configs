@@ -15,6 +15,20 @@
   networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [ 80 443 8096 ];
 
+  # Enable mDNS
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    publish = {
+      enable = true;
+      addresses = true;
+      domain = true;
+      hinfo = true;
+      userServices = true;
+      workstation = true;
+    };
+  };
+
   time.timeZone = "US/Pacific";
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -60,7 +74,10 @@
     smartmontools
   ];
 
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    permitRootLogin = "yes";
+  };
 
   virtualisation.docker.enable = true;
 
@@ -75,5 +92,5 @@
     enable = true;
   };
 
-  system.stateVersion = "23.05";
+  system.stateVersion = "24.11";
 }
