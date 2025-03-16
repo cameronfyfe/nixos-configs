@@ -2,7 +2,7 @@
 
 {
   services.xserver.enable = true;
-  services.xserver.layout = "us";
+  services.xserver.xkb.layout = "us";
   services.xserver.desktopManager.gnome.enable = true;
 
   networking.useDHCP = false;

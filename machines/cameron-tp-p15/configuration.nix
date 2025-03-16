@@ -11,15 +11,7 @@
     ./home
   ];
 
-  system.stateVersion = "21.11";
+  system.stateVersion = "24.11";
 
   nixpkgs.overlays = [ ];
-
-  # services.neo4j = {
-  #   enable = true;
-  #   workerCount = 2;
-  #   bolt.tlsLevel = "DISABLED";
-  #   https.enable = false;
-  #   defaultListenAddress = "0.0.0.0";
-  # };
 }

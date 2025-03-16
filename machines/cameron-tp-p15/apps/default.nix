@@ -95,7 +95,7 @@ in
         gparted
         htop
         lzip
-        nixfmt
+        nixfmt-classic
         nixpkgs-fmt
         pv
         scrot
@@ -161,7 +161,6 @@ in
         gimp
         pinta
         vlc
-        yt-dlp
       ]
       [
         # music
@@ -185,7 +184,6 @@ in
         tdesktop
         element-desktop
         zoom-us
-        fluffychat
       ]
       [
         # work
@@ -229,7 +227,7 @@ in
       ]
       [
         # 3d printing
-        slic3r
+        #slic3r
         # cura
       ]
       [
@@ -256,9 +254,6 @@ in
         lsof
         nginx
         makemkv
-        youtube-dl
-        yt-dlp
-        dbeaver
         ollama
         kubectl
         azure-cli
@@ -305,7 +300,7 @@ in
         #   runScript = "${claude-desktop.packages.${system}.claude-desktop}/bin/claude-desktop";
         # })
 
-        claude-desktop.packages.${system}.claude-desktop-with-fhs
+        #claude-desktop.packages.${system}.claude-desktop-with-fhs
 
         (import forks.nixpkgs-uv {
           inherit system;

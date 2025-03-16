@@ -39,7 +39,7 @@ in
     bbenoist.nix
     golang.go
     tiehuis.zig
-    matklad.rust-analyzer
+    rust-lang.rust-analyzer
     ms-python.python
     JuanBlanco.solidity
     # RemixProject.ethereum-remix -- BROKEN
