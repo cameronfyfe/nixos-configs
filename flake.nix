@@ -100,6 +100,15 @@
             home-manager
           ]
 
+          # -- Remote NAS 1
+          [
+            "rnas-1"
+            ./machines/rnas-1
+            "x86_64-linux"
+            nixpkgs
+            home-manager
+          ]
+
           # -- Remote NAS 2
           [
             "rnas-2"
