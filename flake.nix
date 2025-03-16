@@ -85,7 +85,7 @@
           # -- Laptop (thinkpad p15)
           [
             "cameron-tp-p15"
-            ./machines/laptop
+            ./machines/cameron-tp-p15
             "x86_64-linux"
             nixpkgs
             home-manager
