@@ -8,4 +8,7 @@
   media-server = {
     ssh-pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHDGIsFUU3j/8w1nbubsis6Dckm4V3AoMT0oNO147g8n cameron@media-server";
   };
+  rnas-1 = {
+    ssh-pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICBW8zulQj81QvJGrl9kXulfywrj0lhuY8XIPrPmm+Pz";
+  };
 }
