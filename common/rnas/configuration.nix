@@ -71,6 +71,7 @@
     unzip
     pciutils
     smartmontools
+    nixpkgs-fmt
   ];
 
   services.openssh = {
