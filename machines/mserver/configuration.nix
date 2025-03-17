@@ -13,12 +13,14 @@
   nix.extraOptions = "experimental-features = nix-command flakes";
 
   networking.networkmanager.enable = true;
-  networking.firewall.allowedTCPPorts = [ 80 443 3579 7878 8080 8090 8096 8686 8989 9117 5000 5001 5500 ];
+  networking.firewall.allowedTCPPorts = [ 80 81 443 3579 4000 7878 8080 8090 8096 8686 8989 9117 5000 5001 5500 ];
 
   # Enable mDNS
   services.avahi = {
     enable = true;
-    nssmdns = true;
+    nssmdns4 = true;
+    openFirewall = true;
+    reflector = true;
     publish = {
       enable = true;
       addresses = true;
@@ -26,6 +28,36 @@
       hinfo = true;
       userServices = true;
       workstation = true;
+    };
+  };
+
+  systemd.services.mdns-cname-publisher = {
+    description = "mDNS CNAME Publisher";
+    wantedBy = [ "multi-user.target" ];
+    after = [
+      "network.target"
+      "avahi-daemon.service"
+    ];
+    requires = [ "avahi-daemon.service" ];
+    serviceConfig = {
+      Type = "simple";
+      User = "root";
+      ExecStart = pkgs.writeShellScript "mdns-cname-publisher" ''
+        IP_ADDRESS=$(${pkgs.iproute2}/bin/ip addr show wlp1s0 | ${pkgs.gnugrep}/bin/grep 'inet ' | ${pkgs.gnused}/bin/sed -E 's/inet ([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)\/.*/\1/' | ${pkgs.gnused}/bin/sed 's/^ *//;s/ *$//')
+
+        function _term {
+          pkill -P $$
+        }
+        trap _term SIGTERM
+
+        ${pkgs.avahi}/bin/avahi-publish --address nextcloud.local --no-reverse $IP_ADDRESS &
+        ${pkgs.avahi}/bin/avahi-publish --address onlyoffice.local --no-reverse $IP_ADDRESS &
+        ${pkgs.avahi}/bin/avahi-publish --address jellyfin.local --no-reverse $IP_ADDRESS &
+
+        while true; do sleep 10000; done
+      '';
+      Restart = "always";
+      RestartSec = "10";
     };
   };
 
@@ -45,11 +77,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  services.xserver.enable = true;
-
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.variant = "";
 
@@ -57,6 +84,7 @@
 
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
+  services.pipewire.enable = false;
 
   users.users.cameron = {
     isNormalUser = true;
@@ -66,9 +94,6 @@
       firefox
     ];
   };
-
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
 
   nixpkgs.config.allowUnfree = true;
 
@@ -96,10 +121,46 @@
 
   services.tailscale.enable = true;
 
-  #services.nginx = {
-  #  enable = true;
-  #  appendConfig = builtins.readFile ./nginx.conf;
-  #};
+  services.nginx = {
+    enable = true;
+    recommendedProxySettings = true;
+    # nextcloud internally on port 81
+    virtualHosts."${config.services.nextcloud.hostName}".listen = [{
+      addr = "0.0.0.0";
+      port = 81;
+    }];
+    # mDNS domains all on port 80
+    virtualHosts."nextcloud.local" = {
+      listen = [{
+        addr = "0.0.0.0";
+        port = 80;
+      }];
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:81";
+        proxyWebsockets = true;
+      };
+    };
+    virtualHosts."onlyoffice.local" = {
+      listen = [{
+        addr = "0.0.0.0";
+        port = 80;
+      }];
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:4000";
+        proxyWebsockets = true;
+      };
+    };
+    virtualHosts."jellyfin.local" = {
+      listen = [{
+        addr = "0.0.0.0";
+        port = 80;
+      }];
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:8096";
+        proxyWebsockets = true;
+      };
+    };
+  };
 
   services.jellyfin = {
     enable = true;
@@ -122,7 +183,7 @@
     config.dbtype = "sqlite";
     config.adminpassFile = "/etc/nextcloud-admin-pass";
     settings = {
-      trusted_domains = [ "192.168.1.173" "media-server.walrus-typhon.ts.net" ];
+      trusted_domains = [ "nextcloud.local" "192.168.1.173" ];
     };
   };
 
