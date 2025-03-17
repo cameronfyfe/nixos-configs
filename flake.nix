@@ -57,7 +57,6 @@
       };
       common = ./common;
       device-keys = import ./device-keys.nix;
-      network = import ./network.nix;
       config = name: path: system: nixpkgs: home-manager:
         let
           device-config = (import ./device-configs.nix)."${name}";
@@ -67,7 +66,7 @@
             inherit system;
             specialArgs = {
               inherit system nixpkgs home-manager forks common;
-              inherit device-keys device-config network;
+              inherit device-keys device-config;
               inherit (inputs) mobile-nixos;
               inherit (inputs) nix-wallpaper lurk-rs claude-desktop;
             };
