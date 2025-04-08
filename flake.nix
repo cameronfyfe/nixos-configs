@@ -39,6 +39,7 @@
       url = "github:cameronfyfe/claude-desktop-linux-flake?ref=latest";
       # inputs = { nixpkgs.follows = "nixpkgs"; };
     };
+    nix-mcp-servers.url = "github:cameronfyfe/nix-mcp-servers";
   };
 
   outputs = { self, ... } @ inputs:
@@ -68,7 +69,7 @@
               inherit system nixpkgs home-manager forks common;
               inherit device-keys device-config;
               inherit (inputs) mobile-nixos;
-              inherit (inputs) nix-wallpaper lurk-rs claude-desktop;
+              inherit (inputs) nix-wallpaper lurk-rs claude-desktop nix-mcp-servers;
             };
             modules = [
               ({ ... }: { networking.hostName = name; })

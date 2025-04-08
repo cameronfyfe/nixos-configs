@@ -1,4 +1,4 @@
-{ system, pkgs, common, forks, lurk-rs, claude-desktop, ... }:
+{ system, pkgs, common, forks, lurk-rs, claude-desktop, nix-mcp-servers, ... }:
 
 let
 
@@ -32,6 +32,7 @@ let
     inherit system;
   }).signal-desktop;
 
+  mcp-servers = nix-mcp-servers.packages.${system};
 
   #zoom-us = (import forks.nixpkgs-zoom-us {
   #  inherit system;
@@ -270,7 +271,16 @@ in
         (import forks.nixpkgs-uv {
           inherit system;
         }).uv
+
+        zed-editor
       ]
+      # mcp servers
+      (with mcp-servers; [
+        github-mcp-server
+        mcp-neo4j-cypher
+        mcp-server-filesystem
+        mcp-server-tmdb
+      ])
     ]);
 
   programs.zsh.enable = true;
