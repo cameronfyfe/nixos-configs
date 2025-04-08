@@ -1,18 +1,17 @@
 # nixos-configs
 
-primary: [github:cameronfyfe/nixos-configs](https://github.com/cameronfyfe/nixos-configs)  
-mirror: [gitlab:cameronfyfe/nixos-configs](https://gitlab.com/cameronfyfe/nixos-configs)
+NixOS configs for my daily driver laptop and some servers.
 
 # Quick start
 
-Build nixos config for current system:
+Build nixos config for current system (based on `hostname`):
 
     just build
 
 Build specific nixos config:
 
-    just build cameron-laptop
-    just build server
+    just build cameron-tp-p15
+    just build rnas-1
 
 Update nixpkgs in flake lock:
 
