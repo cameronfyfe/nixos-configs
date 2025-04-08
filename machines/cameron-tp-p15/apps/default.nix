@@ -145,6 +145,8 @@ in
         (python3.withPackages (ps: with ps; [
           requests
           huggingface-hub
+          lxml
+          pikepdf
         ]))
         just
         lldb
@@ -263,44 +265,7 @@ in
       [
         ollama
 
-        # (pkgs.writeShellScriptBin "claude-desktop" ''
-        #   export NIX_LD=${nixLd}
-        #   exec ${claude-desktop.packages.${system}.claude-desktop}/bin/claude-desktop "$@"
-        # '')
-
-        # (pkgs.buildFHSEnv {
-        #   name = "claude-desktop";
-        #   targetPkgs = pkgs: with pkgs; [
-        #     glibc
-        #     openssl
-        #     xorg.libX11
-        #     xorg.libXcursor
-        #     xorg.libXrandr
-        #     libdrm
-        #     nodejs_22
-        #     python3
-        #     (import forks.nixpkgs-uv {
-        #       inherit system;
-        #     }).uv
-        #   ];
-        #   runScript = "${claude-desktop.packages.${system}.claude-desktop}/bin/claude-desktop";
-        # })
-
-        # (pkgs.buildFHSEnv {
-        #   name = "claude-desktop";
-        #   targetPkgs = pkgs: with pkgs; [
-        #     docker
-        #     glibc
-        #     openssl
-        #     nodejs
-        #     (import forks.nixpkgs-uv {
-        #       inherit system;
-        #     }).uv
-        #   ];
-        #   runScript = "${claude-desktop.packages.${system}.claude-desktop}/bin/claude-desktop";
-        # })
-
-        #claude-desktop.packages.${system}.claude-desktop-with-fhs
+        claude-desktop.packages.${system}.claude-desktop-with-fhs
 
         (import forks.nixpkgs-uv {
           inherit system;
