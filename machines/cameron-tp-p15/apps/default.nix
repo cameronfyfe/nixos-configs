@@ -34,6 +34,13 @@ let
 
   mcp-servers = nix-mcp-servers.packages.${system};
 
+  pkgs-vscode = (import forks.nixpkgs-vscode {
+    inherit system;
+    config = {
+      allowUnfree = true;
+    };
+  });
+
   #zoom-us = (import forks.nixpkgs-zoom-us {
   #  inherit system;
   #  config = {
@@ -113,7 +120,7 @@ in
       ]
       [
         # editors
-        (pkgs.callPackage ./vscode { })
+        (pkgs.callPackage ./vscode { pkgs = pkgs-vscode; })
       ]
       [
         # browsers

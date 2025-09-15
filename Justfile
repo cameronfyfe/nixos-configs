@@ -11,4 +11,4 @@ deploy:
     nixos-rebuild --use-remote-sudo switch
 
 update INPUT='nixpkgs':
-    nix flake lock --update-input {{INPUT}}
+    nix flake update {{INPUT}}

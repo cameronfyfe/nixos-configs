@@ -35,10 +35,10 @@
         };
       };
 
-      programs.zsh = {
-        enable = true;
-        oh-my-zsh.enable = true;
-      };
+      # programs.zsh = {
+      #   enable = true;
+      #   oh-my-zsh.enable = true;
+      # };
 
       xresources.properties = {
         "xterm*font" = "-*-fixed-*-r-normal-*-14-*-*-100-*-*-iso8859-*";
@@ -60,6 +60,9 @@
 
       home.file.".bashrc".source = ./.bashrc;
       home.file.".zshrc".source = ./.zshrc;
+
+      home.file.".tmux.conf".source = ./.tmux.conf;
+
       home.file.".xscreensaver".source = ./.xscreensaver;
       home.file.".wallpaper/nixos.png".source = nix-wallpaper.packages.${system}.default.override
         {
