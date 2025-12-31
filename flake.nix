@@ -25,6 +25,8 @@
     nixpkgs-nvim.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-uv.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-vscode.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-claude.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-spotify.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # -- nixpkgs forks
     # nixpkgs-activitywatch.url = "github:cameronfyfe/nixpkgs/activitywatch";
@@ -54,6 +56,8 @@
           nixpkgs-nvim
           nixpkgs-uv
           nixpkgs-vscode
+          nixpkgs-claude
+          nixpkgs-spotify
           # nixpkgs forks
           nixpkgs-mprime-primenet
           ;

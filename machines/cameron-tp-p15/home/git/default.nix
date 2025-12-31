@@ -7,7 +7,7 @@
     userName = "cameronfyfe";
     userEmail = "cameron.j.fyfe@gmail.com";
     signing = {
-      key = "17B9B458A4E007F852380D77050BD47743E0F42F";
+      key = "4EF17ABC5197A958D7770CD4578AC982771CC638";
       signByDefault = true;
     };
     aliases = {
@@ -15,6 +15,7 @@
     };
     extraConfig = {
       core = {
+        editor = "nvim";
         shortlog = "7";
       };
       #url."ssh://git@github.com/".insteadof = "https://github.com/";

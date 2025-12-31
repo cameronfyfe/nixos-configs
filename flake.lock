@@ -302,13 +302,29 @@
         "type": "github"
       }
     },
-    "nixpkgs-google-chrome": {
+    "nixpkgs-claude": {
       "locked": {
-        "lastModified": 1719848872,
-        "narHash": "sha256-H3+EC5cYuq+gQW8y0lSrrDZfH71LB4DAf+TDFyvwCNA=",
+        "lastModified": 1757745802,
+        "narHash": "sha256-hLEO2TPj55KcUFUU1vgtHE9UEIOjRcH/4QbmfHNF820=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "00d80d13810dbfea8ab4ed1009b09100cca86ba8",
+        "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-google-chrome": {
+      "locked": {
+        "lastModified": 1763966396,
+        "narHash": "sha256-6eeL1YPcY1MV3DDStIDIdy/zZCDKgHdkCmsrLJFiZf0=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "5ae3b07d8d6527c42f17c876e404993199144b6a",
         "type": "github"
       },
       "original": {
@@ -368,11 +384,27 @@
     },
     "nixpkgs-signal-desktop": {
       "locked": {
-        "lastModified": 1738824222,
-        "narHash": "sha256-U3SNq+waitGIotmgg/Et3J7o4NvUtP2gb2VhME5QXiw=",
+        "lastModified": 1759733170,
+        "narHash": "sha256-TXnlsVb5Z8HXZ6mZoeOAIwxmvGHp1g4Dw89eLvIwKVI=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "550e11f27ba790351d390d9eca3b80ad0f0254e7",
+        "rev": "8913c168d1c56dc49a7718685968f38752171c3b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-spotify": {
+      "locked": {
+        "lastModified": 1760524057,
+        "narHash": "sha256-EVAqOteLBFmd7pKkb0+FIUyzTF61VKi7YmvP1tw4nEw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "544961dfcce86422ba200ed9a0b00dd4b1486ec5",
         "type": "github"
       },
       "original": {
@@ -546,11 +578,13 @@
         "nix-mcp-servers": "nix-mcp-servers",
         "nix-wallpaper": "nix-wallpaper",
         "nixpkgs": "nixpkgs_5",
+        "nixpkgs-claude": "nixpkgs-claude",
         "nixpkgs-google-chrome": "nixpkgs-google-chrome",
         "nixpkgs-mprime-primenet": "nixpkgs-mprime-primenet",
         "nixpkgs-nvim": "nixpkgs-nvim",
         "nixpkgs-phone": "nixpkgs-phone",
         "nixpkgs-signal-desktop": "nixpkgs-signal-desktop",
+        "nixpkgs-spotify": "nixpkgs-spotify",
         "nixpkgs-uv": "nixpkgs-uv",
         "nixpkgs-vscode": "nixpkgs-vscode",
         "nixpkgs-zoom-us": "nixpkgs-zoom-us"

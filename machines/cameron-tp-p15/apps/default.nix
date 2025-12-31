@@ -41,6 +41,20 @@ let
     };
   });
 
+  claude-code = (import forks.nixpkgs-claude {
+    inherit system;
+    config = {
+      allowUnfree = true;
+    };
+  }).claude-code;
+
+  spotify = (import forks.nixpkgs-spotify {
+    inherit system;
+    config = {
+      allowUnfree = true;
+    };
+  }).spotify;
+
   #zoom-us = (import forks.nixpkgs-zoom-us {
   #  inherit system;
   #  config = {
@@ -279,6 +293,8 @@ in
           inherit system;
         }).uv
 
+        claude-code
+
         zed-editor
       ]
       # mcp servers
@@ -310,6 +326,7 @@ in
       "lcbjdhceifofjlpecfpeimnnphbcjgnc" # xBrowserSync
       "fpnmgdkabkmnadcjpehmlllkndpkmiak" # Wayback Machine
       "gjagmgiddbbciopjhllkdnddhcglnemk" # HashPack
+      "hnfanknocfeofbddgcijnmhnfnkdnaad" # Coinbase Wallet
     ];
   };
 
