@@ -1,4 +1,4 @@
-{ system, pkgs, common, forks, lurk-rs, claude-desktop, nix-mcp-servers, ... }:
+{ system, pkgs, common, forks, cupcake, lurk-rs, claude-desktop, nix-mcp-servers, ... }:
 
 let
 
@@ -296,6 +296,8 @@ in
         claude-code
 
         zed-editor
+
+        cupcake.packages.${system}.cupcake-cli
       ]
       # mcp servers
       (with mcp-servers; [

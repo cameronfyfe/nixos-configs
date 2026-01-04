@@ -36,6 +36,7 @@
     # nixpkgs-scrutiny.url = "github:cameronfyfe/nixpkgs/add-scrutiny";
 
     # -- other flakes
+    cupcake.url = "github:eqtylab/cupcake";
     nix-wallpaper.url = "github:lunik1/nix-wallpaper";
     lurk-rs.url = "github:lurk-lab/lurk-rs?rev=ec87c69eb20524a0e6cef3c6ce3d53edf053a16a";
     claude-desktop = {
@@ -75,7 +76,7 @@
               inherit system nixpkgs home-manager forks common;
               inherit device-keys device-config;
               inherit (inputs) mobile-nixos;
-              inherit (inputs) nix-wallpaper lurk-rs claude-desktop nix-mcp-servers;
+              inherit (inputs) cupcake nix-wallpaper lurk-rs claude-desktop nix-mcp-servers;
             };
             modules = [
               ({ ... }: { networking.hostName = name; })
