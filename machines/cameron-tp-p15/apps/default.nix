@@ -298,6 +298,7 @@ in
         zed-editor
 
         cupcake.packages.${system}.cupcake-cli
+        open-policy-agent
       ]
       # mcp servers
       (with mcp-servers; [

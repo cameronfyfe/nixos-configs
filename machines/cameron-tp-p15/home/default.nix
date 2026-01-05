@@ -13,6 +13,11 @@
 
       manual.manpages.enable = false; # TODO: I want this enabled but manual build breaks right now
 
+      home.sessionPath = [
+        "$HOME/.local/bin"
+        "/opt/my-tools/bin"
+      ];
+
       home.sessionVariables = {
         EDITOR = "nvim";
         GIT_EDITOR = "nvim";

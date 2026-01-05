@@ -1,6 +1,9 @@
 # stateful and/or private bashrc files
 . ~/.bashrc-*
 
+# add /opt/bin to PATH
+export PATH="/opt/bin:$PATH"
+
 # nixos treason - add /bin/bash, etc
 if [[ ! -L /bin/bash ]]; then
 	sudo ln -s /run/current-system/sw/bin/bash /bin/bash >/dev/null 2>&1 || true

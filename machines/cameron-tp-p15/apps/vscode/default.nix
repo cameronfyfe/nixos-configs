@@ -30,6 +30,15 @@ let
     };
   };
 
+  kindy.rego = buildVscodeMarketplaceExtension {
+    mktplcRef = {
+      name = "rego";
+      publisher = "kindy";
+      version = "1.0.0";
+      sha256 = "sha256-YKBLsA+1yPWwDng3r+QReCo04giUVW3t+ONjrW/WK0I=";
+    };
+  };
+
 in
 
 (vscode-with-extensions.override {
@@ -46,6 +55,8 @@ in
     # ms-vscode.cpptools -- BROKEN
     justusadam.language-haskell
     svelte.svelte-vscode
+    # tsandall.opa
+    kindy.rego
     # Vim bindings
     asvetliakov.vscode-neovim
     # File Support
