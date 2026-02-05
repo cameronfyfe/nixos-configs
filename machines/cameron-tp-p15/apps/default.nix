@@ -1,4 +1,4 @@
-{ system, pkgs, common, forks, cupcake, lurk-rs, claude-desktop, nix-mcp-servers, ... }:
+{ system, pkgs, common, forks, claude-chill, cupcake, lurk-rs, claude-desktop, nix-mcp-servers, ... }:
 
 let
 
@@ -47,6 +47,14 @@ let
       allowUnfree = true;
     };
   }).claude-code;
+
+  opencode = (import forks.nixpkgs-opencode {
+    inherit system;
+  }).opencode;
+
+  codex = (import forks.nixpkgs-codex {
+    inherit system;
+  }).codex;
 
   spotify = (import forks.nixpkgs-spotify {
     inherit system;
@@ -294,6 +302,9 @@ in
         }).uv
 
         claude-code
+        claude-chill.packages.${system}.default
+        opencode
+        codex
 
         zed-editor
 

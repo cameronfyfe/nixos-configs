@@ -66,7 +66,7 @@
       home.file.".bashrc".source = ./.bashrc;
       home.file.".zshrc".source = ./.zshrc;
 
-      home.file.".tmux.conf".source = ./.tmux.conf;
+      # home.file.".tmux.conf".source = ./.tmux.conf;
 
       home.file.".xscreensaver".source = ./.xscreensaver;
       home.file.".wallpaper/nixos.png".source = nix-wallpaper.packages.${system}.default.override
