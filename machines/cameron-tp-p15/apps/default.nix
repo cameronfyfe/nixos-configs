@@ -93,6 +93,7 @@ in
         lm_sensors
         pavucontrol
         xscreensaver
+        ghostty
       ]
       [
         # networking
@@ -128,6 +129,7 @@ in
         nixfmt-classic
         nixpkgs-fmt
         pv
+        ripgrep
         scrot
         texlive.combined.scheme-full
         unzip
@@ -153,6 +155,7 @@ in
       ]
       [
         # dev-tools
+        gh
         openssl
         openssl.dev
         pkg-config
@@ -164,10 +167,11 @@ in
         cmake
         SDL2
         llvmPackages.libclang
-        rustc
-        rustfmt
-        cargo
-        clippy
+        #rustc
+        #rustfmt
+        #cargo
+        #clippy
+        rust-bin.stable.latest.default
         ghc
         go
         patchelf
@@ -304,7 +308,7 @@ in
         claude-code
         claude-chill.packages.${system}.default
         opencode
-        codex
+        (pkgs.callPackage ../../../pkgs/codex.nix { })
 
         zed-editor
 
@@ -341,6 +345,7 @@ in
       "fpnmgdkabkmnadcjpehmlllkndpkmiak" # Wayback Machine
       "gjagmgiddbbciopjhllkdnddhcglnemk" # HashPack
       "hnfanknocfeofbddgcijnmhnfnkdnaad" # Coinbase Wallet
+      "fcoeoabgfenejglbffodgkkbkcdhcgfn" # Claude
     ];
   };
 

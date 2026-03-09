@@ -18,6 +18,12 @@
       inputs = { nixpkgs.follows = "nixpkgs-phone"; };
     };
 
+    # -- overlays
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # -- individual pkg pins
     nixpkgs-google-chrome.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-signal-desktop.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -81,6 +87,7 @@
               inherit system nixpkgs home-manager forks common;
               inherit device-keys device-config;
               inherit (inputs) mobile-nixos;
+              inherit (inputs) rust-overlay;
               inherit (inputs) claude-chill cupcake nix-wallpaper lurk-rs claude-desktop nix-mcp-servers;
             };
             modules = [

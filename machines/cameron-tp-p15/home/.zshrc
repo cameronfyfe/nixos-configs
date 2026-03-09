@@ -21,6 +21,9 @@ done
 # add /opt/bin to PATH
 export PATH="/opt/bin:$PATH"
 
+# set helpme command
+export HELPME_COMMAND="codex"
+
 # nixos treason - add /bin/bash, etc
 if [[ ! -L /bin/bash ]]; then
   sudo ln -s /run/current-system/sw/bin/bash /bin/bash >/dev/null 2>&1 || true

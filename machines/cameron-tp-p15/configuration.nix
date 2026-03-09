@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, rust-overlay, ... }:
 
 {
   imports = [
@@ -13,5 +13,7 @@
 
   system.stateVersion = "24.11";
 
-  nixpkgs.overlays = [ ];
+  nixpkgs.overlays = [
+    rust-overlay.overlays.default
+  ];
 }
