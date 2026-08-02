@@ -1,4 +1,4 @@
-{ system, pkgs, common, forks, claude-chill, cupcake, lurk-rs, claude-desktop, nix-mcp-servers, ... }:
+{ system, pkgs, common, forks, claude-chill, cupcake, lurk-rs, claude-desktop, nix-claude-code, nix-mcp-servers, ... }:
 
 let
 
@@ -41,20 +41,18 @@ let
     };
   });
 
-  claude-code = (import forks.nixpkgs-claude {
-    inherit system;
-    config = {
-      allowUnfree = true;
-    };
-  }).claude-code;
+  claude-code = nix-claude-code.packages.${system}.claude;
 
   opencode = (import forks.nixpkgs-opencode {
     inherit system;
   }).opencode;
 
-  codex = (import forks.nixpkgs-codex {
+  slack = (import forks.nixpkgs-slack {
     inherit system;
-  }).codex;
+    config = {
+      allowUnfree = true;
+    };
+  }).slack;
 
   spotify = (import forks.nixpkgs-spotify {
     inherit system;

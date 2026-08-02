@@ -3,7 +3,7 @@
 let
 
   pname = "codex";
-  version = "0.110.0";
+  version = "0.145.0";
 
 in
 
@@ -11,10 +11,7 @@ stdenv.mkDerivation rec {
   inherit pname version;
   src = fetchurl {
     url = "https://github.com/openai/codex/releases/download/rust-v${version}/codex-x86_64-unknown-linux-musl.tar.gz";
-    #105 sha256 = "sha256-eNHDgV1+mNW9QwXtVedOm2RsOHiug0eSGbCu0ow09HM=";
-    #106 sha256 = "sha256-FXoZ3DtN/9VfghfjB+BnrNWICDvLkRd8DRKqAojWudI=";
-    #107 sha256 = "sha256-nBoWCG6XFXjwwW1Y0H/oKVeRwKWX7rf9Y4j4o/FXnO4=";
-    sha256 = "sha256-EkGEP46w79Mgi8zqUjWTio3qRxvp3kr2V2WOkDOcn9w=";
+    sha256 = "sha256-v68Tybo08q12TkqRbEnPcXeuujKc8PcZ4iJ1ZvyNZio=";
   };
   phases = [ "installPhase" ];
   installPhase = ''

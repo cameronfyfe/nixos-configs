@@ -38,4 +38,7 @@
   # services.printing.drivers = []
 
   services.jellyfin.enable = true;
+
+  # yubikey
+  services.pcscd.enable = true;
 }

@@ -31,9 +31,8 @@
     nixpkgs-nvim.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-uv.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-vscode.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-claude.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-opencode.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-codex.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-slack.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-spotify.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # -- nixpkgs forks
@@ -52,6 +51,7 @@
       url = "github:cameronfyfe/claude-desktop-linux-flake?ref=latest";
       # inputs = { nixpkgs.follows = "nixpkgs"; };
     };
+    nix-claude-code.url = "github:ryoppippi/nix-claude-code";
     nix-mcp-servers.url = "github:cameronfyfe/nix-mcp-servers";
   };
 
@@ -66,9 +66,8 @@
           nixpkgs-nvim
           nixpkgs-uv
           nixpkgs-vscode
-          nixpkgs-claude
           nixpkgs-opencode
-          nixpkgs-codex
+          nixpkgs-slack
           nixpkgs-spotify
           # nixpkgs forks
           nixpkgs-mprime-primenet
@@ -88,7 +87,7 @@
               inherit device-keys device-config;
               inherit (inputs) mobile-nixos;
               inherit (inputs) rust-overlay;
-              inherit (inputs) claude-chill cupcake nix-wallpaper lurk-rs claude-desktop nix-mcp-servers;
+              inherit (inputs) claude-chill cupcake nix-wallpaper lurk-rs claude-desktop nix-claude-code nix-mcp-servers;
             };
             modules = [
               ({ ... }: { networking.hostName = name; })
